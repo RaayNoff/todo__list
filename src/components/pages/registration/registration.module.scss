@@ -1,0 +1,14 @@
+.registration {
+	margin: 110px 0px 0px 0px;
+
+	// .registration__content
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		svg {
+			margin: 0px 81px 0px 0px;
+		}
+	}
+}

@@ -36,7 +36,7 @@ const RegistrationForm: FC = () => {
           />
         </div>
         <button onClick={onClickHandler} className={s.form__button}>
-          Загеристрироваться
+          Зарегистрироваться
         </button>
       </form>
     </section>
