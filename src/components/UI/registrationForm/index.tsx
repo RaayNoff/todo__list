@@ -8,8 +8,6 @@ const RegistrationForm: FC = () => {
 
   const onClickHandler = (e: SyntheticEvent): void => {
     e.preventDefault();
-    console.log(loginRef.current?.value);
-    console.log(passwordRef.current?.value);
   };
 
   return (
