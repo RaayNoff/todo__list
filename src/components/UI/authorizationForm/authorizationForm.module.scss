@@ -1,6 +1,6 @@
-.registration {
-	width: 450px;
-	height: 400px;
+.authorization {
+	min-width: 450px;
+	min-height: 445px;
 	background: #553fdb;
 	border-radius: 10px;
 }
@@ -15,15 +15,7 @@
 		color: #fff;
 		line-height: 29 / 24 * 100%;
 		font-size: 24px;
-		margin: 27px 0px 46px 0px;
-	}
-
-	// .form__input
-	&__input {
-		margin: 0px 0px 29px 0px;
-		&:last-child {
-			margin: 0px 0px 46px 0px;
-		}
+		margin: 45px 0px 60px 0px;
 	}
 
 	// .form__button
@@ -32,9 +24,21 @@
 		line-height: 17 / 14 * 100%;
 		font-size: 14px;
 		font-weight: 700;
-		padding: 10px 46px;
+		padding: 10px 101px;
 		background-color: #fff;
 		border-radius: 10px;
+		margin: 30px 0px 20px 0px;
+	}
+
+	.registration {
+		font-size: 12px;
+		line-height: 15 / 12 * 100%;
+		color: #fff;
+		font-weight: 400;
+		margin: 0px 0px 51px 0px;
+		span {
+			text-decoration: underline;
+		}
 	}
 }
 .input {
@@ -42,6 +46,7 @@
 	height: 50px;
 	background: #fff;
 	border-radius: 10px;
+	margin: 0px 0px 29px 0px;
 
 	// .input__title
 	&__title {
@@ -58,11 +63,12 @@
 		height: 30px;
 		border-radius: 10px;
 		outline: none;
-	}
-	input {
-		font-size: 20px;
+		font-size: 16px;
 		line-height: 15 / 20 * 100%;
-		font-weight: 400;
+		font-weight: 500;
 		color: #000;
+	}
+	input[type="password"] {
+		font-size: 20px;
 	}
 }

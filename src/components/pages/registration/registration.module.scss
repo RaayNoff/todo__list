@@ -6,9 +6,22 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
-		svg {
-			margin: 0px 81px 0px 0px;
+		section {
+			margin: 0px 42px 0px 0px;
 		}
+	}
+}
+
+.welcome {
+	// .welocme__message
+	&__message {
+		position: relative;
+		top: 70px;
+		font-weight: 800;
+		font-size: 36px;
+		line-height: 44 / 36 * 100%;
+
+		color: #553fdb;
+		text-align: center;
 	}
 }
