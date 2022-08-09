@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Header from "../../common/header";
-import RegistrationForm from "../../UI/registrationForm";
-import RegistrationPageLogo from "./additional/RegistrationLogo";
+import AuthorizationForm from "../../UI/authorizationForm";
+import checklist from "../../../icons/welcomeImg.jpg";
 import s from "./registration.module.scss";
 
 const Registration: FC = () => {
@@ -11,8 +11,13 @@ const Registration: FC = () => {
       <section className={s.registration}>
         <div className="container">
           <section className={s.registration__content}>
-            <RegistrationPageLogo />
-            <RegistrationForm />
+            <section className={s.welcome}>
+              <header className={s.welcome__message}>
+                Добро пожаловать на сайт <br /> todoLIST
+              </header>
+              <img src={checklist} alt="checklist"></img>
+            </section>
+            <AuthorizationForm />
           </section>
         </div>
       </section>

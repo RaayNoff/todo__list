@@ -1,7 +1,8 @@
 import React, { FC, SyntheticEvent, useRef } from "react";
-import s from "./registrationForm.module.scss";
+import { Link } from "react-router-dom";
+import s from "./authorizationForm.module.scss";
 
-const RegistrationForm: FC = () => {
+const AuthorizationForm: FC = () => {
   const loginRef = useRef() as React.MutableRefObject<HTMLInputElement | null>;
   const passwordRef =
     useRef() as React.MutableRefObject<HTMLInputElement | null>;
@@ -11,9 +12,9 @@ const RegistrationForm: FC = () => {
   };
 
   return (
-    <section style={{ margin: 20 }} className={s.registration}>
+    <section style={{ margin: 20 }} className={s.authorization}>
       <form className={s.form}>
-        <header className={s.form__title}>Регистрация</header>
+        <header className={s.form__title}>Авторизация</header>
         <div className={`${s.form__input} ${s.input}`}>
           <header className={s.input__title}>Email</header>
           <input
@@ -34,11 +35,17 @@ const RegistrationForm: FC = () => {
           />
         </div>
         <button onClick={onClickHandler} className={s.form__button}>
-          Зарегистрироваться
+          Войти
         </button>
+        <footer className={s.registration}>
+          Нет аккаунта?{" "}
+          <span>
+            <Link to=" ">Зарегистрируйтесь</Link>
+          </span>
+        </footer>
       </form>
     </section>
   );
 };
 
-export default RegistrationForm;
+export default AuthorizationForm;
