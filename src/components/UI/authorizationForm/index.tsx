@@ -1,5 +1,7 @@
 import React, { FC, SyntheticEvent, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useActions } from "../../../hooks/useActions";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import s from "./authorizationForm.module.scss";
 
 const AuthorizationForm: FC = () => {
@@ -7,8 +9,12 @@ const AuthorizationForm: FC = () => {
   const passwordRef =
     useRef() as React.MutableRefObject<HTMLInputElement | null>;
 
+  const { error, loading } = useTypedSelector((state) => state.authorization);
+  const { fetchAuthorization } = useActions();
+
   const onClickHandler = (e: SyntheticEvent): void => {
     e.preventDefault();
+    fetchAuthorization(loginRef.current?.value, passwordRef.current?.value);
   };
 
   return (
@@ -34,9 +40,14 @@ const AuthorizationForm: FC = () => {
             onChange={(e) => e.currentTarget.value}
           />
         </div>
-        <button onClick={onClickHandler} className={s.form__button}>
-          Войти
-        </button>
+
+        {loading ? (
+          <p>Идет загрузка...</p>
+        ) : (
+          <button onClick={onClickHandler} className={s.form__button}>
+            Войти
+          </button>
+        )}
         <footer className={s.registration}>
           Нет аккаунта?{" "}
           <span>
