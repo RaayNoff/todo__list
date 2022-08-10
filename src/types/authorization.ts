@@ -1,8 +1,7 @@
-import { IUser } from "./user";
-
 export interface IAuthorizationState {
   loading: boolean;
   error: null | string;
+  isAuthorized: boolean;
 }
 
 export enum AuthorizationActionTypes {
