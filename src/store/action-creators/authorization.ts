@@ -4,7 +4,7 @@ import {
   authorizationAction,
   AuthorizationActionTypes,
 } from "../../types/authorization";
-import { IUser, userDataField } from "../../types/user";
+import { userDataField } from "../../types/user";
 
 export const fetchAuthorization = (
   login: userDataField,

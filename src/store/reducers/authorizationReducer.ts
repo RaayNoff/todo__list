@@ -7,6 +7,7 @@ import {
 const initialState: IAuthorizationState = {
   loading: false,
   error: null,
+  isAuthorized: false,
 };
 
 export const authorizationReducer = (
@@ -15,15 +16,16 @@ export const authorizationReducer = (
 ): IAuthorizationState => {
   switch (action.type) {
     case AuthorizationActionTypes.FETCH_AUTHORIZATION:
-      return { loading: true, error: null };
+      return { loading: true, error: null, isAuthorized: false };
 
     case AuthorizationActionTypes.FETCH_AUTHORIZATION__SUCCESS:
-      return { loading: false, error: null };
+      return { loading: false, error: null, isAuthorized: true };
 
     case AuthorizationActionTypes.FETCH_AUTHORIZATION_ERROR:
       return {
         loading: false,
         error: action.payload,
+        isAuthorized: false,
       };
 
     default:
