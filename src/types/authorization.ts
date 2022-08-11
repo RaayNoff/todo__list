@@ -6,7 +6,7 @@ export interface IAuthorizationState {
 
 export enum AuthorizationActionTypes {
   FETCH_AUTHORIZATION = "FETCH_AUTHORIZATION",
-  FETCH_AUTHORIZATION__SUCCESS = "FETCH_AUTHORIZATION__SUCCESS",
+  FETCH_AUTHORIZATION_SUCCESS = "FETCH_AUTHORIZATION__SUCCESS",
   FETCH_AUTHORIZATION_ERROR = "FETCH_AUTHORIZATION_ERROR",
 }
 
@@ -15,7 +15,7 @@ interface IFetchAuthorization {
 }
 
 interface IFetchAuthorizationSuccess {
-  type: AuthorizationActionTypes.FETCH_AUTHORIZATION__SUCCESS;
+  type: AuthorizationActionTypes.FETCH_AUTHORIZATION_SUCCESS;
 }
 
 interface IFetchAuthorizationError {

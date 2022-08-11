@@ -2,22 +2,31 @@ import React, { FC } from "react";
 import Header from "../../common/header";
 import AuthorizationForm from "../../UI/authorizationForm";
 import checklist from "../../../icons/welcomeImg.jpg";
-import s from "./registration.module.scss";
+import { useActions } from "../../../hooks/useActions";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import s from "./singIn.module.scss";
 
-const Registration: FC = () => {
+const SingIn: FC = () => {
+  const { fetchAuthorization } = useActions();
+  const { error, loading } = useTypedSelector((state) => state.authorization);
   return (
     <main>
       <Header></Header>
-      <section className={s.registration}>
+      <section className={s.singIn}>
         <div className="container">
-          <section className={s.registration__content}>
+          <section className={s.singIn__content}>
             <section className={s.welcome}>
               <header className={s.welcome__message}>
                 Добро пожаловать на сайт <br /> todoLIST
               </header>
               <img src={checklist} alt="checklist"></img>
             </section>
-            <AuthorizationForm />
+            <AuthorizationForm
+              isSignUp={false}
+              fetchCallback={fetchAuthorization}
+              error={error}
+              loading={loading}
+            />
           </section>
         </div>
       </section>
@@ -25,4 +34,4 @@ const Registration: FC = () => {
   );
 };
 
-export default Registration;
+export default SingIn;

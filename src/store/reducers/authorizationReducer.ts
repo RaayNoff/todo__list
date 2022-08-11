@@ -18,7 +18,7 @@ export const authorizationReducer = (
     case AuthorizationActionTypes.FETCH_AUTHORIZATION:
       return { loading: true, error: null, isAuthorized: false };
 
-    case AuthorizationActionTypes.FETCH_AUTHORIZATION__SUCCESS:
+    case AuthorizationActionTypes.FETCH_AUTHORIZATION_SUCCESS:
       return { loading: false, error: null, isAuthorized: true };
 
     case AuthorizationActionTypes.FETCH_AUTHORIZATION_ERROR:
