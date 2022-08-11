@@ -17,7 +17,7 @@ export const fetchRegistration = (
       const response = await axios.post(
         BackendApiUrls.LOCATION + BackendApiUrls.SIGNUP,
         {
-          login: login,
+          email: login,
           password: password,
         }
       );

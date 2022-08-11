@@ -33,11 +33,8 @@ const AuthorizationForm: FC<IAuthorizationProps> = ({
   const onClickHandler = (e: SyntheticEvent): void => {
     e.preventDefault();
 
-    console.log(passwordState);
-
     if (isSignUp && passwordState.indexOf(false) === -1) {
       fetchCallback(login, password);
-      console.log("Пернул в консоль");
     }
     if (!isSignUp) fetchCallback(login, password);
   };
