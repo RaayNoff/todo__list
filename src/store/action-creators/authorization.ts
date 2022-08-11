@@ -4,6 +4,7 @@ import {
   authorizationAction,
   AuthorizationActionTypes,
 } from "../../types/authorization";
+import { BackendApiUrls } from "../../types/urls";
 import { userDataField } from "../../types/user";
 
 export const fetchAuthorization = (
@@ -13,14 +14,15 @@ export const fetchAuthorization = (
   return async (dispatch: Dispatch<authorizationAction | AnyAction>) => {
     try {
       dispatch({ type: AuthorizationActionTypes.FETCH_AUTHORIZATION });
-      const response = await axios.post("http://localhost:8080/auth/signin", {
-        login: login,
-        password: password,
-      });
+      const response = await axios.post(
+        BackendApiUrls.LOCATION + BackendApiUrls.SIGNIN,
+        {
+          login: login,
+          password: password,
+        }
+      );
 
-      //Проверка на авторизацию
-
-      dispatch({ type: AuthorizationActionTypes.FETCH_AUTHORIZATION__SUCCESS });
+      dispatch({ type: AuthorizationActionTypes.FETCH_AUTHORIZATION_SUCCESS });
     } catch (e) {
       dispatch({
         type: AuthorizationActionTypes.FETCH_AUTHORIZATION_ERROR,
@@ -29,3 +31,5 @@ export const fetchAuthorization = (
     }
   };
 };
+
+export type authorizationType = typeof fetchAuthorization;
