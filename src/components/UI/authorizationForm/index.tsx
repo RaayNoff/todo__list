@@ -41,13 +41,12 @@ const AuthorizationForm: FC<IAuthorizationProps> = ({
 
   useEffect(() => {
     if (isSignUp) setPasswordState(ValidationApi.validatePassword(password));
-  }, [password]);
+  }, [password, isSignUp]);
 
   return (
     <section className={s.authorization}>
       <form className={s.form}>
         <FormHeader isSignUp={isSignUp}></FormHeader>
-
         <div className={`${s.form__input} ${s.input}`}>
           <header className={s.input__title}>Email</header>
           <input
@@ -70,14 +69,14 @@ const AuthorizationForm: FC<IAuthorizationProps> = ({
           />
         </div>
 
-        {displayTip && isSignUp && <Tip tipState={passwordState}></Tip>}
+        <p className={s.form__error}>{error}</p>
 
+        {displayTip && isSignUp && <Tip tipState={passwordState}></Tip>}
         <ResponseSection
           callback={onClickHandler}
           isLoading={loading}
           isSignUp={isSignUp}
         ></ResponseSection>
-
         <FormFooter isSignUp={isSignUp}></FormFooter>
       </form>
     </section>

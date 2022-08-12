@@ -8,6 +8,10 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	&__error {
+		color: red;
+		margin: 0px 0px 10px 0px;
+	}
 }
 .input {
 	width: 350px;
