@@ -1,17 +1,20 @@
 .input {
 	background-color: #fff;
+
+	input {
+		border: 0.5px solid #8b8b8b;
+		border-radius: 5px;
+		outline: none;
+	}
+
 	// .input__sizeBig
 	&__sizeBig {
 		width: 249px;
-		border: 0.5px solid #8b8b8b;
-		border-radius: 5px;
 	}
 
 	// .input__sizeMed
 	&__sizeMed {
 		width: 184px;
-		border: 0.5px solid #8b8b8b;
-		border-radius: 5px;
 	}
 
 	// .input__header

@@ -15,39 +15,17 @@ const Input: FC<IInputProps> = ({
   size,
   onChangeCallback,
 }) => {
-  let inputJSX;
-  switch (size) {
-    case InputSizeTypes.BIG:
-      inputJSX = (
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => onChangeCallback(e.currentTarget.value)}
-          className={s.input__sizeBig}
-        ></input>
-      );
-      break;
-
-    case InputSizeTypes.MEDIUM:
-      inputJSX = (
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => onChangeCallback(e.currentTarget.value)}
-          className={s.input__sizeMed}
-        ></input>
-      );
-      break;
-
-    default:
-      inputJSX = <></>;
-      break;
-  }
-
   return (
     <section className={s.input}>
       <header className={s.input__header}>{title}</header>
-      {inputJSX}
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => onChangeCallback(e.currentTarget.value)}
+        className={
+          size === InputSizeTypes.BIG ? s.input__sizeBig : s.input__sizeMed
+        }
+      ></input>
     </section>
   );
 };
