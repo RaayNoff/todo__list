@@ -1,4 +1,5 @@
 import React from "react";
+import CreateList from "../../UI/createList";
 import Tip from "../../UI/tip";
 
 type Props = {};
@@ -14,7 +15,7 @@ const Test = (props: Props) => {
         justifyContent: "center",
       }}
     >
-      <Tip tipState={[false, true, true]}></Tip>
+      <CreateList />
     </div>
   );
 };

@@ -1,0 +1,27 @@
+.input {
+	background-color: #fff;
+
+	input {
+		border: 0.5px solid #8b8b8b;
+		border-radius: 5px;
+		outline: none;
+	}
+
+	// .input__sizeBig
+	&__sizeBig {
+		width: 249px;
+	}
+
+	// .input__sizeMed
+	&__sizeMed {
+		width: 184px;
+	}
+
+	// .input__header
+	&__header {
+		font-weight: 500;
+		color: #000;
+		font-size: 8px;
+		line-height: 10 / 8 * 100%;
+	}
+}

@@ -13,30 +13,21 @@ const ResponseSection: FC<IResponseSection> = ({
   isSignUp,
   callback,
 }) => {
-  let buttonJSX: any;
-
-  switch (isSignUp) {
-    case true:
-      buttonJSX = (
-        <button className={`${s.button} ${s.btnUp}`} onClick={callback}>
-          Зарегистрироваться
-        </button>
-      );
-      break;
-
-    case false:
-      buttonJSX = (
-        <button className={`${s.button} ${s.btnIn}`} onClick={callback}>
-          Войти
-        </button>
-      );
-      break;
-  }
-
-  const loaderJSX = <Loader isActive={isLoading} />;
-
   return (
-    <div className={s.responseSection}>{isLoading ? loaderJSX : buttonJSX}</div>
+    <div className={s.responseSection}>
+      {isLoading ? (
+        <Loader isActive={isLoading} />
+      ) : (
+        <button
+          className={
+            isSignUp ? `${s.button} ${s.btnUp}` : `${s.button} ${s.btnIn}`
+          }
+          onClick={callback}
+        >
+          {isSignUp ? "Зарегистрироваться" : "Войти"}
+        </button>
+      )}
+    </div>
   );
 };
 
