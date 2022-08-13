@@ -1,7 +1,7 @@
 .colorPicker {
 	background-color: #fff;
-	// .colorPicker__title
 
+	// .colorPicker__title
 	&__title {
 		font-size: 12px;
 		line-height: 15 / 12 * 100%;
@@ -10,7 +10,6 @@
 	}
 
 	// .colorPicker__colors
-
 	&__colors {
 		display: flex;
 		flex-direction: column;
