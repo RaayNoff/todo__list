@@ -1,7 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
+import { ButtonTypes } from "../../../types/button";
 import { Colors } from "../../../types/colors";
 import { InputSizeTypes } from "../../../types/input";
+import Button from "../button";
 import ColorPicker from "../colorPicker";
+import FooterInsert from "../footerInsert";
 import HeaderInsert from "../headerInsert";
 import Input from "../input";
 import s from "./createList.module.scss";
@@ -28,6 +31,10 @@ const CreateList: FC = () => {
         />
         <ColorPicker colorCallback={setSelectedColor} />
       </main>
+      <FooterInsert>
+        <Button btnType={ButtonTypes.CANCEL} text="Отмена" />
+        <Button btnType={ButtonTypes.ACTION} text="Добавить" />
+      </FooterInsert>
     </form>
   );
 };
