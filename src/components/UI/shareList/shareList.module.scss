@@ -27,6 +27,7 @@
 
 		button {
 			align-self: flex-end;
+			transform: translateY(-3.5%);
 		}
 	}
 }
@@ -48,9 +49,11 @@
 	}
 }
 .user {
+	padding: 5px;
 	display: flex;
 	align-items: center;
 	margin: 0px 0px 14px 0px;
+	border-radius: 5px;
 
 	&:last-child {
 		margin: 0px 0px;
@@ -67,9 +70,15 @@
 	// .user__email
 	&__email {
 		color: #4d4d4d;
-		font-size: 9px;
+		font-size: 11px;
 		line-height: 11 / 9 * 100%;
 		font-weight: 400;
+	}
+	@media (min-width: 991.98px) {
+		&:hover {
+			cursor: pointer;
+			background-color: rgba(#b09aff, 0.1);
+		}
 	}
 }
 .noUsersInfo {
