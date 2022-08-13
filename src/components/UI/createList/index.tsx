@@ -1,17 +1,23 @@
-import React, { FC, SyntheticEvent, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
+import { ButtonTypes } from "../../../types/button";
+import { Colors } from "../../../types/colors";
 import { InputSizeTypes } from "../../../types/input";
+import Button from "../button";
 import ColorPicker from "../colorPicker";
+import FooterInsert from "../footerInsert";
 import HeaderInsert from "../headerInsert";
 import Input from "../input";
 import s from "./createList.module.scss";
 
 const CreateList: FC = () => {
   const [value, setValue] = useState<string>("");
-  const [color, setColor] = useState<string>("#8B8B8B");
+  const [selectedColor, setSelectedColor] = useState<string>(
+    Colors.pallete[0].value
+  );
 
-  const onColorClicked = (color: string) => {
-    setColor(color);
-  };
+  useEffect(() => {
+    //Some code...
+  }, [selectedColor]);
 
   return (
     <form className={s.createList}>
@@ -23,8 +29,12 @@ const CreateList: FC = () => {
           onChangeCallback={setValue}
           size={InputSizeTypes.BIG}
         />
-        <ColorPicker onColorClicked={onColorClicked} />
+        <ColorPicker colorCallback={setSelectedColor} />
       </main>
+      <FooterInsert>
+        <Button btnType={ButtonTypes.CANCEL} text="Отмена" />
+        <Button btnType={ButtonTypes.ACTION} text="Добавить" />
+      </FooterInsert>
     </form>
   );
 };

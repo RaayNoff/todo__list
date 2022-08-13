@@ -17,7 +17,7 @@ export const fetchAuthorization = (
       const response = await axios.post(
         BackendApiUrls.LOCATION + BackendApiUrls.SIGNIN,
         {
-          login: login,
+          email: login,
           password: password,
         }
       );

@@ -1,0 +1,15 @@
+.footerInsert {
+	background: #f7f7f7;
+	border-radius: 0px 0px 10px 10px;
+	width: 100%;
+	max-height: 45px;
+	height: 45px;
+	border-top: 2px solid #e0e0e0;
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		min-height: 100%;
+		margin: 0px 25px 0px 0px;
+	}
+}
