@@ -1,6 +1,5 @@
 import React from "react";
 import CreateList from "../../UI/createList";
-import Tip from "../../UI/tip";
 
 type Props = {};
 

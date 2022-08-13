@@ -1,14 +1,17 @@
-interface IPallete {
-  value: string;
-  label: string;
+export interface IPallete {
+  readonly value: string;
+  readonly label: string;
+  readonly color: string;
+  readonly isFixed?: boolean;
+  readonly isDisabled?: boolean;
 }
 
 export class Colors {
   static pallete: IPallete[] = [
-    { value: "553fdb", label: "Фиолетовый" },
-    { value: "ef6e58", label: "Персиковый" },
-    { value: "fac344", label: "Желтый" },
-    { value: "8ddb3f", label: "Салатовый" },
-    { value: "58d4ef", label: "Голубой" },
+    { value: "purple", label: "Фиолетовый", color: "#553fdb" },
+    { value: "peach", label: "Персиковый", color: "#ef6e58" },
+    { value: "yellow", label: "Желтый", color: "#fac344" },
+    { value: "lightgreen", label: "Салатовый", color: "#8ddb3f" },
+    { value: "blue", label: "Голубой", color: "#58d4ef" },
   ];
 }
