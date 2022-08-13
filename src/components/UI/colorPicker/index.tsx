@@ -38,6 +38,8 @@ const ColorPicker: FC<IColorPickerProps> = ({ colorCallback }) => {
           //@ts-ignore
           onChange={onChange}
           isSearchable={false}
+          //  isLoading={true}
+          //  isDisabled={true}
           components={animatedComponents}
         />
       </div>

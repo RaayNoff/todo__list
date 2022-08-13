@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, SyntheticEvent, useEffect, useState } from "react";
 import { ButtonTypes } from "../../../types/button";
 import { Colors } from "../../../types/colors";
 import { InputSizeTypes } from "../../../types/input";
@@ -19,6 +19,9 @@ const CreateList: FC = () => {
     //Some code...
   }, [selectedColor]);
 
+  const onClickedCancel = (e: SyntheticEvent) => {};
+  const onClickedAdd = (e: SyntheticEvent) => {};
+
   return (
     <form className={s.createList}>
       <HeaderInsert>Добавить список</HeaderInsert>
@@ -28,12 +31,21 @@ const CreateList: FC = () => {
           title="Название"
           onChangeCallback={setValue}
           size={InputSizeTypes.BIG}
+          placeholder={"Введите название..."}
         />
         <ColorPicker colorCallback={setSelectedColor} />
       </main>
       <FooterInsert>
-        <Button btnType={ButtonTypes.CANCEL} text="Отмена" />
-        <Button btnType={ButtonTypes.ACTION} text="Добавить" />
+        <Button
+          btnType={ButtonTypes.CANCEL}
+          text="Отмена"
+          onClickCallback={onClickedCancel}
+        />
+        <Button
+          btnType={ButtonTypes.ACTION}
+          text="Добавить"
+          onClickCallback={onClickedAdd}
+        />
       </FooterInsert>
     </form>
   );
