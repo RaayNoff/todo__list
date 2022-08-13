@@ -5,15 +5,10 @@ import s from "./button.module.scss";
 interface IButtonProps {
   text: string;
   btnType: ButtonTypes;
-  onClickCallback?: (event: SyntheticEvent) => void;
+  onClickCallback: (event: SyntheticEvent) => void;
 }
 
-const Button: FC<IButtonProps> = ({
-  text,
-  btnType,
-  onClickCallback,
-  ...props
-}) => {
+const Button: FC<IButtonProps> = ({ text, btnType, onClickCallback }) => {
   return (
     <button
       type="button"
@@ -22,7 +17,7 @@ const Button: FC<IButtonProps> = ({
           ? `${s.button} ${s.button__action}`
           : `${s.button} ${s.button__cancel}`
       }
-      onClick={(e) => onClickCallback}
+      onClick={(e) => onClickCallback(e)}
     >
       <span className={s.button__text}>{text}</span>
     </button>

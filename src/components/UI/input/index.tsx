@@ -6,6 +6,7 @@ interface IInputProps {
   title?: string;
   inputValue: string | undefined;
   size: InputSizeTypes;
+  placeholder?: string;
   onChangeCallback: Dispatch<SetStateAction<string>>;
 }
 
@@ -14,6 +15,7 @@ const Input: FC<IInputProps> = ({
   inputValue,
   size,
   onChangeCallback,
+  placeholder,
 }) => {
   return (
     <section className={s.input}>
@@ -21,6 +23,7 @@ const Input: FC<IInputProps> = ({
       <input
         type="text"
         value={inputValue}
+        placeholder={placeholder}
         onChange={(e) => onChangeCallback(e.currentTarget.value)}
         className={
           size === InputSizeTypes.BIG ? s.input__sizeBig : s.input__sizeMed
