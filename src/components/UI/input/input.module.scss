@@ -5,23 +5,24 @@
 		border: 0.5px solid #8b8b8b;
 		border-radius: 5px;
 		outline: none;
+		height: 26px;
 	}
 
 	// .input__sizeBig
 	&__sizeBig {
-		width: 249px;
+		width: 350px;
 	}
 
 	// .input__sizeMed
 	&__sizeMed {
-		width: 184px;
+		width: 259px;
 	}
 
 	// .input__header
 	&__header {
 		font-weight: 500;
 		color: #000;
-		font-size: 8px;
-		line-height: 10 / 8 * 100%;
+		font-size: 12px;
+		line-height: 15 / 12 * 100%;
 	}
 }

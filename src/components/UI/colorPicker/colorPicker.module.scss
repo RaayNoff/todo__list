@@ -3,9 +3,10 @@
 	// .colorPicker__title
 
 	&__title {
-		font-size: 8px;
-		line-height: 10 / 8 * 100%;
+		font-size: 12px;
+		line-height: 15 / 12 * 100%;
 		margin: 0px 0px 2px 0px;
+		font-weight: 500;
 	}
 
 	// .colorPicker__colors
@@ -15,39 +16,4 @@
 		flex-direction: column;
 		align-items: flex-start;
 	}
-}
-.exactColor {
-	display: flex;
-	align-items: center;
-	margin: 0px 0px 5px 0px;
-	border: 0.5px solid #8b8b8b;
-	width: 249px;
-	border-radius: 5px;
-	padding: 5px 0px 5px 7px;
-
-	// .exactColor__dot
-	&__dot {
-		width: 10px;
-		height: 10px;
-		border-radius: 50%;
-		margin: 0px 4px 0px 0px;
-	}
-
-	// .exactColor__name
-	&__name {
-		font-size: 7px;
-		line-height: 9 / 7 * 100%;
-		font-weight: 400;
-		color: #000;
-	}
-
-	@media (min-width: 991.98px) {
-		&:hover {
-			border: 0.5px solid #000;
-		}
-	}
-}
-
-.selectedColor {
-	border: 0.5px solid #000;
 }
