@@ -4,6 +4,7 @@ import checklist from "../../../icons/welcomeImg.jpg";
 import AuthorizationForm from "../../UI/authorizationForm";
 import { useActions } from "../../../hooks/useActions";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { MaxWidthContainer } from "../../../types/maxWidthContainer";
 import s from "./signUp.module.scss";
 
 const SingUp: FC = () => {
@@ -14,7 +15,7 @@ const SingUp: FC = () => {
     <main>
       <Header></Header>
       <section className={s.SingUp}>
-        <div className="container">
+        <div className={MaxWidthContainer.NON_AUTHORIZED}>
           <section className={s.SingUp__content}>
             <section className={s.welcome}>
               <header className={s.welcome__message}>

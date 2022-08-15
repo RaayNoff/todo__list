@@ -24,6 +24,7 @@ const ShareList: FC<IShareListProps> = ({ users }) => {
   return (
     <form className={s.shareList}>
       <HeaderInsert>Добавить пользователя</HeaderInsert>
+
       <main
         className={
           users

@@ -30,6 +30,9 @@ $maxWidth: 1920;
 //Ширина ограничивающего контейнера
 $maxWidthContainer: 1146;
 //<Переменные>//
+//Ширина ограничивающего контейнера на странице списка задач
+$maxWidthCtnH: 1769;
+//<Переменные>//
 
 //========================================================================================================================================================
 //Брэйкпоинты
@@ -43,6 +46,22 @@ $md4: 479.98;
 //<Основная адаптивная сетка>//
 .container {
 	max-width: $maxWidthContainer + px;
+	margin: 0 auto;
+	height: 100%;
+
+	@media (max-width: ($md1 + px)) {
+		max-width: 960px;
+	}
+	@media (max-width: ($md2 + px)) {
+		max-width: 730px;
+	}
+	@media (max-width: ($md3 + px)) {
+		max-width: none;
+		padding: 0 10px;
+	}
+}
+.h_ctn {
+	max-width: $maxWidthCtnH + px;
 	margin: 0 auto;
 	height: 100%;
 

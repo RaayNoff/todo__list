@@ -4,6 +4,7 @@ import AuthorizationForm from "../../UI/authorizationForm";
 import checklist from "../../../icons/welcomeImg.jpg";
 import { useActions } from "../../../hooks/useActions";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { MaxWidthContainer } from "../../../types/maxWidthContainer";
 import s from "./singIn.module.scss";
 
 const SingIn: FC = () => {
@@ -13,7 +14,7 @@ const SingIn: FC = () => {
     <main>
       <Header></Header>
       <section className={s.singIn}>
-        <div className="container">
+        <div className={MaxWidthContainer.NON_AUTHORIZED}>
           <section className={s.singIn__content}>
             <section className={s.welcome}>
               <header className={s.welcome__message}>
