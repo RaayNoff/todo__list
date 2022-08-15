@@ -1,0 +1,20 @@
+.timeFrame {
+	display: flex;
+	align-items: center;
+
+	// .timeFrame__color
+	&__color {
+		border-radius: 3px;
+		width: 13px;
+		height: 13px;
+		margin: 0px 17px 0px 0px;
+	}
+
+	// .timeFrame__text
+	&__text {
+		color: #4d4d4d;
+		font-size: 12px;
+		line-height: 15 / 12 * 100%;
+		font-weight: 400;
+	}
+}

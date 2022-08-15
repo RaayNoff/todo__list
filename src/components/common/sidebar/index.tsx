@@ -1,4 +1,8 @@
 import React, { FC } from "react";
+import { TimeFrameTypes } from "../../../types/timeFrame";
+import Grouper from "../../UI/grouper";
+import List from "../../UI/list";
+import TimeFrame from "../../UI/timeFrame";
 import s from "./sidebar.module.scss";
 
 interface ISidebarProps {
@@ -8,8 +12,25 @@ interface ISidebarProps {
 const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
   return (
     <aside
-      className={isEnabled ? `${s.sidebar__enabled}` : `${s.sidebar}`}
-    ></aside>
+      className={
+        isEnabled ? `${s.sidebar} ${s.sidebar__enabled}` : `${s.sidebar}`
+      }
+    >
+      <div className={s._container}>
+        <section className={s.sidebar__timeFrames}>
+          <TimeFrame frameType={TimeFrameTypes.TODAY}></TimeFrame>
+          <TimeFrame frameType={TimeFrameTypes.UPCOMING}></TimeFrame>
+        </section>
+
+        <Grouper groupName="Списки">
+          <List listColor="#b736f3" listName="Тестовый список" />
+        </Grouper>
+
+        <Grouper groupName="Общие">
+          <List listColor="#553fdb" listName="Задачи с Дмитрием" />
+        </Grouper>
+      </div>
+    </aside>
   );
 };
 

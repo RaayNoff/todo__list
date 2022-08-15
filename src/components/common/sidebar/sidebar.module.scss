@@ -1,0 +1,24 @@
+.sidebar {
+	display: none;
+	width: 305px;
+	background-color: #fafafa;
+	height: calc(100vh - 50px);
+
+	&__enabled {
+		display: block;
+	}
+
+	&__timeFrames {
+		section {
+			&:first-child {
+				margin: 0px 0px 29px 0px;
+			}
+		}
+		margin: 0px 0px 48px 0px;
+	}
+}
+
+._container {
+	width: 100%;
+	padding: 41px 0px 0px 59px;
+}

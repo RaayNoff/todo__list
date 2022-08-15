@@ -19,10 +19,9 @@ const Home: FC = () => {
         maxWidthContainer={MaxWidthContainer.AUTHORIZED}
       ></Header>
       <section className={s.home}>
+        <Sidebar isEnabled={isSidebarDisplayed}></Sidebar>
         <div className={MaxWidthContainer.AUTHORIZED}>
-          <section className={s.home__content}>
-            <Sidebar isEnabled={isSidebarDisplayed}></Sidebar>
-          </section>
+          <section className={s.home__content}></section>
         </div>
       </section>
     </main>
