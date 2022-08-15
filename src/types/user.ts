@@ -1,4 +1,5 @@
 export interface IUser {
+  id: userDataField;
   email: userDataField;
   password?: userDataField;
 }

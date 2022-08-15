@@ -8,7 +8,7 @@ import { BackendApiUrls } from "../../types/urls";
 import { userDataField } from "../../types/user";
 
 export const fetchAuthorization = (
-  login: userDataField,
+  email: userDataField,
   password: userDataField
 ) => {
   return async (dispatch: Dispatch<authorizationAction | AnyAction>) => {
@@ -17,7 +17,7 @@ export const fetchAuthorization = (
       const response = await axios.post(
         BackendApiUrls.LOCATION + BackendApiUrls.SIGNIN,
         {
-          email: login,
+          email: email,
           password: password,
         }
       );

@@ -8,7 +8,7 @@ import { BackendApiUrls } from "../../types/urls";
 import { userDataField } from "../../types/user";
 
 export const fetchRegistration = (
-  login: userDataField,
+  email: userDataField,
   password: userDataField
 ) => {
   return async (dispatch: Dispatch<registrationAction | AnyAction>) => {
@@ -17,7 +17,7 @@ export const fetchRegistration = (
       const response = await axios.post(
         BackendApiUrls.LOCATION + BackendApiUrls.SIGNUP,
         {
-          email: login,
+          email: email,
           password: password,
         }
       );

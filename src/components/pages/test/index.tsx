@@ -17,12 +17,13 @@ const Test = (props: Props) => {
         justifyContent: "center",
       }}
     >
-      <Grouper groupName="Общие">
+      {/* <Grouper groupName="Общие">
         <List listColor="#553fdb" listName="Задачи по институту" />
         <List listColor="#553fdb" listName="Задачи по институту" />
         <List listColor="#553fdb" listName="Задачи по институту" />
         <List listColor="#553fdb" listName="Задачи по институту" />
-      </Grouper>
+      </Grouper> */}
+      <CreateList></CreateList>
     </div>
   );
 };
