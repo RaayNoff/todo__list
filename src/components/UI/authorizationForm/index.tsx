@@ -1,4 +1,5 @@
 import React, { FC, SyntheticEvent, useEffect, useState } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { ValidationApi } from "../../../api/validationApi";
 import { authorizationType } from "../../../store/action-creators/authorization";
 import Tip from "../tip";
@@ -6,6 +7,7 @@ import FormFooter from "./additional/formFooter";
 import FormHeader from "./additional/formHeader";
 import ResponseSection from "./additional/responseSection";
 import s from "./authorizationForm.module.scss";
+import "./tips.animation.scss";
 
 interface IAuthorizationProps {
   isSignUp: boolean;
@@ -73,7 +75,13 @@ const AuthorizationForm: FC<IAuthorizationProps> = ({
 
         <p className={s.form__error}>{error}</p>
 
-        {displayTip && isSignUp && <Tip tipState={passwordState}></Tip>}
+        {displayTip && isSignUp && (
+          <TransitionGroup>
+            <CSSTransition timeout={500} classNames="tips">
+              <Tip tipState={passwordState}></Tip>
+            </CSSTransition>
+          </TransitionGroup>
+        )}
         <ResponseSection
           callback={onClickHandler}
           isLoading={loading}

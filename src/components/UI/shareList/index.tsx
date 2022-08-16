@@ -1,7 +1,7 @@
 import React, { FC, SyntheticEvent, useEffect } from "react";
 import { useState } from "react";
 import { ButtonTypes } from "../../../types/button";
-import { Colors } from "../../../types/colors";
+import { Colors } from "../../../types/color";
 import { InputSizeTypes } from "../../../types/input";
 import { IUser } from "../../../types/user";
 import Button from "../button";

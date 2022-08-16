@@ -26,7 +26,6 @@ const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
           <Grouper groupName="Списки">
             <List listColor="#b736f3" listName="Тестовый список" />
           </Grouper>
-
           <Grouper groupName="Общие">
             <List listColor="#553fdb" listName="Задачи с Дмитрием" />
           </Grouper>

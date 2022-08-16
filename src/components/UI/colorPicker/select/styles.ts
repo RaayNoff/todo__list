@@ -1,6 +1,6 @@
 import chroma from "chroma-js";
 import { StylesConfig } from "react-select";
-import { IPallete } from "../../../../types/colors";
+import { IColor } from "../../../../types/color";
 
 export const dot = (color: string = "transparent") => ({
   alignItems: "center",
@@ -17,7 +17,7 @@ export const dot = (color: string = "transparent") => ({
   },
 });
 
-export const colorStyles: StylesConfig<IPallete> = {
+export const colorStyles: StylesConfig<IColor> = {
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
     const color = chroma(data.color);
     return {

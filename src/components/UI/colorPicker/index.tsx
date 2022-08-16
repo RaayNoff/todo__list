@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, SetStateAction, useState } from "react";
 import Select, { OnChangeValue } from "react-select";
 import makeAnimated from "react-select/animated";
-import { Colors, IPallete } from "../../../types/colors";
+import { Colors, IColor } from "../../../types/color";
 import s from "./colorPicker.module.scss";
 import "./select/select.scss";
 import { colorStyles } from "./select/styles";
@@ -15,13 +15,13 @@ const animatedComponents = makeAnimated();
 const ColorPicker: FC<IColorPickerProps> = ({ colorCallback }) => {
   const [currentColor, setCurrentColor] = useState(Colors.pallete[0].value);
 
-  const getColor = (): IPallete | undefined => {
+  const getColor = (): IColor | undefined => {
     return Colors.pallete.find((c) => c.value === currentColor);
   };
 
-  const onChange = (newValue: OnChangeValue<IPallete, boolean>) => {
-    setCurrentColor((newValue as IPallete).value);
-    colorCallback((newValue as IPallete).value);
+  const onChange = (newValue: OnChangeValue<IColor, boolean>) => {
+    setCurrentColor((newValue as IColor).value);
+    colorCallback((newValue as IColor).value);
   };
 
   return (
