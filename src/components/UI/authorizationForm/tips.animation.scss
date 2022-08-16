@@ -1,0 +1,14 @@
+.tips-enter {
+	opacity: 0;
+}
+.tips-enter-active {
+	opacity: 1;
+	transition: opacity 500ms ease-in;
+}
+.tips-exit {
+	opacity: 1;
+}
+.tips-exit-active {
+	opacity: 0;
+	transition: opacity 500ms ease-in;
+}

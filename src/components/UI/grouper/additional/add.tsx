@@ -1,21 +1,21 @@
 const Add = () => {
   return (
     <svg
-      width="15"
-      height="15"
-      viewBox="0 0 15 15"
+      width="11"
+      height="11"
+      viewBox="0 0 11 11"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M7.5 3.125V11.875"
+        d="M5.5 1.125V9.875"
         stroke="#4D4D4D"
         strokeWidth="0.7"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M3.125 7.5H11.875"
+        d="M1.125 5.5H9.875"
         stroke="#4D4D4D"
         strokeWidth="0.7"
         strokeLinecap="round"

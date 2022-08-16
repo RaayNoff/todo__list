@@ -1,6 +1,7 @@
 .grouper {
 	display: flex;
 	flex-direction: column;
+	margin: 0px 0px 25px 0px;
 
 	// .grouper__control
 	&__control {
@@ -12,10 +13,10 @@
 			}
 		}
 
-		&_gp1 {
+		&_clickable {
 			display: flex;
 			align-items: center;
-			width: 226px;
+			width: 225px;
 		}
 
 		margin: 0px 0px 18px 0px;
@@ -43,7 +44,6 @@
 
 	// .grouper__add
 	&__add {
-		transform: translateX(13%);
 		@media (min-width: 991.98px) {
 			&:hover {
 				background-color: #eeeeee;
@@ -54,5 +54,6 @@
 	// .grouper__content
 	&__content {
 		width: fit-content;
+		margin: 0px 0px 0px 0px;
 	}
 }

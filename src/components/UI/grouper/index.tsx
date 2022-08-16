@@ -1,7 +1,9 @@
 import React, { FC, useState } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Add from "./additional/add";
 import Indicator from "./additional/indicator";
 import s from "./grouper.module.scss";
+import "./content.animation.scss";
 
 interface IGrouperProps {
   children?: React.ReactNode;
@@ -15,7 +17,7 @@ const Grouper: FC<IGrouperProps> = ({ children, groupName }) => {
     <section className={s.grouper}>
       <section className={s.grouper__control}>
         <div
-          className={s.grouper__control_gp1}
+          className={s.grouper__control_clickable}
           onClick={() => SetIsOpen(!isOpen)}
         >
           <div
@@ -31,7 +33,13 @@ const Grouper: FC<IGrouperProps> = ({ children, groupName }) => {
         </div>
         <div className={s.grouper__add}>{Add()}</div>
       </section>
-      {isOpen && <div className={s.grouper__content}>{children}</div>}
+      <TransitionGroup>
+        {isOpen && (
+          <CSSTransition timeout={500} classNames="content">
+            <div className={s.grouper__content}>{children}</div>
+          </CSSTransition>
+        )}
+      </TransitionGroup>
     </section>
   );
 };

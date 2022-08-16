@@ -1,20 +1,25 @@
 .sidebar {
-	display: none;
+	margin-left: -100%;
 	width: 305px;
 	background-color: #fafafa;
 	height: calc(100vh - 50px);
+	transition: margin 0.5s;
 
 	&__enabled {
-		display: block;
+		margin-left: 0%;
 	}
 
 	&__timeFrames {
 		section {
-			&:first-child {
-				margin: 0px 0px 29px 0px;
+			margin: 0px 0px 29px 0px;
+			&:last-child {
+				margin: 0px 0px 0px 0px;
 			}
 		}
 		margin: 0px 0px 48px 0px;
+	}
+
+	&__groups {
 	}
 }
 

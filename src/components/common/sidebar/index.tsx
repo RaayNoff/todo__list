@@ -22,13 +22,15 @@ const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
           <TimeFrame frameType={TimeFrameTypes.UPCOMING}></TimeFrame>
         </section>
 
-        <Grouper groupName="Списки">
-          <List listColor="#b736f3" listName="Тестовый список" />
-        </Grouper>
+        <section className={s.sidebar__groups}>
+          <Grouper groupName="Списки">
+            <List listColor="#b736f3" listName="Тестовый список" />
+          </Grouper>
 
-        <Grouper groupName="Общие">
-          <List listColor="#553fdb" listName="Задачи с Дмитрием" />
-        </Grouper>
+          <Grouper groupName="Общие">
+            <List listColor="#553fdb" listName="Задачи с Дмитрием" />
+          </Grouper>
+        </section>
       </div>
     </aside>
   );
