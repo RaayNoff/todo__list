@@ -16,7 +16,7 @@ export interface IList {
 
 export enum ListsActionTypes {
   FETCH_LISTS = "FETCH_LISTS",
-  FETCH_LISTS_SUCCES = "FETCH_LISTS_SUCCES",
+  FETCH_LISTS_SUCCESS = "FETCH_LISTS_SUCCESS",
   FETCH_LISTS_ERROR = "FETCH_LISTS_ERROR",
 }
 
@@ -25,7 +25,7 @@ interface IFetchLists {
 }
 
 interface IFetchListSuccess {
-  type: ListsActionTypes.FETCH_LISTS_SUCCES;
+  type: ListsActionTypes.FETCH_LISTS_SUCCESS;
   payload: IList[]; //json
 }
 

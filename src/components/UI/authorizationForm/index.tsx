@@ -7,7 +7,7 @@ import FormFooter from "./additional/formFooter";
 import FormHeader from "./additional/formHeader";
 import ResponseSection from "./additional/responseSection";
 import s from "./authorizationForm.module.scss";
-import "./tips.animation.scss";
+import "./tip.animation.scss";
 
 interface IAuthorizationProps {
   isSignUp: boolean;
@@ -75,13 +75,13 @@ const AuthorizationForm: FC<IAuthorizationProps> = ({
 
         <p className={s.form__error}>{error}</p>
 
-        {displayTip && isSignUp && (
-          <TransitionGroup>
-            <CSSTransition timeout={500} classNames="tips">
+        <TransitionGroup>
+          {displayTip && isSignUp && (
+            <CSSTransition timeout={300} classNames="tip">
               <Tip tipState={passwordState}></Tip>
             </CSSTransition>
-          </TransitionGroup>
-        )}
+          )}
+        </TransitionGroup>
         <ResponseSection
           callback={onClickHandler}
           isLoading={loading}

@@ -8,10 +8,12 @@ export const fetchLists = (userId: string) => {
     try {
       dispatch({ type: ListsActionTypes.FETCH_LISTS });
 
-      const response = await axios.get(BackendApiUrls.FETCH_LISTS);
+      const response = await axios.get(
+        BackendApiUrls.LOCATION + BackendApiUrls.FETCH_LISTS
+      );
 
       dispatch({
-        type: ListsActionTypes.FETCH_LISTS_SUCCES,
+        type: ListsActionTypes.FETCH_LISTS_SUCCESS,
         payload: response.data,
       });
     } catch (error) {

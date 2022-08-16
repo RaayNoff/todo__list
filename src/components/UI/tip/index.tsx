@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import s from "./tip.module.scss";
-
 interface ITipProps {
   tipState: boolean[];
 }

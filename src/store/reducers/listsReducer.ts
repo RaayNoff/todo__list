@@ -14,7 +14,7 @@ const listsReducer = (
     case ListsActionTypes.FETCH_LISTS:
       return { ...state, error: null, lists: null, loading: true };
 
-    case ListsActionTypes.FETCH_LISTS_SUCCES:
+    case ListsActionTypes.FETCH_LISTS_SUCCESS:
       return { ...state, error: null, lists: action.payload, loading: false };
 
     case ListsActionTypes.FETCH_LISTS_ERROR:

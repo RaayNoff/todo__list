@@ -12,7 +12,6 @@ const TimeFrame: FC<ITimeFrameProps> = ({ frameType }) => {
   useEffect(() => {
     if (timeFrameColor.current)
       timeFrameColor.current.style.backgroundColor = getFrameColor();
-    console.log(getFrameColor());
   });
 
   const getFrameColor = (): string => {

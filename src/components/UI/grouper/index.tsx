@@ -35,7 +35,7 @@ const Grouper: FC<IGrouperProps> = ({ children, groupName }) => {
       </section>
       <TransitionGroup>
         {isOpen && (
-          <CSSTransition timeout={500} classNames="content">
+          <CSSTransition timeout={200} classNames="content">
             <div className={s.grouper__content}>{children}</div>
           </CSSTransition>
         )}
