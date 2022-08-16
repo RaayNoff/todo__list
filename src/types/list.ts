@@ -4,7 +4,7 @@ import { ITask } from "./task";
 export interface IListsState {
   loading: boolean;
   error: null | string;
-  lists: IList[];
+  lists: IList[] | null;
 }
 
 export interface IList {
@@ -26,7 +26,7 @@ interface IFetchLists {
 
 interface IFetchListSuccess {
   type: ListsActionTypes.FETCH_LISTS_SUCCES;
-  payload: string; //json
+  payload: IList[]; //json
 }
 
 interface IFetchListsError {
@@ -34,4 +34,4 @@ interface IFetchListsError {
   payload: string;
 }
 
-export type ListsActions = IFetchLists | IFetchListSuccess | IFetchListsError;
+export type ListsAction = IFetchLists | IFetchListSuccess | IFetchListsError;
