@@ -3,9 +3,9 @@
 
 	// .listMenu__item
 	&__item {
-		padding: 0px 5px 0px 5px;
+		padding: 0px 0px 0px 5px;
 		color: #4c4c4c;
-		font-size: 10px;
+		font-size: 12px;
 		line-height: 11 / 10 * 100%;
 		font-weight: 400;
 		border-radius: 3px;
@@ -30,7 +30,7 @@
 		padding: 10px 10px;
 		background-color: #fff;
 		border-radius: 3px;
-		text-align: center;
+		text-align: left;
 
 		position: absolute;
 		transform: translate(108%, 70%);

@@ -11,7 +11,7 @@ interface IGrouperProps {
 }
 
 const Grouper: FC<IGrouperProps> = ({ children, groupName }) => {
-  const [isOpen, SetIsOpen] = useState<boolean>(false);
+  const [isOpen, SetIsOpen] = useState<boolean>(true);
 
   return (
     <section className={s.grouper}>
