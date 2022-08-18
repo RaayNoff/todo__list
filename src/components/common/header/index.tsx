@@ -33,9 +33,9 @@ const Header: FC<IHeaderProps> = ({
               }
               onClick={(e) => onClickedBurger(e)}
             >
-              <span className={s.burger__firstSpan}></span>
-              <span className={s.burger__secondSpan}></span>
-              <span className={s.burger__Span}></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           )}
           {iconDisplayed && <div className={s.header__profileBackground}></div>}
