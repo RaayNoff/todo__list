@@ -8,7 +8,7 @@ import { MaxWidthContainer } from "../../../types/maxWidthContainer";
 import s from "./singIn.module.scss";
 
 const SingIn: FC = () => {
-  const { fetchAuthorization } = useActions();
+  const { login } = useActions();
   const { error, loading } = useTypedSelector((state) => state.authorization);
   return (
     <main>
@@ -24,7 +24,7 @@ const SingIn: FC = () => {
             </section>
             <AuthorizationForm
               isSignUp={false}
-              fetchCallback={fetchAuthorization}
+              fetchCallback={login}
               error={error}
               loading={loading}
             />
