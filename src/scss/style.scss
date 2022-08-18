@@ -31,7 +31,7 @@ $maxWidth: 1920;
 $maxWidthContainer: 1146;
 //<Переменные>//
 //Ширина ограничивающего контейнера на странице списка задач
-$maxWidthCtnH: 1769;
+$maxWidthCtnH: 1818px;
 //<Переменные>//
 
 //========================================================================================================================================================
@@ -65,14 +65,14 @@ $md4: 479.98;
 	margin: 0 auto;
 	height: 100%;
 
-	@media (max-width: ($md1 + px)) {
+	@media (max-width: (1200 + px)) {
 		max-width: 960px;
 	}
 	@media (max-width: ($md2 + px)) {
-		max-width: 730px;
+		max-width: 720px;
 	}
 	@media (max-width: ($md3 + px)) {
-		max-width: none;
+		max-width: 540px;
 		padding: 0 10px;
 	}
 }
