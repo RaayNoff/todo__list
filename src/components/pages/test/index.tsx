@@ -1,12 +1,7 @@
-import React from "react";
+import { FC } from "react";
 import CreateList from "../../UI/createList";
-import Grouper from "../../UI/grouper";
-import List from "../../UI/list";
-import ShareList from "../../UI/shareList";
 
-type Props = {};
-
-const Test = (props: Props) => {
+const Test: FC = () => {
   return (
     <div
       style={{
@@ -17,12 +12,6 @@ const Test = (props: Props) => {
         justifyContent: "center",
       }}
     >
-      {/* <Grouper groupName="Общие">
-        <List listColor="#553fdb" listName="Задачи по институту" />
-        <List listColor="#553fdb" listName="Задачи по институту" />
-        <List listColor="#553fdb" listName="Задачи по институту" />
-        <List listColor="#553fdb" listName="Задачи по институту" />
-      </Grouper> */}
       <CreateList></CreateList>
     </div>
   );

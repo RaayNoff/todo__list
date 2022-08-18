@@ -35,8 +35,6 @@ const AuthorizationForm: FC<IAuthorizationProps> = ({
   const onClickHandler = (e: SyntheticEvent): void => {
     e.preventDefault();
 
-    //  console.log(`${login}:${password}`);
-
     if (isSignUp && passwordState.indexOf(false) === -1) {
       fetchCallback(login, password);
     }
@@ -51,6 +49,7 @@ const AuthorizationForm: FC<IAuthorizationProps> = ({
     <section className={s.authorization}>
       <form className={s.form}>
         <FormHeader isSignUp={isSignUp}></FormHeader>
+
         <div className={`${s.form__input} ${s.input}`}>
           <header className={s.input__title}>Email</header>
           <input
@@ -60,6 +59,7 @@ const AuthorizationForm: FC<IAuthorizationProps> = ({
             type="text"
           />
         </div>
+
         <div className={`${s.form__input} ${s.input}`}>
           <header className={s.input__title}>Пароль</header>
           <input

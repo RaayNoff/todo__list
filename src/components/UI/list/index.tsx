@@ -1,5 +1,4 @@
-import React, { FC, LegacyRef, useEffect, useRef, useState } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import React, { FC, useEffect, useRef, useState } from "react";
 import ListMenu from "./additional/listMenu";
 import s from "./list.module.scss";
 
@@ -36,6 +35,7 @@ const List: FC<IListProps> = ({ listName, listColor }) => {
         <span></span>
         <span></span>
       </div>
+
       <ListMenu isEnabled={isMenuOpened} />
     </section>
   );
