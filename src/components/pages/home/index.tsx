@@ -8,7 +8,7 @@ import Sidebar from "../../common/sidebar";
 import s from "./home.module.scss";
 
 const Home: FC = () => {
-  const [isSidebarDisplayed, setIsSidebarDisplayed] = useState<boolean>(false);
+  const [isSidebarDisplayed, setIsSidebarDisplayed] = useState<boolean>(true);
   const { fetchLists } = useActions();
   const { error, lists, loading } = useTypedSelector((state) => state.lists);
 
