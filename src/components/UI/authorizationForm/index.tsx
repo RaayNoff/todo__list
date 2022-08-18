@@ -1,7 +1,7 @@
 import React, { FC, SyntheticEvent, useEffect, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { ValidationApi } from "../../../api/validationApi";
-import { authorizationType } from "../../../store/action-creators/authorization";
+import { AuthorizationType } from "../../../store/action-creators/authorization";
 import Tip from "../tip";
 import FormFooter from "./additional/formFooter";
 import FormHeader from "./additional/formHeader";
@@ -11,7 +11,7 @@ import "./tip.animation.scss";
 
 interface IAuthorizationProps {
   isSignUp: boolean;
-  fetchCallback: authorizationType;
+  fetchCallback: AuthorizationType;
   loading: boolean;
   error: null | string;
 }

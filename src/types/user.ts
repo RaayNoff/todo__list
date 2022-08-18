@@ -1,7 +1,6 @@
 export interface IUser {
-  id: userDataField;
   email: userDataField;
-  password?: userDataField;
+  id: userDataField;
 }
 
 export type userDataField = string | undefined;

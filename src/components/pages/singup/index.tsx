@@ -8,8 +8,8 @@ import { MaxWidthContainer } from "../../../types/maxWidthContainer";
 import s from "./signUp.module.scss";
 
 const SingUp: FC = () => {
-  const { fetchRegistration } = useActions();
-  const { error, loading } = useTypedSelector((state) => state.registration);
+  const { registration } = useActions();
+  const { error, loading } = useTypedSelector((state) => state.authorization);
 
   return (
     <main>
@@ -25,7 +25,7 @@ const SingUp: FC = () => {
             </section>
             <AuthorizationForm
               isSignUp={true}
-              fetchCallback={fetchRegistration}
+              fetchCallback={registration}
               error={error}
               loading={loading}
             />
