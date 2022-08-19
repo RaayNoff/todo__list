@@ -4,7 +4,7 @@ import { ITask } from "./task";
 export interface IListsState {
   loading: boolean;
   error: null | string;
-  lists: IList[] | null;
+  lists: IList[];
 }
 
 export interface IList {

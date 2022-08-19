@@ -1,4 +1,10 @@
-import { IListsState, ListsActionTypes, ListsAction } from "../../types/list";
+import { IColor } from "../../types/color";
+import {
+  IListsState,
+  ListsActionTypes,
+  ListsAction,
+  IList,
+} from "../../types/list";
 
 const initialState: IListsState = {
   error: null,
@@ -12,13 +18,13 @@ const listsReducer = (
 ): IListsState => {
   switch (action.type) {
     case ListsActionTypes.FETCH_LISTS:
-      return { ...state, error: null, lists: null, loading: true };
+      return { ...state, error: null, lists: [], loading: true };
 
     case ListsActionTypes.FETCH_LISTS_SUCCESS:
       return { ...state, error: null, lists: action.payload, loading: false };
 
     case ListsActionTypes.FETCH_LISTS_ERROR:
-      return { ...state, error: action.payload, lists: null, loading: false };
+      return { ...state, error: action.payload, lists: [], loading: false };
 
     default:
       return state;
