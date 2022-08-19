@@ -9,10 +9,10 @@ interface IFormFooter {
 const FormFooter: FC<IFormFooter> = ({ isSignUp }) => {
   return (
     <footer className={s.footer}>
-      {isSignUp ? "Нет аккаунта?" : "Уже зарегистрированы?"}{" "}
+      {isSignUp ? "Уже зарегистрированы?" : "Нет аккаунта?"}{" "}
       <span>
         <Link to={isSignUp ? "/signin" : "/signup"}>
-          {isSignUp ? "Зарегистрируйтесь" : "Войдите"}
+          {isSignUp ? "Войдите" : "Зарегистрируйтесь"}
         </Link>
       </span>
     </footer>

@@ -8,7 +8,7 @@ import { useActions } from "./hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
 
 function App() {
-  const isDev = true;
+  const isDev = false;
   const { checkAuth } = useActions();
   const { isAuthorized } = useTypedSelector((state) => state.authorization);
 

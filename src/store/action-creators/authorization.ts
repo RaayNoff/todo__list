@@ -18,6 +18,8 @@ export const login = (email: userDataField, password: userDataField) => {
         password: password,
       });
 
+      console.log(response);
+
       localStorage.setItem("token", response.data.accessToken);
 
       dispatch({
@@ -72,7 +74,7 @@ export const checkAuth = () => {
   return async (dispatch: Dispatch<AuthorizationAction | AnyAction>) => {
     try {
       dispatch({ type: AuthorizationActionTypes.FETCH_REFRESH });
-      const response = await axios.get<AuthResponse>(BackendApi.REFRESH, {
+      const response = await axios.post<AuthResponse>(BackendApi.REFRESH, {
         withCredentials: true,
       });
       localStorage.setItem("token", response.data.accessToken);
