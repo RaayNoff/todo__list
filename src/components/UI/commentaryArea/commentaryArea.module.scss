@@ -1,0 +1,19 @@
+.commentaryArea {
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
+	border: 0.5px solid #a4a4a4;
+
+	&__textarea {
+		resize: vertical;
+		margin: 8px 11px 8px 11px;
+		width: 359px;
+		min-height: 41px;
+		outline: none;
+	}
+
+	button {
+		align-self: flex-end;
+		margin: 0px 10px 6px 0px;
+	}
+}
