@@ -1,19 +1,21 @@
 import React, { FC } from "react";
+import { useList } from "../../../hooks/useList";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { IList } from "../../../types/list";
 import HeaderInsert from "../headerInsert";
 import s from "./listInfo.module.scss";
 
 interface IListInfoProps {
-  listName: string;
-  deadline: string;
-  taskColor: string;
-  taskTitle: string;
-  taskDecription: string;
+  listId: string;
+  taskId: string;
 }
 
-const ListInfo: FC = () => {
+const ListInfo: FC<IListInfoProps> = ({ listId, taskId }) => {
+  const { colors, listName } = useList(listId);
+
   return (
     <section className={s.listInfo}>
-      <HeaderInsert></HeaderInsert>
+      <HeaderInsert>{listName}</HeaderInsert>
     </section>
   );
 };

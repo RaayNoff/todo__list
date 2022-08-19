@@ -1,5 +1,6 @@
 import { FC } from "react";
 import CreateList from "../../UI/createList";
+import ListInfo from "../../UI/listInfo";
 
 const Test: FC = () => {
   return (
@@ -11,9 +12,7 @@ const Test: FC = () => {
         alignItems: "center",
         justifyContent: "center",
       }}
-    >
-      <CreateList></CreateList>
-    </div>
+    ></div>
   );
 };
 
