@@ -16,6 +16,7 @@
     "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
     "chroma-js": "^2.4.2",
+    "moment": "^2.29.4",
     "naming-convention": "^1.0.1",
     "node-sass": "^7.0.1",
     "react": "^18.2.0",
