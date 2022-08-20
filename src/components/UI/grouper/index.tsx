@@ -8,9 +8,14 @@ import "./content.animation.scss";
 interface IGrouperProps {
   children?: React.ReactNode;
   groupName: string;
+  isAddActive?: boolean;
 }
 
-const Grouper: FC<IGrouperProps> = ({ children, groupName }) => {
+const Grouper: FC<IGrouperProps> = ({
+  children,
+  groupName,
+  isAddActive = true,
+}) => {
   const [isOpen, SetIsOpen] = useState<boolean>(true);
 
   return (
@@ -31,7 +36,7 @@ const Grouper: FC<IGrouperProps> = ({ children, groupName }) => {
           </div>
           <header className={s.grouper__name}>{groupName}</header>
         </div>
-        <div className={s.grouper__add}>{Add()}</div>
+        {isAddActive && <div className={s.grouper__add}>{Add()}</div>}
       </section>
       <TransitionGroup>
         {isOpen && (
