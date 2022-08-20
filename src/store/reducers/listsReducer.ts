@@ -20,6 +20,13 @@ const initialState: IListsState = {
           description: "Это тестовая задача",
           endTime: "23.05.2022",
           status: false,
+          comments: [
+            {
+              id: 1,
+              content: "Это увлекательный был! Атракцион!",
+              userEmail: "kseniasobchak@gmail.com",
+            },
+          ],
         },
       ],
     },
