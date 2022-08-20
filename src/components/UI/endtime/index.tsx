@@ -1,11 +1,15 @@
 import React, { FC } from "react";
+import DateApi from "../../../api/dateApi";
+import { timestamp } from "../../../types/timestamp";
 import s from "./endtime.module.scss";
 
 interface IEndtimeProps {
-  date: string;
+  timestamp: timestamp;
 }
 
-const Endtime: FC<IEndtimeProps> = ({ date }) => {
+const Endtime: FC<IEndtimeProps> = ({ timestamp }) => {
+  const date = DateApi.getEndtime(timestamp);
+
   return (
     <section className={s.endtime}>
       <div className={s.endtime__box}></div>
