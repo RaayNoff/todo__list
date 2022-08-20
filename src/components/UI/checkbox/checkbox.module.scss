@@ -1,0 +1,24 @@
+.checkbox {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background: rgba(217, 217, 217, 0.5);
+	border-width: 1px;
+	border-style: solid;
+	text-align: center;
+	cursor: pointer;
+
+	svg {
+		@media (min-width: 991.98px) {
+			:hover {
+			}
+		}
+	}
+}
+
+.nodisplay {
+	display: none;
+}
+.display {
+	display: inline-block;
+}
