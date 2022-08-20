@@ -9,7 +9,7 @@ export const useTask = (targetId: number): ITask => {
   );
 
   const { tasks } = requiredList[0];
-  const { id, taskName, status, endTime, description } = tasks[0];
+  const { id, taskName, status, endTime, description, comments } = tasks[0];
 
-  return { id, taskName, status, endTime, description };
+  return { id, taskName, status, endTime, description, comments };
 };
