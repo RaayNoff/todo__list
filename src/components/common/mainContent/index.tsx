@@ -5,21 +5,23 @@ import Task from "../../UI/task";
 import s from "./mainContent.module.scss";
 
 const tasks = [
-    {
-        id: 1,
-        taskName: "Сделать что-то",
-        endTime: "23.02",
-        description: "string;",
-        status: true
-    },
-    {
-        id: 2,
-        taskName: "Сходить куда-то",
-        endTime: "24.02",
-        description: "очень быстро",
-        status: false
-    }
-]
+  {
+    id: 1,
+    taskName: "Сделать что-то",
+    endTime: "23.02",
+    description: "string;",
+    status: true,
+    comments: [],
+  },
+  {
+    id: 2,
+    taskName: "Сходить куда-то",
+    endTime: "24.02",
+    description: "очень быстро",
+    status: false,
+    comments: [],
+  },
+];
 
 const MainContent: FC = () => {
   return (
@@ -36,8 +38,8 @@ const MainContent: FC = () => {
       <div className={s.main__center}>
         <p className={s.subtitle}> Предстоит сделать </p>
         <List
-        items={tasks}
-        renderItem={(task: ITask) => <Task task={task} key={task.id}/>}
+          items={tasks}
+          renderItem={(task: ITask) => <Task task={task} key={task.id} />}
         />
       </div>
     </div>
