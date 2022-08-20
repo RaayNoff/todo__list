@@ -8,7 +8,22 @@ import {
 
 const initialState: IListsState = {
   error: null,
-  lists: [],
+  lists: [
+    {
+      id: 1,
+      listName: "Тестовый список",
+      colors: { value: "purple", label: "Фиолетовый", color: "#553fdb" },
+      tasks: [
+        {
+          id: 1,
+          taskName: "Тестовая задача",
+          description: "Это тестовая задача",
+          endTime: "23.05.2022",
+          status: false,
+        },
+      ],
+    },
+  ],
   loading: false,
 };
 

@@ -8,7 +8,7 @@ export interface IListsState {
 }
 
 export interface IList {
-  id: string;
+  id: number;
   listName: string;
   colors: IColor;
   tasks: ITask[];
