@@ -1,12 +1,13 @@
 .listInfo {
 	width: 670px;
-	// .listInfo__content
 
+	// .listInfo__content
 	&__content {
+		display: flex;
 	}
 
 	// .listInfo__data
-
 	&__data {
+		width: 473px;
 	}
 }
