@@ -1,29 +1,15 @@
 import { FC } from "react";
+import useTasks from "../../../hooks/useTasks";
 import { ITask } from "../../../types/task";
 import List from "../../utils/List";
 import Task from "../../UI/task";
 import s from "./mainContent.module.scss";
 
-const tasks = [
-  {
-    id: 1,
-    taskName: "Сделать что-то",
-    endTime: 1660997596,
-    description: "string",
-    status: true,
-    comments: [],
-  },
-  {
-    id: 2,
-    taskName: "Сходить куда-то",
-    endTime: 1660997596,
-    description: "очень быстро",
-    status: false,
-    comments: [],
-  },
-];
 
 const MainContent: FC = () => {
+
+  const tasks = useTasks();
+
   return (
     <div className={s.main}>
       <div className={s.main__top}>
