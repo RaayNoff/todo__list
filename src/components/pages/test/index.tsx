@@ -1,10 +1,14 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import Checkbox from "../../UI/checkbox";
 import Commentary from "../../UI/commentary";
 import CommentaryArea from "../../UI/commentaryArea";
 import CreateList from "../../UI/createList";
+import Endtime from "../../UI/endtime";
 import ListInfo from "../../UI/listInfo";
+import List from "../../utils/List";
 
 const Test: FC = () => {
+  const [status, setStatus] = useState<boolean>(false);
   return (
     <div
       style={{
@@ -15,7 +19,8 @@ const Test: FC = () => {
         justifyContent: "center",
       }}
     >
-      <CommentaryArea taskId="1" />
+      {/* <ListInfo listId={1} taskId={1} /> */}
+      <Checkbox status={status} setStatus={setStatus} color={"#b736f3"} />
     </div>
   );
 };
