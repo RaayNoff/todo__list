@@ -8,15 +8,15 @@ const tasks = [
   {
     id: 1,
     taskName: "Сделать что-то",
-    endTime: "23.02",
-    description: "string;",
+    endTime: 1660997596,
+    description: "string",
     status: true,
     comments: [],
   },
   {
     id: 2,
     taskName: "Сходить куда-то",
-    endTime: "24.02",
+    endTime: 1660997596,
     description: "очень быстро",
     status: false,
     comments: [],
