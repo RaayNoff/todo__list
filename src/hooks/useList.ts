@@ -1,7 +1,7 @@
 import { IList } from "../types/list";
 import { useTypedSelector } from "./useTypedSelector";
 
-export const useList = (targetListId: string): IList => {
+export const useList = (targetListId: number): IList => {
   const { lists } = useTypedSelector((state) => state.lists);
 
   const requiredList = lists.filter((l) => l.id === targetListId);
