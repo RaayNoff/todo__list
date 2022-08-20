@@ -29,6 +29,36 @@ const initialState: IListsState = {
             },
           ],
         },
+        {
+          id: 2,
+          taskName: "Тестовая задача",
+          description: "Это тестовая задача",
+          endTime: 1660997596,
+          status: true,
+          comments: [
+            {
+              id: 2,
+              content: "Это увлекательный был! Атракцион!",
+              userEmail: "kseniasobchak@gmail.com",
+              timestamp: 1660997596,
+            },
+          ],
+        },
+        {
+          id: 3,
+          taskName: "Тестовая задача",
+          description: "Это тестовая задача",
+          endTime: 1660997596,
+          status: false,
+          comments: [
+            {
+              id: 3,
+              content: "Это увлекательный был! Атракцион!",
+              userEmail: "kseniasobchak@gmail.com",
+              timestamp: 1660997596,
+            },
+          ],
+        },
       ],
     },
   ],
