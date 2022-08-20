@@ -5,12 +5,12 @@ import s from "./aside.module.scss";
 
 interface IAsideListInfo {
   listName: string;
-  endTime: string;
+  timestamp: number;
   listColor: string;
 }
 
 const AsideListInfo: FC<IAsideListInfo> = ({
-  endTime,
+  timestamp,
   listName,
   listColor,
 }) => {
@@ -32,7 +32,7 @@ const AsideListInfo: FC<IAsideListInfo> = ({
       </section>
       <section className={s.sidebar__endtime}>
         <header className={s.sidebar__header}>Срок выполнения</header>
-        <Endtime date={endTime} />
+        <Endtime timestamp={timestamp} />
       </section>
     </aside>
   );
