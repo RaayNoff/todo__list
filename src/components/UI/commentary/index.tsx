@@ -1,13 +1,17 @@
 import React, { FC } from "react";
+import DateApi from "../../../api/dateApi";
+import { timestamp } from "../../../types/timestamp";
 import s from "./commentary.module.scss";
 
 interface ICommentaryProps {
   email: string;
   content: string;
-  date: string;
+  timestamp: timestamp;
 }
 
-const Commentary: FC<ICommentaryProps> = ({ email, content, date }) => {
+const Commentary: FC<ICommentaryProps> = ({ email, content, timestamp }) => {
+  const date = DateApi.getCommentTime(timestamp);
+
   return (
     <section className={s.commentary}>
       <div className={s.commentary__logoBG}></div>
