@@ -1,5 +1,10 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import { useList } from "../../../hooks/useList";
+import { useListId } from "../../../hooks/useListId";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { ITask } from "../../../types/task";
+import Checkbox from "../checkbox";
+import Endtime from "../endtime";
 import s from "./task.module.scss";
 
 interface TaskProps {
@@ -7,17 +12,22 @@ interface TaskProps {
 }
 
 const Task: FC<TaskProps> = ({ task }) => {
+
+  const [status, setStatus] = useState(false);
+  const listId = useListId(task.id);
+  const {colors} = useList(listId)
+  
+
   return (
     <section className={s.task}>
-      <div className={s.task__checkbox}></div>
+      <Checkbox color={colors.color} status={status} setStatus={setStatus}/>
 
       <section className={s.task__data}>
         <p className={s.task__name}>{task.taskName}</p>
         <p className={s.task__description}> {task.description} </p>
         <section className={s.task__footer}>
           <section className={s.task__date}>
-            <div></div>
-            <p>{task.endTime} </p>
+            <Endtime timestamp={task.endTime}  />
           </section>
           <p className={s.task__from}>Задачи с Дмитрием</p>
         </section>
