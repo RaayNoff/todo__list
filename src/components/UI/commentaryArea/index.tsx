@@ -4,7 +4,7 @@ import Button from "../button";
 import s from "./commentaryArea.module.scss";
 
 interface ICommentaryAreaProps {
-  taskId: string;
+  taskId: number;
 }
 
 const CommentaryArea: FC<ICommentaryAreaProps> = ({ taskId }) => {
