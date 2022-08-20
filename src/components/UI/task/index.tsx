@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 import { useList } from "../../../hooks/useList";
 import { useListId } from "../../../hooks/useListId";
-import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { ITask } from "../../../types/task";
 import Checkbox from "../checkbox";
 import Endtime from "../endtime";
