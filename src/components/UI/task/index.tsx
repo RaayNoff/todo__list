@@ -22,7 +22,6 @@ const Task: FC<TaskProps> = ({ task }) => {
           <p className={s.task__from}>Задачи с Дмитрием</p>
         </section>
       </section>
-      
     </section>
   );
 };
