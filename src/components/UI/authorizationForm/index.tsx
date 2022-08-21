@@ -1,29 +1,27 @@
-import React, { FC, SyntheticEvent, useEffect, useState } from "react";
+import { FC, SyntheticEvent, useEffect, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { ValidationApi } from "../../../api/validationApi";
+import usePath from "../../../hooks/usePath";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { AuthorizationType } from "../../../store/action-creators/authorization";
+import { FormInputType } from "../../../types/formInput";
 import Tip from "../tip";
 import FormFooter from "./additional/formFooter";
 import FormHeader from "./additional/formHeader";
+import FormInput from "./additional/formInput";
 import ResponseSection from "./additional/responseSection";
 import s from "./authorizationForm.module.scss";
 import "./tip.animation.scss";
 
 interface IAuthorizationProps {
-  isSignUp: boolean;
   fetchCallback: AuthorizationType;
-  loading: boolean;
-  error: null | string;
 }
 
-const AuthorizationForm: FC<IAuthorizationProps> = ({
-  isSignUp,
-  fetchCallback,
-  loading,
-  error,
-}) => {
-  const [login, setLogin] = useState<string>("");
+const AuthorizationForm: FC<IAuthorizationProps> = ({ fetchCallback }) => {
+  const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const { error, loading } = useTypedSelector((state) => state.authorization);
+  const isSignUp = usePath();
 
   const [displayTip, setDisplayTip] = useState<boolean>(false);
   const [passwordState, setPasswordState] = useState<boolean[]>([
@@ -36,9 +34,9 @@ const AuthorizationForm: FC<IAuthorizationProps> = ({
     e.preventDefault();
 
     if (isSignUp && passwordState.indexOf(false) === -1) {
-      fetchCallback(login, password);
+      fetchCallback(email, password);
     }
-    if (!isSignUp) fetchCallback(login, password);
+    if (!isSignUp) fetchCallback(email, password);
   };
 
   useEffect(() => {
@@ -50,28 +48,18 @@ const AuthorizationForm: FC<IAuthorizationProps> = ({
       <form className={s.form}>
         <FormHeader isSignUp={isSignUp}></FormHeader>
 
-        <div className={`${s.form__input} ${s.input}`}>
-          <header className={s.input__title}>Email</header>
-          <input
-            id="login"
-            value={login}
-            onChange={(e) => setLogin(e.currentTarget.value)}
-            type="text"
-          />
-        </div>
+        <FormInput
+          inputType={FormInputType.EMAIL}
+          value={email}
+          onChangeValue={setEmail}
+        />
 
-        <div className={`${s.form__input} ${s.input}`}>
-          <header className={s.input__title}>Пароль</header>
-          <input
-            id="password"
-            type="password"
-            autoComplete="on"
-            value={password}
-            onFocus={() => setDisplayTip(true)}
-            onBlur={() => setDisplayTip(false)}
-            onChange={(e) => setPassword(e.currentTarget.value)}
-          />
-        </div>
+        <FormInput
+          inputType={FormInputType.PASSWORD}
+          value={password}
+          onChangeValue={setPassword}
+          setDisplayTip={setDisplayTip}
+        />
 
         <p className={s.form__error}>{error}</p>
 
@@ -82,11 +70,13 @@ const AuthorizationForm: FC<IAuthorizationProps> = ({
             </CSSTransition>
           )}
         </TransitionGroup>
+
         <ResponseSection
           callback={onClickHandler}
           isLoading={loading}
           isSignUp={isSignUp}
         ></ResponseSection>
+
         <FormFooter isSignUp={isSignUp}></FormFooter>
       </form>
     </section>

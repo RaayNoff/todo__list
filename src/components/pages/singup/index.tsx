@@ -3,13 +3,11 @@ import Header from "../../common/header";
 import checklist from "../../../icons/welcomeImg.jpg";
 import AuthorizationForm from "../../UI/authorizationForm";
 import { useActions } from "../../../hooks/useActions";
-import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { MaxWidthContainer } from "../../../types/maxWidthContainer";
 import s from "./signUp.module.scss";
 
 const SingUp: FC = () => {
   const { registration } = useActions();
-  const { error, loading } = useTypedSelector((state) => state.authorization);
 
   return (
     <main>
@@ -23,12 +21,7 @@ const SingUp: FC = () => {
               </header>
               <img src={checklist} alt="checklist"></img>
             </section>
-            <AuthorizationForm
-              isSignUp={true}
-              fetchCallback={registration}
-              error={error}
-              loading={loading}
-            />
+            <AuthorizationForm fetchCallback={registration} />
           </section>
         </div>
       </section>
