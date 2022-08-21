@@ -1,7 +1,7 @@
 .tip {
 	width: 300px;
 	min-height: 30px;
-	background-color: #9d90ed;
+	background-color: rgba(231, 231, 231, 0.9);
 	border-radius: 5px;
 	position: absolute;
 	transform: translateY(10px);
@@ -9,8 +9,8 @@
 	// .tip__polygon
 	&__polygon {
 		position: absolute;
-		fill: #9d90ed;
-		transform: translateY(-50%) translateX(20%);
+		fill: rgba(231, 231, 231, 0.9);
+		transform: translateY(-74%) translateX(20%);
 	}
 
 	&__content {
@@ -21,7 +21,7 @@
 	&::before {
 		content: "✗ ";
 	}
-	color: red;
+	color: #ff0000;
 }
 
 // .tip__success
@@ -29,7 +29,7 @@
 	&::before {
 		content: "✓ ";
 	}
-	color: green;
+	color: #00cc66;
 }
 
 .message {
