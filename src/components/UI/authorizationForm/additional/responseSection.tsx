@@ -1,7 +1,10 @@
 import { FC, SyntheticEvent } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import usePath from "../../../../hooks/usePath";
 import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import Loader from "../../loader";
+import LockSVG from "./lockSVG";
+import "./lock.animation.scss";
 import s from "./responseSection.module.scss";
 
 interface IResponseSection {
@@ -19,12 +22,19 @@ const ResponseSection: FC<IResponseSection> = ({ callback, canBeClicked }) => {
         <Loader isActive={loading} />
       ) : (
         <button
-          disabled={isRegistration && canBeClicked}
+          disabled={canBeClicked}
           className={
             isRegistration ? `${s.button} ${s.btnUp}` : `${s.button} ${s.btnIn}`
           }
           onClick={callback}
         >
+          <TransitionGroup>
+            {canBeClicked && (
+              <CSSTransition timeout={300} classNames="lock">
+                <div className={s.lock}>{LockSVG()}</div>
+              </CSSTransition>
+            )}
+          </TransitionGroup>
           {isRegistration ? "Зарегистрироваться" : "Войти"}
         </button>
       )}

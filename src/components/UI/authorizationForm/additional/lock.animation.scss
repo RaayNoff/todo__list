@@ -1,0 +1,14 @@
+.lock-enter {
+	opacity: 0;
+}
+.lock-enter-active {
+	opacity: 1;
+	transition: opacity 150ms ease-in;
+}
+.lock-exit {
+	opacity: 1;
+}
+.lock-exit-active {
+	opacity: 0;
+	transition: opacity 150ms ease-in;
+}
