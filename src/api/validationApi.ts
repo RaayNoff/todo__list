@@ -1,6 +1,5 @@
 import PasswordValidator from "password-validator";
 import * as EmailValidator from "email-validator";
-import { EmailValidateAnswers } from "../types/validator";
 
 export class ValidationApi {
   static isEmpty = (data: string | undefined): boolean => {
@@ -25,9 +24,8 @@ export class ValidationApi {
   };
 
   static validateEmail = (email: string) => {
-    if (EmailValidator.validate(email))
-      return EmailValidateAnswers.CORRECT_EMAIL;
+    if (EmailValidator.validate(email)) return true;
 
-    return EmailValidateAnswers.INCORRECT_EMAIL;
+    return false;
   };
 }

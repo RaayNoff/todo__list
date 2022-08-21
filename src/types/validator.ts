@@ -1,6 +1,17 @@
-export enum EmailValidateAnswers {
-  CORRECT_EMAIL = "Введенная почта удовлетворяет требованиям",
-  INCORRECT_EMAIL = "Указанная почта не удовлетворяет требованиям",
+export enum EmailAnswers {
+  CORRECT_EMAIL = "Почта удовлетворяет требованиям",
 }
 
-export enum PasswordValidateAnswers {}
+export const EmailValidateAnswers = [EmailAnswers.CORRECT_EMAIL];
+
+export enum PasswordAnswers {
+  CORRECT_LENGTH = "Имеет больше 8 символов",
+  INCLUDE_CAPITAL = "Содержит заглавные буквы",
+  INCLUDE_SYMBOLS = "Включает специальные символы",
+}
+
+export const PasswordValidateAnswers = [
+  PasswordAnswers.CORRECT_LENGTH,
+  PasswordAnswers.INCLUDE_CAPITAL,
+  PasswordAnswers.INCLUDE_SYMBOLS,
+];

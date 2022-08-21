@@ -1,18 +1,17 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
+import usePath from "../../../../hooks/usePath";
 import s from "./formFooter.module.scss";
 
-interface IFormFooter {
-  isSignUp: boolean;
-}
+const FormFooter: FC = () => {
+  const isRegistration = usePath();
 
-const FormFooter: FC<IFormFooter> = ({ isSignUp }) => {
   return (
     <footer className={s.footer}>
-      {isSignUp ? "Уже зарегистрированы?" : "Нет аккаунта?"}{" "}
+      {isRegistration ? "Уже зарегистрированы?" : "Нет аккаунта?"}{" "}
       <span>
-        <Link to={isSignUp ? "/signin" : "/signup"}>
-          {isSignUp ? "Войдите" : "Зарегистрируйтесь"}
+        <Link to={isRegistration ? "/signin" : "/signup"}>
+          {isRegistration ? "Войдите" : "Зарегистрируйтесь"}
         </Link>
       </span>
     </footer>

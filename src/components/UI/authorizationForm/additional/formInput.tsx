@@ -1,50 +1,56 @@
-import React, { FC } from "react";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
+import React, { FC, useState } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import useEmailTip from "../../../../hooks/useEmailTip";
+import usePasswordTip from "../../../../hooks/usePasswordTip";
+import usePath from "../../../../hooks/usePath";
 import { FormInputType } from "../../../../types/formInput";
+import Tip from "../../tip";
 import s from "./formInput.module.scss";
 
 interface IFormInput {
   inputType: FormInputType;
   value: any;
   onChangeValue: React.Dispatch<React.SetStateAction<any>>;
-  setDisplayTip?: React.Dispatch<React.SetStateAction<any>>;
 }
 
 const FormInput: FC<IFormInput> = ({
   inputType = FormInputType.EMAIL,
   value,
   onChangeValue,
-  setDisplayTip,
 }) => {
-  switch (inputType) {
-    case FormInputType.EMAIL:
-      return (
-        <div className={`${s.input}`}>
-          <header className={s.input__title}>Email</header>
-          <input
-            id="email"
-            value={value}
-            onChange={(e) => onChangeValue(e.currentTarget.value)}
-            type="text"
-          />
-        </div>
-      );
+  const [displayTip, setDisplayTip] = useState(false);
+  const display = usePath();
 
-    case FormInputType.PASSWORD:
-      return (
-        <div className={`${s.input}`}>
-          <header className={s.input__title}>Пароль</header>
-          <input
-            id="password"
-            type="password"
-            autoComplete="on"
-            value={value}
-            onFocus={setDisplayTip && (() => setDisplayTip(true))}
-            onBlur={setDisplayTip && (() => setDisplayTip(false))}
-            onChange={(e) => onChangeValue(e.currentTarget.value)}
-          />
-        </div>
-      );
-  }
+  const passwordTip = usePasswordTip(value);
+  const emailTip = useEmailTip(value);
+
+  return (
+    <div className={s.input}>
+      <header className={s.input__title}>
+        {inputType === FormInputType.EMAIL ? "Email" : "Пароль"}
+      </header>
+      <input
+        type={inputType === FormInputType.EMAIL ? "text" : "password"}
+        autoComplete={inputType === FormInputType.PASSWORD ? "on" : "off"}
+        value={value}
+        onChange={(e) => onChangeValue(e.currentTarget.value)}
+        onFocus={() => setDisplayTip(!displayTip)}
+        onBlur={() => setDisplayTip(!displayTip)}
+      />
+      <TransitionGroup>
+        {displayTip && display && (
+          <CSSTransition timeout={300} classNames={"tip"}>
+            <Tip
+              content={
+                inputType === FormInputType.EMAIL ? emailTip : passwordTip
+              }
+            />
+          </CSSTransition>
+        )}
+      </TransitionGroup>
+    </div>
+  );
 };
 
 export default FormInput;
