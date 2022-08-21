@@ -7,8 +7,8 @@ const App: FC = () => {
   const { checkAuth } = useActions();
 
   useEffect(() => {
-    //  checkAuth();
-  }, []);
+    checkAuth();
+  }, [checkAuth]);
 
   return <AppRouter developing={isDev}></AppRouter>;
 };

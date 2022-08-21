@@ -18,8 +18,6 @@ export const login = (email: userDataField, password: userDataField) => {
         password: password,
       });
 
-      console.log(response);
-
       localStorage.setItem("token", response.data.accessToken);
 
       dispatch({

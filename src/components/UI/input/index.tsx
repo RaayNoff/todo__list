@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, SyntheticEvent } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 import { InputSizeTypes } from "../../../types/input";
 import s from "./input.module.scss";
 

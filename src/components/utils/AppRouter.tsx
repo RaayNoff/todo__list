@@ -1,8 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { developerRoutes, privateRoutes, publicRoutes } from "../../router";
-import Test from "../pages/test";
 
 interface IAppRouter {
   developing?: boolean;

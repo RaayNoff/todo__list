@@ -1,8 +1,6 @@
 import React, { FC } from "react";
 import { useList } from "../../../hooks/useList";
 import { useTask } from "../../../hooks/useTask";
-import { useTypedSelector } from "../../../hooks/useTypedSelector";
-import { IList } from "../../../types/list";
 import Checkbox from "../checkbox";
 import Commentary from "../commentary";
 import CommentaryArea from "../commentaryArea";

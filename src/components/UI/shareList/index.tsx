@@ -1,4 +1,4 @@
-import React, { FC, SyntheticEvent, useEffect } from "react";
+import { FC, SyntheticEvent } from "react";
 import { useState } from "react";
 import { ButtonTypes } from "../../../types/button";
 import { Colors } from "../../../types/color";

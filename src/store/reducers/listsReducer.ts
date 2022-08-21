@@ -1,10 +1,4 @@
-import { IColor } from "../../types/color";
-import {
-  IListsState,
-  ListsActionTypes,
-  ListsAction,
-  IList,
-} from "../../types/list";
+import { IListsState, ListsActionTypes, ListsAction } from "../../types/list";
 
 const initialState: IListsState = {
   error: null,
