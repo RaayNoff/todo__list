@@ -19,7 +19,7 @@ const ResponseSection: FC<IResponseSection> = ({ callback, canBeClicked }) => {
         <Loader isActive={loading} />
       ) : (
         <button
-          disabled={canBeClicked}
+          disabled={isRegistration && canBeClicked}
           className={
             isRegistration ? `${s.button} ${s.btnUp}` : `${s.button} ${s.btnIn}`
           }

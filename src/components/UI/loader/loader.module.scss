@@ -1,17 +1,35 @@
-.loader {
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	border: 3px dashed #fff;
-	animation: loading 1.5s infinite;
-	margin: 0 auto;
+.svg {
+	width: 3.75em;
+	transform-origin: center;
+	animation: rotate 2s linear infinite;
 }
 
-@keyframes loading {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
+.circle {
+	fill: none;
+	stroke: #fff;
+	stroke-width: 3;
+	stroke-dasharray: 1, 200;
+	stroke-dashoffset: 0;
+	stroke-linecap: round;
+	animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+	100% {
 		transform: rotate(360deg);
+	}
+}
+
+@keyframes dash {
+	0% {
+		stroke-dasharray: 1, 200;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 90, 200;
+		stroke-dashoffset: -35px;
+	}
+	100% {
+		stroke-dashoffset: -125px;
 	}
 }
