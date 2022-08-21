@@ -3,6 +3,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import useEmailTip from "../../../../hooks/useEmailTip";
 import usePasswordTip from "../../../../hooks/usePasswordTip";
 import usePath from "../../../../hooks/usePath";
+import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import { FormInputType } from "../../../../types/formInput";
 import Tip from "../../tip";
 import s from "./formInput.module.scss";
@@ -20,6 +21,7 @@ const FormInput: FC<IFormInput> = ({
 }) => {
   const [displayTip, setDisplayTip] = useState(false);
   const display = usePath();
+  const { loading } = useTypedSelector((state) => state.authorization);
 
   const passwordTip = usePasswordTip(value);
   const emailTip = useEmailTip(value);
@@ -36,6 +38,7 @@ const FormInput: FC<IFormInput> = ({
         onChange={(e) => onChangeValue(e.currentTarget.value)}
         onFocus={() => setDisplayTip(!displayTip)}
         onBlur={() => setDisplayTip(!displayTip)}
+        disabled={loading}
       />
       <TransitionGroup>
         {displayTip && display && (
