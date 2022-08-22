@@ -1,25 +1,40 @@
 .tip {
-	padding: 0px 10px 0px 10px;
-	background: #fff;
-	border-radius: 10px;
-	// .tip__message
-	&__message {
-		font-size: 12px;
-		line-height: 16 / 12 * 100%;
-		font-weight: 600;
-		padding: 5px 0px 5px 0px;
+	width: 300px;
+	min-height: 30px;
+	background-color: rgba(231, 231, 231, 0.9);
+	border-radius: 5px;
+	position: absolute;
+	transform: translateY(10px);
 
-		&::before {
-			content: "⦁ ";
-		}
+	// .tip__polygon
+	&__polygon {
+		position: absolute;
+		fill: rgba(231, 231, 231, 0.9);
+		transform: translateY(-74%) translateX(20%);
 	}
 
-	&__error {
-		color: red;
+	&__content {
+		margin: 10px;
 	}
+}
+.error {
+	&::before {
+		content: "✗ ";
+	}
+	color: #ff0000;
+}
 
-	// .tip__success
-	&__success {
-		color: green;
+// .tip__success
+.success {
+	&::before {
+		content: "✓ ";
 	}
+	color: #00cc66;
+}
+
+.message {
+	font-size: 12px;
+	line-height: 16 / 12 * 100%;
+	font-weight: 600;
+	margin: 0px 10px 0px 0px;
 }

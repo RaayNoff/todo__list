@@ -1,4 +1,5 @@
 import PasswordValidator from "password-validator";
+import * as EmailValidator from "email-validator";
 
 export class ValidationApi {
   static isEmpty = (data: string | undefined): boolean => {
@@ -20,5 +21,11 @@ export class ValidationApi {
     if (patternHasSymbols.validate(password)) result[2] = true;
 
     return result;
+  };
+
+  static validateEmail = (email: string) => {
+    if (EmailValidator.validate(email)) return true;
+
+    return false;
   };
 }

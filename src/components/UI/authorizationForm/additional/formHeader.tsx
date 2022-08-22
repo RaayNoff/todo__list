@@ -1,14 +1,13 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import usePath from "../../../../hooks/usePath";
 import s from "./formHeader.module.scss";
 
-interface IFormHeader {
-  isSignUp: boolean;
-}
+const FormHeader: FC = () => {
+  const isRegistration = usePath();
 
-const FormHeader: FC<IFormHeader> = ({ isSignUp }) => {
   return (
     <header className={s.title}>
-      {isSignUp ? "Регистрация" : "Авторизация"}
+      {isRegistration ? "Регистрация" : "Авторизация"}
     </header>
   );
 };

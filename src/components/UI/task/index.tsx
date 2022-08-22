@@ -14,7 +14,7 @@ const Task: FC<TaskProps> = ({ task }) => {
 
   const [status, setStatus] = useState(false);
   const listId = useListId(task.id);
-  const {colors} = useList(listId)
+  const {colors} = useList(listId);
   
 
   return (

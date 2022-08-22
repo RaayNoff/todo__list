@@ -3,6 +3,7 @@
 	min-height: 445px;
 	background: #553fdb;
 	border-radius: 10px;
+	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 .form {
 	display: flex;
@@ -11,36 +12,5 @@
 	&__error {
 		color: red;
 		margin: 0px 0px 10px 0px;
-	}
-}
-.input {
-	width: 350px;
-	height: 50px;
-	background: #fff;
-	border-radius: 10px;
-	margin: 0px 0px 29px 0px;
-
-	// .input__title
-	&__title {
-		padding: 6px 0px 0px 6px;
-		font-weight: 400;
-		font-size: 10px;
-		line-height: 12 / 10 * 100%;
-		color: #4d4d4d;
-	}
-
-	input {
-		margin: 0px 0px 0px 6px;
-		width: 339px;
-		height: 30px;
-		border-radius: 10px;
-		outline: none;
-		font-size: 16px;
-		line-height: 15 / 20 * 100%;
-		font-weight: 500;
-		color: #000;
-	}
-	input[type="password"] {
-		font-size: 20px;
 	}
 }

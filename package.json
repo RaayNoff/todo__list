@@ -16,6 +16,7 @@
     "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
     "chroma-js": "^2.4.2",
+    "email-validator": "^2.0.4",
     "moment": "^2.29.4",
     "naming-convention": "^1.0.1",
     "node-sass": "^7.0.1",
@@ -36,7 +37,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint -c .eslintrc .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint --fix"
   },
   "browserslist": {
     "production": [

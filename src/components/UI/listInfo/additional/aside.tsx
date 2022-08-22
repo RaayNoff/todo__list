@@ -1,5 +1,4 @@
-import React, { FC, useEffect, useRef } from "react";
-import { IColor } from "../../../../types/color";
+import { FC, useEffect, useRef } from "react";
 import Endtime from "../../endtime";
 import s from "./aside.module.scss";
 

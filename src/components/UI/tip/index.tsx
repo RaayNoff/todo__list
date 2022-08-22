@@ -1,40 +1,37 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import usePath from "../../../hooks/usePath";
+import { ITipData } from "../../../types/tip";
+import PolygonSVG from "./additional/polygonSVG";
 import s from "./tip.module.scss";
+import "./tip.animation.scss";
+
 interface ITipProps {
-  tipState: boolean[];
+  content: ITipData;
 }
 
-const Tip: FC<ITipProps> = ({ tipState }) => {
+const Tip: FC<ITipProps> = ({ content }) => {
+  const display = usePath();
+
+  if (!display) return null;
+
   return (
-    <div className={s.tip}>
-      {tipState[0] === false ? (
-        <p className={`${s.tip__message} ${s.tip__error}`}>
-          Длина пароля минимум 8 символов
-        </p>
-      ) : (
-        <p className={`${s.tip__message} ${s.tip__success}`}>
-          Длина пароля минимум 8 символов
-        </p>
-      )}
-      {tipState[1] === false ? (
-        <p className={`${s.tip__message} ${s.tip__error}`}>
-          Содержит хотя бы одну заглавную букву
-        </p>
-      ) : (
-        <p className={`${s.tip__message} ${s.tip__success}`}>
-          Содержит хотя бы одну заглавную букву
-        </p>
-      )}
-      {tipState[2] === false ? (
-        <p className={`${s.tip__message} ${s.tip__error}`}>
-          Включает по крайней мере один специальный символ
-        </p>
-      ) : (
-        <p className={`${s.tip__message} ${s.tip__success}`}>
-          Включает по крайней мере один специальный символ
-        </p>
-      )}
-    </div>
+    <section className={s.tip}>
+      <div className={s.tip__polygon}>{PolygonSVG()}</div>
+      <div className={s.tip__content}>
+        {content.strings.map((message, i) => (
+          <p
+            key={i}
+            className={
+              content.boolean[i]
+                ? `${s.message} ${s.success}`
+                : `${s.message} ${s.error}`
+            }
+          >
+            {message}
+          </p>
+        ))}
+      </div>
+    </section>
   );
 };
 

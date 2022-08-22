@@ -1,93 +1,50 @@
-import React, { FC, SyntheticEvent, useEffect, useState } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { ValidationApi } from "../../../api/validationApi";
+import { FC, SyntheticEvent, useState } from "react";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import useValidData from "../../../hooks/useValidData";
 import { AuthorizationType } from "../../../store/action-creators/authorization";
-import Tip from "../tip";
+import { FormInputType } from "../../../types/formInput";
 import FormFooter from "./additional/formFooter";
 import FormHeader from "./additional/formHeader";
+import FormInput from "./additional/formInput";
 import ResponseSection from "./additional/responseSection";
 import s from "./authorizationForm.module.scss";
-import "./tip.animation.scss";
 
 interface IAuthorizationProps {
-  isSignUp: boolean;
   fetchCallback: AuthorizationType;
-  loading: boolean;
-  error: null | string;
 }
 
-const AuthorizationForm: FC<IAuthorizationProps> = ({
-  isSignUp,
-  fetchCallback,
-  loading,
-  error,
-}) => {
-  const [login, setLogin] = useState<string>("");
+const AuthorizationForm: FC<IAuthorizationProps> = ({ fetchCallback }) => {
+  const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
-  const [displayTip, setDisplayTip] = useState<boolean>(false);
-  const [passwordState, setPasswordState] = useState<boolean[]>([
-    false,
-    false,
-    false,
-  ]);
+  const { error } = useTypedSelector((state) => state.authorization);
+  const isDataValid = useValidData(email, password);
 
   const onClickHandler = (e: SyntheticEvent): void => {
     e.preventDefault();
 
-    if (isSignUp && passwordState.indexOf(false) === -1) {
-      fetchCallback(login, password);
-    }
-    if (!isSignUp) fetchCallback(login, password);
+    fetchCallback(email, password);
   };
-
-  useEffect(() => {
-    if (isSignUp) setPasswordState(ValidationApi.validatePassword(password));
-  }, [password, isSignUp]);
 
   return (
     <section className={s.authorization}>
       <form className={s.form}>
-        <FormHeader isSignUp={isSignUp}></FormHeader>
-
-        <div className={`${s.form__input} ${s.input}`}>
-          <header className={s.input__title}>Email</header>
-          <input
-            id="login"
-            value={login}
-            onChange={(e) => setLogin(e.currentTarget.value)}
-            type="text"
-          />
-        </div>
-
-        <div className={`${s.form__input} ${s.input}`}>
-          <header className={s.input__title}>Пароль</header>
-          <input
-            id="password"
-            type="password"
-            autoComplete="on"
-            value={password}
-            onFocus={() => setDisplayTip(true)}
-            onBlur={() => setDisplayTip(false)}
-            onChange={(e) => setPassword(e.currentTarget.value)}
-          />
-        </div>
-
+        <FormHeader />
+        <FormInput
+          inputType={FormInputType.EMAIL}
+          value={email}
+          onChangeValue={setEmail}
+        />
+        <FormInput
+          inputType={FormInputType.PASSWORD}
+          value={password}
+          onChangeValue={setPassword}
+        />
         <p className={s.form__error}>{error}</p>
-
-        <TransitionGroup>
-          {displayTip && isSignUp && (
-            <CSSTransition timeout={300} classNames="tip">
-              <Tip tipState={passwordState}></Tip>
-            </CSSTransition>
-          )}
-        </TransitionGroup>
         <ResponseSection
           callback={onClickHandler}
-          isLoading={loading}
-          isSignUp={isSignUp}
-        ></ResponseSection>
-        <FormFooter isSignUp={isSignUp}></FormFooter>
+          canBeClicked={!isDataValid}
+        />
+        <FormFooter />
       </form>
     </section>
   );

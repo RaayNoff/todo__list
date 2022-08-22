@@ -32,9 +32,7 @@ $api.interceptors.response.use(
         );
         localStorage.setItem("token", response.data.accessToken);
         return $api.request(originalRequest);
-      } catch (e: any) {
-        console.error(e.message);
-      }
+      } catch (e: any) {}
     }
     throw Error("Error occured trying fetch refresh");
   }

@@ -1,5 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { FC, useEffect, useState } from "react";
 import { useActions } from "../../../hooks/useActions";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { MaxWidthContainer } from "../../../types/maxWidthContainer";
@@ -20,7 +19,6 @@ const Home: FC = () => {
     //  fetchLists("");
   }, []);
 
-  console.log(lists);
   return (
     <main>
       <Header
@@ -29,9 +27,8 @@ const Home: FC = () => {
         maxWidthContainer={MaxWidthContainer.AUTHORIZED}
       ></Header>
       <section className={s.home}>
-      <Sidebar isEnabled={isSidebarDisplayed}></Sidebar>
+        <Sidebar isEnabled={isSidebarDisplayed}></Sidebar>
         <div className={MaxWidthContainer.AUTHORIZED}>
-          
           <MainContent />
         </div>
       </section>
