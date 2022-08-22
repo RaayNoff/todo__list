@@ -16,11 +16,13 @@
     "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
     "chroma-js": "^2.4.2",
+    "date-fns": "^2.29.2",
     "email-validator": "^2.0.4",
     "moment": "^2.29.4",
     "naming-convention": "^1.0.1",
     "node-sass": "^7.0.1",
     "react": "^18.2.0",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
@@ -52,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-datepicker": "^4.4.2",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "eslint": "^8.21.0",
