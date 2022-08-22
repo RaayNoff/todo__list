@@ -1,5 +1,5 @@
 export default class BackendApi {
-  static LOCATION = "http://37.22.100.251:8080";
+  static LOCATION = "https://37.22.100.251:8443";
 
   static REGISTRATION = `${this.LOCATION}/api/auth/signup`;
   static LOGIN = `${this.LOCATION}/api/auth/signin`;
