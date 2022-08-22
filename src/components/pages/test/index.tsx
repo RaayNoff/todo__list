@@ -1,8 +1,13 @@
-import { FC, useState } from "react";
-import ListInfo from "../../UI/listInfo";
+import { FC, useEffect, useState } from "react";
+import CreateTask from "../../UI/createTask";
+import DatePick from "../../UI/datePick";
 
 const Test: FC = () => {
-  const [status, setStatus] = useState<boolean>(false);
+  const [timestamp, setTimestamp] = useState(0);
+
+  useEffect(() => {
+    console.log(timestamp);
+  }, [timestamp]);
   return (
     <div
       style={{
@@ -13,7 +18,7 @@ const Test: FC = () => {
         justifyContent: "center",
       }}
     >
-      <ListInfo listId={1} taskId={1} setStatus={setStatus} status={status} />
+      <CreateTask listId={1} />
     </div>
   );
 };
