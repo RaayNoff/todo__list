@@ -1,8 +1,7 @@
 export enum EmailAnswers {
   CORRECT_EMAIL = "Почта удовлетворяет требованиям",
+  INCORRECT_EMAIL = "Почта не удовлетворяет требованиям",
 }
-
-export const EmailValidateAnswers = [EmailAnswers.CORRECT_EMAIL];
 
 export enum PasswordAnswers {
   CORRECT_LENGTH = "Имеет больше 8 символов",

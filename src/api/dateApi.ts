@@ -17,6 +17,6 @@ export default class DateApi {
   static getEndtime = (timestamp: number): string => {
     const m = this.initializeMoment(timestamp);
 
-    return moment(m).format("D MMMM");
+    return moment(m).format("D MMMM YYYY | h:mm");
   };
 }
