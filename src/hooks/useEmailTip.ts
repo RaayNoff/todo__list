@@ -1,19 +1,24 @@
 import { useMemo, useState } from "react";
 import { ValidationApi } from "../api/validationApi";
 import { ITipData } from "../types/tip";
-import { EmailValidateAnswers } from "../types/validator";
+import { EmailAnswers } from "../types/validator";
 
 const useEmailTip = (email: string): ITipData => {
   const [emailState, setEmailState] = useState(
     ValidationApi.validateEmail(email)
   );
+  const [emailAnswer, setEmailAnswer] = useState(EmailAnswers.INCORRECT_EMAIL);
 
   useMemo(() => {
     setEmailState(ValidationApi.validateEmail(email));
-  }, [email]);
+
+    emailState
+      ? setEmailAnswer(EmailAnswers.CORRECT_EMAIL)
+      : setEmailAnswer(EmailAnswers.INCORRECT_EMAIL);
+  }, [email, emailState]);
 
   const emailTip: ITipData = {
-    strings: [...EmailValidateAnswers],
+    strings: [emailAnswer],
     boolean: [emailState],
   };
 
