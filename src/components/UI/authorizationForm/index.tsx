@@ -16,7 +16,7 @@ interface IAuthorizationProps {
 const AuthorizationForm: FC<IAuthorizationProps> = ({ fetchCallback }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const { error } = useTypedSelector((state) => state.authorization);
+  const { error,  } = useTypedSelector((state) => state.authorization);
   const isDataValid = useValidData(email, password);
 
   const onClickHandler = (e: SyntheticEvent): void => {
