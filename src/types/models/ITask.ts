@@ -1,5 +1,5 @@
-import { ICommentary } from "./commentary";
-import { timestamp } from "./timestamp";
+import { timestamp } from "../Timestamp";
+import { ICommentary } from "./ICommentary";
 
 export interface ITask {
   id: number;

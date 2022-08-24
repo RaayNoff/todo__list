@@ -1,9 +1,9 @@
 import { FC, SyntheticEvent } from "react";
 import { useState } from "react";
-import { ButtonTypes } from "../../../types/button";
-import { Colors } from "../../../types/color";
-import { InputSizeTypes } from "../../../types/input";
-import { IUser } from "../../../types/user";
+import { ButtonTypes } from "../../../types/enums/ButtonTypes";
+import { Colors } from "../../../types/classes/Colors";
+import { InputSizeTypes } from "../../../types/enums/InputSizeTypes";
+import { IUser } from "../../../types/models/IUser";
 import Button from "../button";
 import FooterInsert from "../footerInsert";
 import HeaderInsert from "../headerInsert";

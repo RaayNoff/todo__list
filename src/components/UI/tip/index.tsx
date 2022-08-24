@@ -1,6 +1,6 @@
 import { FC } from "react";
+import { ITipData } from "../../../types/models/ITipData";
 import usePath from "../../../hooks/usePath";
-import { ITipData } from "../../../types/tip";
 import PolygonSVG from "./additional/polygonSVG";
 import s from "./tip.module.scss";
 import "./tip.animation.scss";

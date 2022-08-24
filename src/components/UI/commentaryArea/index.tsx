@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { ButtonTypes } from "../../../types/button";
+import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import Button from "../button";
 import s from "./commentaryArea.module.scss";
 

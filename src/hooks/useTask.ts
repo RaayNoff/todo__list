@@ -1,8 +1,8 @@
-import { ITask } from "../types/task";
+import { ITask } from "../types/models/ITask";
 import { useTypedSelector } from "./useTypedSelector";
 
 export const useTask = (targetId: number): ITask => {
-  const { lists } = useTypedSelector((state) => state.lists);
+  const { lists } = useTypedSelector((state) => state.list);
 
   const requiredList = lists.filter((l) =>
     l.tasks.filter((t) => t.id === targetId)

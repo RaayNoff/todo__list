@@ -1,7 +1,8 @@
 import React, { Dispatch, FC, SetStateAction, useState } from "react";
 import Select, { OnChangeValue } from "react-select";
 import makeAnimated from "react-select/animated";
-import { Colors, IColor } from "../../../types/color";
+import { Colors } from "../../../types/classes/Colors";
+import { IColor } from "../../../types/models/IColor";
 import s from "./colorPicker.module.scss";
 import "./select/select.scss";
 import { colorStyles } from "./select/styles";

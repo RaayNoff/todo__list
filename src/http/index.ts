@@ -1,6 +1,6 @@
 import axios from "axios";
-import { AuthResponse } from "../types/authorization";
-import BackendApi from "../types/urls";
+import BackendApi from "../types/classes/BackendApi";
+import { AuthResponse } from "../types/interfaces/Authorization";
 
 export const $api = axios.create({
   withCredentials: true,
@@ -34,6 +34,6 @@ $api.interceptors.response.use(
         return $api.request(originalRequest);
       } catch (e: any) {}
     }
-    throw Error("Error occured trying fetch refresh");
+    throw Error("Произошла ошибка при попытке обновить данные");
   }
 );

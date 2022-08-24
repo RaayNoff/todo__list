@@ -3,7 +3,7 @@ import Header from "../../common/header";
 import AuthorizationForm from "../../UI/authorizationForm";
 import checklist from "../../../icons/welcomeImg.jpg";
 import { useActions } from "../../../hooks/useActions";
-import { MaxWidthContainer } from "../../../types/maxWidthContainer";
+import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
 import s from "./singIn.module.scss";
 
 const SingIn: FC = () => {

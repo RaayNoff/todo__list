@@ -2,7 +2,7 @@ import React, { Dispatch, FC, useEffect, useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ru from "date-fns/locale/ru";
-import { timestamp } from "../../../types/timestamp";
+import { timestamp } from "../../../types/Timestamp";
 import s from "./datePick.module.scss";
 
 interface IDatePick {

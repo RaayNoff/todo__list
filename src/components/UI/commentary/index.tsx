@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import DateApi from "../../../api/dateApi";
-import { timestamp } from "../../../types/timestamp";
+import { timestamp } from "../../../types/Timestamp";
 import s from "./commentary.module.scss";
 
 interface ICommentaryProps {

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { TimeFrameTypes } from "../../../types/timeFrame";
+import { TimeFrameTypes } from "../../../types/enums/TimeFrame";
 import Grouper from "../../UI/grouper";
 import List from "../../UI/list";
 import TimeFrame from "../../UI/timeFrame";

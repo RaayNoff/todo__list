@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { ValidationApi } from "../api/validationApi";
-import { ITipData } from "../types/tip";
-import { EmailAnswers } from "../types/validator";
+import { EmailAnswers } from "../types/enums/EmailAnswers";
+import { ITipData } from "../types/models/ITipData";
 
 const useEmailTip = (email: string): ITipData => {
   const [emailState, setEmailState] = useState(

@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import { authorizationReducer } from "./authorizationReducer";
-import listsReducer from "./listsReducer";
+import list from "./listSlice";
 
 export const rootReducer = combineReducers({
   authorization: authorizationReducer,
-  lists: listsReducer,
+  list,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

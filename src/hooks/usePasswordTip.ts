@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { ValidationApi } from "../api/validationApi";
-import { ITipData } from "../types/tip";
-import { PasswordValidateAnswers } from "../types/validator";
+import { ITipData } from "../types/models/ITipData";
+import { PasswordValidateAnswers } from "../types/PasswordValidateAnswers";
 
 const usePasswordTip = (password: string): ITipData => {
   const [passwordState, setPasswordState] = useState(

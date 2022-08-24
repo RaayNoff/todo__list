@@ -1,4 +1,4 @@
-import { timestamp } from "./timestamp";
+import { timestamp } from "../Timestamp";
 
 export interface ICommentary {
   id: number;

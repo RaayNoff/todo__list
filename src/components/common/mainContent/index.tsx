@@ -1,13 +1,11 @@
 import { FC } from "react";
+import { ITask } from "../../../types/models/ITask";
 import useTasks from "../../../hooks/useTasks";
-import { ITask } from "../../../types/task";
 import List from "../../utils/List";
 import Task from "../../UI/task";
 import s from "./mainContent.module.scss";
 
-
 const MainContent: FC = () => {
-
   const tasks = useTasks();
 
   return (

@@ -1,7 +1,10 @@
-import { IListsState, ListsActionTypes, ListsAction } from "../../types/list";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IList } from "../../types/models/IList";
+import { IListsState } from "../../types/states/IListState";
+import { fetchLists } from "../action-creators/list";
 
 const initialState: IListsState = {
-  error: null,
+  error: "",
   lists: [
     {
       id: 1,
@@ -59,22 +62,23 @@ const initialState: IListsState = {
   loading: false,
 };
 
-const listsReducer = (
-  state = initialState,
-  action: ListsAction
-): IListsState => {
-  switch (action.type) {
-    case ListsActionTypes.FETCH_LISTS:
-      return { ...state, error: null, lists: [], loading: true };
+export const ListSlice = createSlice({
+  name: "list",
+  initialState: initialState,
+  reducers: {},
+  extraReducers: {
+    [fetchLists.pending.type]: (state) => {
+      state.loading = true;
+    },
+    [fetchLists.fulfilled.type]: (state, action: PayloadAction<IList[]>) => {
+      state.loading = false;
+      state.lists = action.payload;
+    },
+    [fetchLists.rejected.type]: (state) => {
+      state.loading = false;
+      state.error = "Неудалось загрузить списки задач";
+    },
+  },
+});
 
-    case ListsActionTypes.FETCH_LISTS_SUCCESS:
-      return { ...state, error: null, lists: action.payload, loading: false };
-
-    case ListsActionTypes.FETCH_LISTS_ERROR:
-      return { ...state, error: action.payload, lists: [], loading: false };
-
-    default:
-      return state;
-  }
-};
-export default listsReducer;
+export default ListSlice.reducer;

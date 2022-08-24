@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useActions } from "../../../hooks/useActions";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
-import { MaxWidthContainer } from "../../../types/maxWidthContainer";
+import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
 import Header from "../../common/header";
 import MainContent from "../../common/mainContent";
 import Sidebar from "../../common/sidebar";
@@ -9,14 +9,15 @@ import s from "./home.module.scss";
 
 const Home: FC = () => {
   const [isSidebarDisplayed, setIsSidebarDisplayed] = useState<boolean>(true);
+
   const { fetchLists } = useActions();
-  const { error, lists, loading } = useTypedSelector((state) => state.lists);
+  const { error, lists, loading } = useTypedSelector((state) => state.list);
 
   const toggleSidebar = () => {
     setIsSidebarDisplayed(!isSidebarDisplayed);
   };
   useEffect(() => {
-    //  fetchLists("");
+    //  fetchLists();
   }, []);
 
   return (

@@ -1,9 +1,7 @@
-import {
-  AuthorizationAction,
-  AuthorizationActionTypes,
-  IAuthorizationState,
-} from "../../types/authorization";
-import { IUser } from "../../types/user";
+import { AuthorizationAction } from "../../types/AuthorizationAction";
+import { AuthorizationActionTypes } from "../../types/enums/AuthorizationActionTypes";
+import { IUser } from "../../types/models/IUser";
+import { IAuthorizationState } from "../../types/states/IAuthorizationState";
 
 const initialState: IAuthorizationState = {
   loading: false,

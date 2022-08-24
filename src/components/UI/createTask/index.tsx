@@ -1,5 +1,5 @@
 import { FC, SyntheticEvent, useState } from "react";
-import { ButtonTypes } from "../../../types/button";
+import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import Button from "../button";
 import DatePick from "../datePick";
 import PlusSVG from "./additional/plusSVG";

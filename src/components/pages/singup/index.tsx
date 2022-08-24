@@ -3,7 +3,7 @@ import Header from "../../common/header";
 import checklist from "../../../icons/welcomeImg.jpg";
 import AuthorizationForm from "../../UI/authorizationForm";
 import { useActions } from "../../../hooks/useActions";
-import { MaxWidthContainer } from "../../../types/maxWidthContainer";
+import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
 import s from "./signUp.module.scss";
 
 const SingUp: FC = () => {

@@ -2,7 +2,7 @@ import { FC, SyntheticEvent, useState } from "react";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import useValidData from "../../../hooks/useValidData";
 import { AuthorizationType } from "../../../store/action-creators/authorization";
-import { FormInputType } from "../../../types/formInput";
+import { FormInputType } from "../../../types/enums/FormInputType";
 import FormFooter from "./additional/formFooter";
 import FormHeader from "./additional/formHeader";
 import FormInput from "./additional/formInput";

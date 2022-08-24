@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { RoutePath } from "../types/routes";
+import { RoutePath } from "../types/enums/RoutePath";
 
 const usePath = (): boolean => {
   const [isRegistration, setIsRegistration] = useState<boolean>(false);

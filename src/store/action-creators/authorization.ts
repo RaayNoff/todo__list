@@ -1,13 +1,11 @@
 import axios, { AxiosError } from "axios";
 import { AnyAction, Dispatch } from "redux";
 import { $api } from "../../http";
-import {
-  AuthorizationAction,
-  AuthorizationActionTypes,
-  AuthResponse,
-} from "../../types/authorization";
-import BackendApi from "../../types/urls";
-import { userDataField } from "../../types/user";
+import { AuthorizationActionTypes } from "../../types/enums/AuthorizationActionTypes";
+import { AuthResponse } from "../../types/interfaces/Authorization";
+import { userDataField } from "../../types/userDataField";
+import BackendApi from "../../types/classes/BackendApi";
+import { AuthorizationAction } from "../../types/AuthorizationAction";
 
 export const login = (email: userDataField, password: userDataField) => {
   return async (dispatch: Dispatch<AuthorizationAction | AnyAction>) => {

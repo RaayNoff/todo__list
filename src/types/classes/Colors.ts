@@ -1,10 +1,4 @@
-export interface IColor {
-  readonly value: string;
-  readonly color: string;
-  readonly label: string;
-  readonly isFixed?: boolean;
-  readonly isDisabled?: boolean;
-}
+import { IColor } from "../models/IColor";
 
 export class Colors {
   static pallete: IColor[] = [

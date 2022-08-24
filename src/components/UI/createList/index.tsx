@@ -1,7 +1,7 @@
 import React, { FC, SyntheticEvent, useEffect, useState } from "react";
-import { ButtonTypes } from "../../../types/button";
-import { Colors } from "../../../types/color";
-import { InputSizeTypes } from "../../../types/input";
+import { ButtonTypes } from "../../../types/enums/ButtonTypes";
+import { Colors } from "../../../types/classes/Colors";
+import { InputSizeTypes } from "../../../types/enums/InputSizeTypes";
 import Button from "../button";
 import ColorPicker from "../colorPicker";
 import FooterInsert from "../footerInsert";

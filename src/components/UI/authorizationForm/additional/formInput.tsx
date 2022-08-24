@@ -4,7 +4,7 @@ import useEmailTip from "../../../../hooks/useEmailTip";
 import usePasswordTip from "../../../../hooks/usePasswordTip";
 import usePath from "../../../../hooks/usePath";
 import { useTypedSelector } from "../../../../hooks/useTypedSelector";
-import { FormInputType } from "../../../../types/formInput";
+import { FormInputType } from "../../../../types/enums/FormInputType";
 import Tip from "../../tip";
 import s from "./formInput.module.scss";
 

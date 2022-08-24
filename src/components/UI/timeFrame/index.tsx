@@ -1,5 +1,8 @@
 import React, { FC, useEffect, useRef } from "react";
-import { TimeFrameColors, TimeFrameTypes } from "../../../types/timeFrame";
+import {
+  TimeFrameColors,
+  TimeFrameTypes,
+} from "../../../types/enums/TimeFrame";
 import s from "./timeFrame.module.scss";
 
 interface ITimeFrameProps {

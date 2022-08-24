@@ -1,5 +1,5 @@
 import * as AuthorizationActionCreators from "./authorization";
-import * as ListsActionCreators from "./lists";
+import * as ListsActionCreators from "./list";
 
 export default {
   ...AuthorizationActionCreators,

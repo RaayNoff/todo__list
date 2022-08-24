@@ -1,5 +1,5 @@
 import React, { FC, SyntheticEvent, useState } from "react";
-import { MaxWidthContainer } from "../../../types/maxWidthContainer";
+import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
 import s from "./header.module.scss";
 
 interface IHeaderProps {
