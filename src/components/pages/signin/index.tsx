@@ -7,7 +7,7 @@ import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
 import s from "./singIn.module.scss";
 
 const SingIn: FC = () => {
-  const { login } = useActions();
+  const { fetchLogin } = useActions();
   return (
     <main>
       <Header></Header>
@@ -20,7 +20,7 @@ const SingIn: FC = () => {
               </header>
               <img src={checklist} alt="checklist"></img>
             </section>
-            <AuthorizationForm fetchCallback={login} />
+            <AuthorizationForm fetchCallback={fetchLogin} />
           </section>
         </div>
       </section>

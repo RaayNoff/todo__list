@@ -1,6 +1,7 @@
 import axios from "axios";
-import BackendApi from "../types/classes/BackendApi";
-import { AuthResponse } from "../types/interfaces/Authorization";
+import { useActions } from "../../hooks/useActions";
+import BackendApi from "../../types/classes/BackendApi";
+import { AuthResponse } from "../../types/interfaces/Authorization";
 
 export const $api = axios.create({
   withCredentials: true,
@@ -26,13 +27,12 @@ $api.interceptors.response.use(
     ) {
       originalRequest.isRetry = true;
       try {
-        const response = await axios.get<AuthResponse>(
-          `${BackendApi.REFRESH}`,
-          { withCredentials: true }
-        );
-        localStorage.setItem("token", response.data.accessToken);
+        const { checkAuth } = useActions();
+        checkAuth();
         return $api.request(originalRequest);
-      } catch (e: any) {}
+      } catch (e: any) {
+        console.error(e.message);
+      }
     }
     throw Error("Произошла ошибка при попытке обновить данные");
   }

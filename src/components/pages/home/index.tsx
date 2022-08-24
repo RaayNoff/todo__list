@@ -17,7 +17,7 @@ const Home: FC = () => {
     setIsSidebarDisplayed(!isSidebarDisplayed);
   };
   useEffect(() => {
-    //  fetchLists();
+    fetchLists();
   }, []);
 
   return (

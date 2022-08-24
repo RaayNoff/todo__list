@@ -1,88 +1,82 @@
-import axios, { AxiosError } from "axios";
-import { AnyAction, Dispatch } from "redux";
-import { $api } from "../../http";
-import { AuthorizationActionTypes } from "../../types/enums/AuthorizationActionTypes";
+import axios from "axios";
+import { AppDispatch } from "..";
+import { localStorageApi } from "../../api/localStorageApi";
+import BackendApi from "../../types/classes/BackendApi";
 import { AuthResponse } from "../../types/interfaces/Authorization";
 import { userDataField } from "../../types/userDataField";
-import BackendApi from "../../types/classes/BackendApi";
-import { AuthorizationAction } from "../../types/AuthorizationAction";
+import { $api } from "../http";
+import { AuthorizationSlice } from "../reducers/authorizationSlice";
 
-export const login = (email: userDataField, password: userDataField) => {
-  return async (dispatch: Dispatch<AuthorizationAction | AnyAction>) => {
+export const fetchLogin =
+  (email: userDataField, password: userDataField) =>
+  async (dispatch: AppDispatch) => {
     try {
-      dispatch({ type: AuthorizationActionTypes.FETCH_LOGIN });
+      dispatch(AuthorizationSlice.actions.fetchAuthorization);
+
       const response = await $api.post<AuthResponse>(BackendApi.LOGIN, {
         email: email,
         password: password,
       });
 
-      localStorage.setItem("token", response.data.accessToken);
+      localStorageApi.setAccessToken(response.data.accessToken);
 
-      dispatch({
-        type: AuthorizationActionTypes.FETCH_AUTHORIZATION_SUCCESS,
-        payload: response.data,
-      });
-    } catch (e: any | AxiosError) {
-      dispatch({
-        type: AuthorizationActionTypes.FETCH_AUTHORIZATION_ERROR,
-        payload: e.message,
-      });
+      dispatch(
+        AuthorizationSlice.actions.fetchAuthorizationSuccess(response.data.user)
+      );
+    } catch (error) {
+      dispatch(
+        AuthorizationSlice.actions.fetchAuthorizationError(
+          "Неудалось войти в приложение"
+        )
+      );
     }
   };
-};
 
-export const registration = (email: userDataField, password: userDataField) => {
-  return async (dispatch: Dispatch<AuthorizationAction | AnyAction>) => {
+export const fetchRegistration =
+  (email: userDataField, password: userDataField) =>
+  async (dispatch: AppDispatch) => {
     try {
-      dispatch({ type: AuthorizationActionTypes.FETCH_REGISTRATION });
+      dispatch(AuthorizationSlice.actions.fetchAuthorization);
       const response = await $api.post<AuthResponse>(BackendApi.REGISTRATION, {
         email: email,
         password: password,
       });
 
-      localStorage.setItem("token", response.data.accessToken);
+      localStorageApi.setAccessToken(response.data.accessToken);
 
-      dispatch({
-        type: AuthorizationActionTypes.FETCH_AUTHORIZATION_SUCCESS,
-        payload: response.data,
-      });
-    } catch (e: any | AxiosError) {
-      dispatch({
-        type: AuthorizationActionTypes.FETCH_AUTHORIZATION_ERROR,
-        payload: e.message,
-      });
+      dispatch(
+        AuthorizationSlice.actions.fetchAuthorizationSuccess(response.data.user)
+      );
+    } catch (error) {
+      dispatch(
+        AuthorizationSlice.actions.fetchAuthorizationError(
+          "Неудалось зарегистрироваться"
+        )
+      );
     }
   };
+
+export const checkAuth = () => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(AuthorizationSlice.actions.fetchAuthorizationRefresh);
+
+    const response = await axios.post<AuthResponse>(BackendApi.REFRESH, {
+      withCredentials: true,
+    });
+
+    localStorageApi.setAccessToken(response.data.accessToken);
+
+    dispatch(
+      AuthorizationSlice.actions.fetchAuthorizationSuccess(response.data.user)
+    );
+  } catch (error) {
+    dispatch(AuthorizationSlice.actions.fetchAuthorizationRefreshError);
+  }
 };
 
-export const logout = () => {
-  return async (dispatch: Dispatch<AuthorizationAction | AnyAction>) => {
-    try {
-      dispatch({ type: AuthorizationActionTypes.LOGOUT });
-      localStorage.removeItem("token");
-    } catch (e: any) {
-      console.error(e.message);
-    }
-  };
+export const logout = () => (dispath: AppDispatch) => {
+  dispath(AuthorizationSlice.actions.authorizationLogout);
+  localStorageApi.removeAccessToken();
 };
 
-export const checkAuth = () => {
-  return async (dispatch: Dispatch<AuthorizationAction | AnyAction>) => {
-    try {
-      dispatch({ type: AuthorizationActionTypes.FETCH_REFRESH });
-      const response = await axios.post<AuthResponse>(BackendApi.REFRESH, {
-        withCredentials: true,
-      });
-      localStorage.setItem("token", response.data.accessToken);
-
-      dispatch({ type: AuthorizationActionTypes.FETCH_AUTHORIZATION_SUCCESS });
-    } catch (e: any | AxiosError) {
-      dispatch({
-        type: AuthorizationActionTypes.FETCH_AUTHORIZATION_ERROR,
-        payload: e.message,
-      });
-    }
-  };
-};
-
-export type AuthorizationType = typeof registration | typeof login;
+export type AuthorizationType = typeof fetchLogin | typeof fetchRegistration;

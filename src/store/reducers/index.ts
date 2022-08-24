@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import { authorizationReducer } from "./authorizationReducer";
 import list from "./listSlice";
+import authorization from "./authorizationSlice";
 
 export const rootReducer = combineReducers({
-  authorization: authorizationReducer,
+  authorization,
   list,
 });
 
