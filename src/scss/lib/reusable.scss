@@ -1,12 +1,30 @@
-//Адаптивные изображения
-._ibg {
-	position: relative;
-	img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		object-fit: cover;
-	}
+// //Адаптивные изображения
+// ._ibg {
+// 	position: relative;
+// 	img {
+// 		position: absolute;
+// 		width: 100%;
+// 		height: 100%;
+// 		top: 0;
+// 		left: 0;
+// 		object-fit: cover;
+// 	}
+// }
+.popup {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.4);
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 200ms ease-out;
+}
+.popup.enabled {
+	pointer-events: all;
+	opacity: 1;
 }
