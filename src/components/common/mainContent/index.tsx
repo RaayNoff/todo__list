@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { ITask } from "../../../types/models/ITask";
 import useTasks from "../../../hooks/useTasks";
-import List from "../../utils/List";
+import ListUtil from "../../utils/ListUtil";
 import Task from "../../UI/task";
 import s from "./mainContent.module.scss";
 
@@ -21,7 +21,7 @@ const MainContent: FC = () => {
       </div>
       <div className={s.main__center}>
         <p className={s.subtitle}> Предстоит сделать </p>
-        <List
+        <ListUtil
           items={tasks}
           renderItem={(task: ITask) => <Task task={task} key={task.id} />}
         />
