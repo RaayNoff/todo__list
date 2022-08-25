@@ -7,7 +7,7 @@
 	&__data {
 		display: flex;
 		align-items: center;
-		width: 225px;
+		width: 223px;
 	}
 
 	// .list__color
@@ -33,9 +33,9 @@
 		align-items: center;
 		height: 15px;
 		span {
-			width: 2px;
-			height: 2px;
-			margin: 0px 2.5px 0px 0px;
+			width: 3px;
+			height: 3px;
+			margin: 0px 3px 0px 0px;
 			background-color: #4d4d4d;
 			border-radius: 50%;
 			&:last-child {
@@ -65,12 +65,12 @@
 
 @keyframes loading {
 	0% {
-		transform: scale(80%);
+		transform: scale(100%);
 	}
 	50% {
-		transform: scale(150%);
+		transform: scale(135%);
 	}
 	100% {
-		transform: scale(80%);
+		transform: scale(100%);
 	}
 }

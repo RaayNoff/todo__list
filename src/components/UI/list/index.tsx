@@ -1,21 +1,22 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
+import { useListById } from "../../../hooks/useListById";
 import ListMenu from "./additional/listMenu";
 import s from "./list.module.scss";
 
 interface IListProps {
-  listName: string;
-  listColor: string;
+  listId: number;
 }
 
-const List: FC<IListProps> = ({ listName, listColor }) => {
+const List: FC<IListProps> = ({ listId }) => {
   const colorRef = useRef<HTMLDivElement>(null);
   const [isMenuOpened, SetIsMenuOpened] = useState<boolean>(false);
+  const { color, listName } = useListById(listId);
 
   useEffect(() => {
     if (colorRef.current) {
-      colorRef.current.style.backgroundColor = listColor;
+      colorRef.current.style.backgroundColor = color;
     }
-  }, [listColor]);
+  }, [color]);
 
   return (
     <section className={s.list}>
@@ -36,7 +37,11 @@ const List: FC<IListProps> = ({ listName, listColor }) => {
         <span></span>
       </div>
 
-      <ListMenu isEnabled={isMenuOpened} />
+      <ListMenu
+        isEnabled={isMenuOpened}
+        listId={listId}
+        setIsEnabled={SetIsMenuOpened}
+      />
     </section>
   );
 };
