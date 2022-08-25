@@ -1,0 +1,19 @@
+.noUsersInfo {
+	text-align: center;
+	// .noUsersInfo__title
+	&__title {
+		font-size: 14px;
+		line-height: 17 / 14 * 100%;
+		font-weight: 400;
+		color: #000;
+		margin: 0px 0px 9px 0px;
+	}
+
+	// .noUsersInfo__desc
+	&__desc {
+		color: #696969;
+		font-size: 10px;
+		line-height: 12 / 10 * 100%;
+		font-weight: 500;
+	}
+}

@@ -1,0 +1,43 @@
+.shareList {
+	width: 400px;
+	border-radius: 10px;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	// .shareList__content
+	&__content {
+		margin: 32px 0px 113px 0px;
+	}
+
+	// .shareList__clientResponse
+	&__clientResponse {
+		display: flex;
+
+		section {
+			margin: 0px 6px 0px 0px;
+		}
+
+		button {
+			align-self: flex-end;
+			transform: translateY(-3.5%);
+		}
+	}
+}
+
+.mb89 {
+	margin-bottom: 89px;
+}
+
+.mb36 {
+	margin-bottom: 36px;
+}
+
+.mb146 {
+	margin-bottom: 146px;
+}
+
+.mb113 {
+	margin-bottom: 113px;
+}
