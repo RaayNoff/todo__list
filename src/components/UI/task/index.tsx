@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
-import { useList } from "../../../hooks/useList";
-import { useListId } from "../../../hooks/useListId";
+import { useListById } from "../../../hooks/useListById";
+import { useTaskByListId } from "../../../hooks/useTaskByListId";
 import { ITask } from "../../../types/models/ITask";
 import Checkbox from "../checkbox";
 import Endtime from "../endtime";
@@ -12,12 +12,12 @@ interface TaskProps {
 
 const Task: FC<TaskProps> = ({ task }) => {
   const [status, setStatus] = useState(false);
-  const listId = useListId(task.id);
-  const { colors } = useList(listId);
+  const listId = useTaskByListId(task.id);
+  const { color } = useListById(listId);
 
   return (
     <section className={s.task}>
-      <Checkbox color={colors.color} status={status} setStatus={setStatus} />
+      <Checkbox color={color} status={status} setStatus={setStatus} />
 
       <section className={s.task__data}>
         <p className={s.task__name}>{task.taskName}</p>
