@@ -11,7 +11,7 @@ export const fetchLogin =
   (email: userDataField, password: userDataField) =>
   async (dispatch: AppDispatch) => {
     try {
-      dispatch(AuthorizationSlice.actions.fetchAuthorization);
+      dispatch(AuthorizationSlice.actions.fetchAuthorization());
 
       const response = await $api.post<AuthResponse>(BackendApi.LOGIN, {
         email: email,
@@ -36,7 +36,7 @@ export const fetchRegistration =
   (email: userDataField, password: userDataField) =>
   async (dispatch: AppDispatch) => {
     try {
-      dispatch(AuthorizationSlice.actions.fetchAuthorization);
+      dispatch(AuthorizationSlice.actions.fetchAuthorization());
       const response = await $api.post<AuthResponse>(BackendApi.REGISTRATION, {
         email: email,
         password: password,
@@ -58,7 +58,7 @@ export const fetchRegistration =
 
 export const checkAuth = () => async (dispatch: AppDispatch) => {
   try {
-    dispatch(AuthorizationSlice.actions.fetchAuthorizationRefresh);
+    dispatch(AuthorizationSlice.actions.fetchAuthorizationRefresh());
 
     const response = await axios.post<AuthResponse>(BackendApi.REFRESH, {
       withCredentials: true,
@@ -70,12 +70,12 @@ export const checkAuth = () => async (dispatch: AppDispatch) => {
       AuthorizationSlice.actions.fetchAuthorizationSuccess(response.data.user)
     );
   } catch (error) {
-    dispatch(AuthorizationSlice.actions.fetchAuthorizationRefreshError);
+    dispatch(AuthorizationSlice.actions.fetchAuthorizationRefreshError());
   }
 };
 
 export const logout = () => (dispath: AppDispatch) => {
-  dispath(AuthorizationSlice.actions.authorizationLogout);
+  dispath(AuthorizationSlice.actions.authorizationLogout());
   localStorageApi.removeAccessToken();
 };
 
