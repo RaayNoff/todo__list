@@ -45,4 +45,4 @@ export const AuthorizationSlice = createSlice({
   },
 });
 
-export default AuthorizationSlice.reducer;
+export default AuthorizationSlice;
