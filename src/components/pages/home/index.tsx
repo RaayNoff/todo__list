@@ -5,6 +5,9 @@ import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
 import Header from "../../common/header";
 import MainContent from "../../common/mainContent";
 import Sidebar from "../../common/sidebar";
+import CreateList from "../../modals/createList";
+import ListInfo from "../../modals/listInfo";
+import ShareList from "../../modals/shareList";
 import s from "./home.module.scss";
 
 const Home: FC = () => {
@@ -33,6 +36,8 @@ const Home: FC = () => {
           <MainContent />
         </div>
       </section>
+      <CreateList />
+      <ShareList />
     </main>
   );
 };
