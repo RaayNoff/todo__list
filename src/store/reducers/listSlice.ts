@@ -8,8 +8,9 @@ const initialState: IListsState = {
   lists: [
     {
       id: 1,
-      listName: "Тестовый список",
-      colors: { value: "purple", label: "Фиолетовый", color: "#553fdb" },
+      listName: "Тестовый списовк",
+      color: "#553fdb",
+      accessedUsers: [],
       tasks: [
         {
           id: 1,
@@ -81,4 +82,4 @@ export const ListSlice = createSlice({
   },
 });
 
-export default ListSlice.reducer;
+export default ListSlice;
