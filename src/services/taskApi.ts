@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import BackendApi from "../types/classes/BackendApi";
 
-export const taskService = createApi({
-  reducerPath: "taskService",
+export const taskApi = createApi({
+  reducerPath: "taskApi",
   baseQuery: fetchBaseQuery({
     baseUrl: BackendApi.LOCATION,
   }),
