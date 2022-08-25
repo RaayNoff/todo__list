@@ -1,11 +1,11 @@
-import React, { FC, SyntheticEvent } from "react";
+import React, { FC } from "react";
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import s from "./button.module.scss";
 
 interface IButtonProps {
   text: string;
   btnType: ButtonTypes;
-  onClickCallback: (event: SyntheticEvent) => void;
+  onClickCallback: (event: React.MouseEvent) => void;
 }
 
 const Button: FC<IButtonProps> = ({ text, btnType, onClickCallback }) => {
