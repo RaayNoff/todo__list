@@ -1,9 +1,11 @@
 import { IColor } from "./IColor";
 import { ITask } from "./ITask";
+import { IUser } from "./IUser";
 
 export interface IList {
   id: number;
   listName: string;
-  colors: IColor;
+  color: string;
   tasks: ITask[];
+  accessedUsers: IUser[];
 }
