@@ -1,5 +1,17 @@
 .listMenu {
-	display: none;
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.05);
+	border: 0.3px solid #a3a3a3;
+	padding: 10px 10px;
+	background-color: #fff;
+	border-radius: 5px;
+	text-align: left;
+	width: 169px;
+	height: 82px;
+	transform: translate(100%, 70%);
+	transition: opacity 150ms linear;
 
 	// .listMenu__item
 	&__item {
@@ -22,18 +34,8 @@
 			}
 		}
 	}
-
-	&__active {
-		display: block;
-		box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.05);
-		border: 0.3px solid #a3a3a3;
-		padding: 10px 10px;
-		background-color: #fff;
-		border-radius: 3px;
-		text-align: left;
-
-		position: absolute;
-		transform: translate(108%, 70%);
-		z-index: 9;
-	}
+}
+.active {
+	pointer-events: all;
+	opacity: 1;
 }
