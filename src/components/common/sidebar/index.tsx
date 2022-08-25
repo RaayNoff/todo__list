@@ -1,8 +1,14 @@
 import React, { FC } from "react";
+import { useFilteredLists } from "../../../hooks/useFiltredLists";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { LoaderType } from "../../../types/enums/LoaderType";
 import { TimeFrameTypes } from "../../../types/enums/TimeFrame";
+import { IList } from "../../../types/models/IList";
 import Grouper from "../../UI/grouper";
 import List from "../../UI/list";
+import Loader from "../../UI/loader";
 import TimeFrame from "../../UI/timeFrame";
+import ListUtil from "../../utils/ListUtil";
 import s from "./sidebar.module.scss";
 
 interface ISidebarProps {
@@ -10,6 +16,20 @@ interface ISidebarProps {
 }
 
 const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
+  const { loading } = useTypedSelector((state) => state.list);
+  const { notSharedLists, sharedLists } = useFilteredLists();
+
+  const generateGrouperContent = (listArray: IList[]) => {
+    return loading ? (
+      <Loader isActive={loading} loaderType={LoaderType.LIST} />
+    ) : (
+      <ListUtil
+        items={listArray}
+        renderItem={(list: IList) => <List key={list.id} listId={list.id} />}
+      />
+    );
+  };
+
   return (
     <aside
       className={
@@ -24,10 +44,10 @@ const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
 
         <section className={s.sidebar__groups}>
           <Grouper groupName="Списки">
-            <List listColor="#b736f3" listName="Тестовый список" />
+            {generateGrouperContent(notSharedLists)}
           </Grouper>
           <Grouper groupName="Общие">
-            <List listColor="#553fdb" listName="Задачи с Дмитрием" />
+            {generateGrouperContent(sharedLists)}
           </Grouper>
         </section>
       </div>
