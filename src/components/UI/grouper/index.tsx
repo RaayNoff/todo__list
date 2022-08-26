@@ -1,7 +1,6 @@
 import React, { FC, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { useActions } from "../../../hooks/useActions";
-import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import Add from "./additional/add";
 import Indicator from "./additional/indicator";
 import s from "./grouper.module.scss";
@@ -18,7 +17,7 @@ const Grouper: FC<IGrouperProps> = ({
   groupName,
   isAddActive = true,
 }) => {
-  const [isOpen, SetIsOpen] = useState<boolean>(true);
+  const [isOpen, SetIsOpen] = useState<boolean>(false);
   const { createListToggleOn } = useActions();
 
   const onAddClickHandler = (e: React.MouseEvent) => {
