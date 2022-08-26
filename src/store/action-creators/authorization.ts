@@ -13,10 +13,16 @@ export const fetchLogin =
     try {
       dispatch(AuthorizationSlice.actions.fetchAuthorization());
 
-      const response = await $api.post<AuthResponse>(BackendApi.LOGIN, {
-        email: email,
-        password: password,
-      });
+      const response = await axios.post<AuthResponse>(
+        BackendApi.LOGIN,
+        {
+          email: email,
+          password: password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
 
       localStorageApi.setAccessToken(response.data.accessToken);
 
@@ -31,6 +37,14 @@ export const fetchLogin =
       );
     }
   };
+
+export const testCokie = () => async (dispatch: AppDispatch) => {
+  try {
+    const response = await axios.get(BackendApi.TEST, {
+      withCredentials: true,
+    });
+  } catch (error) {}
+};
 
 export const fetchRegistration =
   (email: userDataField, password: userDataField) =>

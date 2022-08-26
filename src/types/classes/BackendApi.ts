@@ -5,6 +5,7 @@ export default class BackendApi {
   static LOGIN = `${this.LOCATION}/api/auth/signin`;
   static FETCH_LISTS = `${this.LOCATION}/api/lists/all`;
   static REFRESH = `${this.LOCATION}/api/auth/refresh`;
+  static TEST = `${this.LOCATION}/api/auth/cookie`;
   static TASK = "/api/task";
   static LIST = "/api/list";
 }
