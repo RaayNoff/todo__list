@@ -1,0 +1,40 @@
+.view {
+	// .view__header
+	&__header {
+		margin: 0px 0px 46px 0px;
+	}
+
+	// .view__title
+	&__title {
+		color: #000;
+		font-size: 20px;
+		line-height: 24 / 20 * 100%;
+		font-weight: 600;
+	}
+
+	// .view__body
+	&__body {
+	}
+}
+.body {
+	// .body__title
+	&__title {
+		color: #000;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 20 /16 * 100%;
+		margin: 0px 0px 12px 0px;
+		padding: 0px 0px 12px 0px;
+		border-bottom: 0.5px solid #dadada;
+	}
+
+	// .body__tasksWrapper
+	&__tasksWrapper {
+	}
+}
+.taskSection {
+	margin: 0px 0px 46px 0px;
+	&:last-child {
+		margin-bottom: 0px;
+	}
+}

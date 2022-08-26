@@ -32,7 +32,7 @@ const TaskInfo: FC<ITaskInfoProps> = ({
       <section className={s.listInfo__content}>
         <section className={s.listInfo__data}>
           <section className={s.task}>
-            <Checkbox color={color} setStatus={setStatus} status={status} />
+            {/* <Checkbox color={color} setStatus={setStatus} status={status} /> */}
             <section className={s.task__info}>
               <p className={s.task__name}>{taskName}</p>
               <section className={s.description}>

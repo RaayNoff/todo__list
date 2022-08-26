@@ -46,7 +46,7 @@ const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
           <Grouper groupName="Списки">
             {generateGrouperContent(notSharedLists)}
           </Grouper>
-          <Grouper groupName="Общие">
+          <Grouper groupName="Общие" isAddActive={false}>
             {generateGrouperContent(sharedLists)}
           </Grouper>
         </section>

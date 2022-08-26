@@ -14,9 +14,9 @@ const initialState: IListsState = {
       tasks: [
         {
           id: 1,
-          taskName: "Тестовая задача",
-          description: "Это тестовая задача",
-          endTime: 1660997596,
+          taskName: "Интерфейс",
+          description: "Нужно спрограммировать этот интерфейс",
+          endTime: 1661527745,
           status: false,
           comments: [
             {
@@ -29,10 +29,10 @@ const initialState: IListsState = {
         },
         {
           id: 2,
-          taskName: "Тестовая задача",
-          description: "Это тестовая задача",
-          endTime: 1660997596,
-          status: true,
+          taskName: "Адаптив",
+          description: "Нужно сделать адаптив для todo",
+          endTime: 1661527745,
+          status: false,
           comments: [
             {
               id: 2,
@@ -44,10 +44,10 @@ const initialState: IListsState = {
         },
         {
           id: 3,
-          taskName: "Тестовая задача",
-          description: "Это тестовая задача",
-          endTime: 1660997596,
-          status: false,
+          taskName: "Выпить пива",
+          description: "Бахнуть 3 литра светлого фильтрованного жидкого золота",
+          endTime: 1661527745,
+          status: true,
           comments: [
             {
               id: 3,

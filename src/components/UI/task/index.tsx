@@ -11,9 +11,9 @@ interface TaskProps {
 }
 
 const Task: FC<TaskProps> = ({ task }) => {
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState(task.status);
   const listId = useTaskByListId(task.id);
-  const { color } = useListById(listId);
+  const { color, listName } = useListById(listId);
 
   return (
     <article className={s.task}>
@@ -26,7 +26,7 @@ const Task: FC<TaskProps> = ({ task }) => {
           <section className={s.task__date}>
             <Endtime timestamp={task.endTime} />
           </section>
-          <p className={s.task__from}>Задачи с Дмитрием</p>
+          <p className={s.task__from}>{listName}</p>
         </section>
       </section>
     </article>

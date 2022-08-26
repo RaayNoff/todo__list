@@ -3,7 +3,7 @@ import { useActions } from "../../../hooks/useActions";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
 import Header from "../../common/header";
-import MainContent from "../../common/mainContent";
+import HomeContent from "../../common/homeContent";
 import Sidebar from "../../common/sidebar";
 import CreateList from "../../modals/createList";
 import ShareList from "../../modals/shareList";
@@ -28,12 +28,10 @@ const Home: FC = () => {
         iconDisplayed={true}
         burgerCallback={toggleSidebar}
         maxWidthContainer={MaxWidthContainer.AUTHORIZED}
-      ></Header>
+      />
       <section className={s.home}>
-        <Sidebar isEnabled={isSidebarDisplayed}></Sidebar>
-        <div className={MaxWidthContainer.AUTHORIZED}>
-          <MainContent />
-        </div>
+        <Sidebar isEnabled={isSidebarDisplayed} />
+        <HomeContent />
       </section>
       <CreateList />
       <ShareList />
