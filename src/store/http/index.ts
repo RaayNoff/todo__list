@@ -5,6 +5,7 @@ import { AuthResponse } from "../../types/interfaces/Authorization";
 
 export const $api = axios.create({
   withCredentials: true,
+  baseURL: BackendApi.LOCATION,
 });
 
 $api.interceptors.request.use((config) => {

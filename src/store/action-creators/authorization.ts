@@ -13,16 +13,10 @@ export const fetchLogin =
     try {
       dispatch(AuthorizationSlice.actions.fetchAuthorization());
 
-      const response = await axios.post<AuthResponse>(
-        BackendApi.LOGIN,
-        {
-          email: email,
-          password: password,
-        },
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await $api.post<AuthResponse>(BackendApi.LOGIN, {
+        email: email,
+        password: password,
+      });
 
       localStorageApi.setAccessToken(response.data.accessToken);
 
