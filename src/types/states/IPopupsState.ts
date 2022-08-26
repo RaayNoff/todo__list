@@ -1,7 +1,8 @@
 import { IShareListState } from "./IShareListState";
+import { ITaskInfoState } from "./ITaskInfoState";
 
 export interface IPopupsState {
   createList: boolean;
-  listInfo: boolean;
+  taskInfo: ITaskInfoState;
   shareList: IShareListState;
 }
