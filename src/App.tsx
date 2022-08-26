@@ -3,7 +3,7 @@ import AppRouter from "./components/utils/AppRouter";
 import { useActions } from "./hooks/useActions";
 
 const App: FC = () => {
-  const isDev = false;
+  const isDev = true;
   const { checkAuth } = useActions();
 
   useEffect(() => {
