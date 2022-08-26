@@ -1,4 +1,4 @@
-import React, { Dispatch, FC } from "react";
+import React, { Dispatch, FC, useEffect, useRef } from "react";
 import { useActions } from "../../../../hooks/useActions";
 import { listApi } from "../../../../services/listApi";
 import s from "./listMenu.module.scss";
@@ -7,11 +7,29 @@ interface IListMenuProps {
   isEnabled: boolean;
   setIsEnabled: Dispatch<React.SetStateAction<boolean>>;
   listId: number;
+  menuPosition: {
+    offsetLeft: number;
+    offsetTop: number;
+  };
 }
 
-const ListMenu: FC<IListMenuProps> = ({ isEnabled, listId, setIsEnabled }) => {
+const ListMenu: FC<IListMenuProps> = ({
+  isEnabled,
+  listId,
+  setIsEnabled,
+  menuPosition,
+}) => {
+  const menuRef = useRef<HTMLDivElement>(null);
   const [deleteList, {}] = listApi.useDeleteListMutation();
   const { shareListToggleOn, fetchLists } = useActions();
+
+  useEffect(() => {
+    if (menuRef.current) {
+      const menuNode = menuRef.current;
+      menuNode.style.top = `${menuPosition.offsetTop.toString()}px`;
+      menuNode.style.left = `${menuPosition.offsetLeft.toString()}px`;
+    }
+  }, [menuRef, menuPosition]);
 
   const deleteListHandler = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -27,17 +45,21 @@ const ListMenu: FC<IListMenuProps> = ({ isEnabled, listId, setIsEnabled }) => {
   };
 
   return (
-    <section
-      className={isEnabled ? `${s.listMenu} ${s.active}` : `${s.listMenu}`}
+    <div
+      onClick={(e) => {
+        setIsEnabled((prev) => !prev);
+      }}
+      className={isEnabled ? `${s.wrapper} ${s.active}` : `${s.wrapper}`}
     >
-      <p className={s.listMenu__item}>Редактировать список</p>
-      <p className={s.listMenu__item} onClick={(e) => shareListHandler(e)}>
-        Поделиться списком
-      </p>
-      <p className={s.listMenu__item} onClick={(e) => deleteListHandler(e)}>
-        Удалить список
-      </p>
-    </section>
+      <section ref={menuRef} className={s.listMenu}>
+        <p className={s.listMenu__item} onClick={(e) => shareListHandler(e)}>
+          Поделиться списком
+        </p>
+        <p className={s.listMenu__item} onClick={(e) => deleteListHandler(e)}>
+          Удалить список
+        </p>
+      </section>
+    </div>
   );
 };
 

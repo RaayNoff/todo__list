@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useMemo, useRef, useState } from "react";
 import { useListById } from "../../../hooks/useListById";
 import ListMenu from "./additional/listMenu";
 import s from "./list.module.scss";
@@ -8,20 +8,29 @@ interface IListProps {
 }
 
 const List: FC<IListProps> = ({ listId }) => {
-  const colorRef = useRef<HTMLDivElement>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const [menuPosition, setMenuPosition] = useState({
+    offsetLeft: 0,
+    offsetTop: 0,
+  });
   const [isMenuOpened, SetIsMenuOpened] = useState<boolean>(false);
   const { color, listName } = useListById(listId);
 
   useEffect(() => {
-    if (colorRef.current) {
-      colorRef.current.style.backgroundColor = color;
+    if (dotRef.current) {
+      const dotNode = dotRef.current;
+      dotNode.style.backgroundColor = color;
+      setMenuPosition({
+        offsetLeft: dotNode.offsetLeft + 150,
+        offsetTop: dotNode.offsetTop + 15,
+      });
     }
-  }, [color]);
+  }, [color, dotRef]);
 
   return (
     <section className={s.list}>
       <section className={s.list__data}>
-        <div ref={colorRef} className={s.list__color}></div>
+        <div ref={dotRef} className={s.list__color}></div>
         <header className={s.list__name}>{listName}</header>
       </section>
       <div
@@ -38,6 +47,7 @@ const List: FC<IListProps> = ({ listId }) => {
       </div>
 
       <ListMenu
+        menuPosition={menuPosition}
         isEnabled={isMenuOpened}
         listId={listId}
         setIsEnabled={SetIsMenuOpened}
