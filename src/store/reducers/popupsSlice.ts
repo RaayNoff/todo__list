@@ -3,7 +3,10 @@ import { IPopupsState } from "../../types/states/IPopupsState";
 
 const initialState: IPopupsState = {
   createList: false,
-  listInfo: false,
+  taskInfo: {
+    status: false,
+    currentTaskId: 1,
+  },
   shareList: {
     status: false,
     currentListId: 1,
@@ -20,11 +23,13 @@ const PopupsSlice = createSlice({
     createListToggleOff(state) {
       state.createList = false;
     },
-    listInfoToggleOn(state) {
-      state.listInfo = true;
+    taskInfoToggleOn(state, action: PayloadAction<number>) {
+      state.taskInfo.currentTaskId = action.payload;
+      state.taskInfo.status = true;
     },
-    listInfoToggleOff(state) {
-      state.listInfo = false;
+    taskInfoToggleOff(state) {
+      state.taskInfo.currentTaskId = 1;
+      state.taskInfo.status = false;
     },
     shareListToggleOn(state, action: PayloadAction<number>) {
       state.shareList.status = true;

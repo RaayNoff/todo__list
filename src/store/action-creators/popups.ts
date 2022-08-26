@@ -7,11 +7,11 @@ export const createListToggleOn = () => (dispatch: AppDispatch) => {
 export const createListToggleOff = () => (dispatch: AppDispatch) => {
   dispatch(PopupsSlice.actions.createListToggleOff());
 };
-export const listInfoToggleOn = () => (dispatch: AppDispatch) => {
-  dispatch(PopupsSlice.actions.listInfoToggleOn());
+export const taskInfoToggleOn = (listId: number) => (dispatch: AppDispatch) => {
+  dispatch(PopupsSlice.actions.taskInfoToggleOn(listId));
 };
-export const listInfoToggleOff = () => (dispatch: AppDispatch) => {
-  dispatch(PopupsSlice.actions.listInfoToggleOff());
+export const taskInfoToggleOff = () => (dispatch: AppDispatch) => {
+  dispatch(PopupsSlice.actions.taskInfoToggleOff());
 };
 export const shareListToggleOn =
   (listId: number) => (dispatch: AppDispatch) => {
