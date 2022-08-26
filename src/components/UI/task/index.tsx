@@ -16,7 +16,7 @@ const Task: FC<TaskProps> = ({ task }) => {
   const { color } = useListById(listId);
 
   return (
-    <section className={s.task}>
+    <article className={s.task}>
       <Checkbox color={color} status={status} setStatus={setStatus} />
 
       <section className={s.task__data}>
@@ -29,7 +29,7 @@ const Task: FC<TaskProps> = ({ task }) => {
           <p className={s.task__from}>Задачи с Дмитрием</p>
         </section>
       </section>
-    </section>
+    </article>
   );
 };
 
