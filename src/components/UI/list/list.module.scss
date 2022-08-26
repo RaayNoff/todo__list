@@ -8,6 +8,9 @@
 		display: flex;
 		align-items: center;
 		width: 223px;
+		@media (min-width: 991.98px) {
+			cursor: pointer;
+		}
 	}
 
 	// .list__color
