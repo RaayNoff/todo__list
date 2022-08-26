@@ -59,6 +59,59 @@ const initialState: IListsState = {
         },
       ],
     },
+    {
+      id: 2,
+      listName: "Тестовый список 2",
+      color: "#553fdb",
+      accessedUsers: [],
+      tasks: [
+        {
+          id: 1,
+          taskName: "Тестовая задача",
+          description: "Это тестовая задача",
+          endTime: 1660997596,
+          status: false,
+          comments: [
+            {
+              id: 1,
+              content: "Это увлекательный был! Атракцион!",
+              userEmail: "kseniasobchak@gmail.com",
+              timestamp: 1660997596,
+            },
+          ],
+        },
+        {
+          id: 2,
+          taskName: "Тестовая задача",
+          description: "Это тестовая задача",
+          endTime: 1660997596,
+          status: true,
+          comments: [
+            {
+              id: 2,
+              content: "Это увлекательный был! Атракцион!",
+              userEmail: "kseniasobchak@gmail.com",
+              timestamp: 1660997596,
+            },
+          ],
+        },
+        {
+          id: 3,
+          taskName: "Тестовая задача",
+          description: "Это тестовая задача",
+          endTime: 1660997596,
+          status: false,
+          comments: [
+            {
+              id: 3,
+              content: "Это увлекательный был! Атракцион!",
+              userEmail: "kseniasobchak@gmail.com",
+              timestamp: 1660997596,
+            },
+          ],
+        },
+      ],
+    },
   ],
   loading: false,
 };
