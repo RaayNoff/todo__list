@@ -1,15 +1,18 @@
 import { ITask } from "../types/models/ITask";
 import { useTypedSelector } from "./useTypedSelector";
 
-export const useTaskById = (targetId: number): ITask => {
+export const useTaskById = (taskId: number): ITask => {
   const { lists } = useTypedSelector((state) => state.list);
 
-  const requiredList = lists.filter((l) =>
-    l.tasks.filter((t) => t.id === targetId)
-  );
+  const _temp: ITask[] = [];
 
-  const { tasks } = requiredList[0];
-  const { id, taskName, status, endTime, description, comments } = tasks[0];
+  lists.forEach((list) => {
+    list.tasks.forEach((task) => {
+      if (task.id === taskId) _temp.push(task);
+    });
+  });
 
-  return { id, taskName, status, endTime, description, comments };
+  const [result] = _temp;
+
+  return result;
 };
