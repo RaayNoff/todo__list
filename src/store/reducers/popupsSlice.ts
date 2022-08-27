@@ -28,7 +28,6 @@ const PopupsSlice = createSlice({
       state.taskInfo.status = true;
     },
     taskInfoToggleOff(state) {
-      state.taskInfo.currentTaskId = 1;
       state.taskInfo.status = false;
     },
     shareListToggleOn(state, action: PayloadAction<number>) {
