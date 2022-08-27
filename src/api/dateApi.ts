@@ -18,7 +18,7 @@ export default class DateApi {
   static getEndtime = (timestamp: number): string => {
     const m = this.initializeMoment(timestamp);
 
-    return moment(m).format("D MMMM YYYY | hh:mm");
+    return moment(m).format("D MMMM YYYY | HH:mm");
   };
 
   static isToday = (timestamp: timestamp) => {
@@ -26,14 +26,21 @@ export default class DateApi {
     targetDate.hours(0).minutes(0).seconds(0).milliseconds(0);
 
     const currentDate = new Date().setHours(0, 0, 0, 0);
-    console.log(
-      moment(targetDate).format("D MMMM YYYY"),
-      moment(currentDate).format("D MMMM YYYY")
-    );
 
     return (
       moment(targetDate).format("D MMMM YYYY") ===
       moment(currentDate).format("D MMMM YYYY")
     );
+  };
+
+  static getToday = () => {
+    return moment(new Date()).locale("ru").local(true).format("ddd M MMM");
+  };
+
+  static isExpired = (timestamp: timestamp) => {
+    const requestTime = this.initializeMoment(timestamp).unix();
+    const nowTime = this.initializeMoment(Math.floor(Date.now() / 1000)).unix();
+
+    return nowTime > requestTime;
   };
 }
