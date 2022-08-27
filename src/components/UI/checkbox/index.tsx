@@ -1,15 +1,26 @@
 import React, { FC, useEffect, useRef } from "react";
+import { useListByTaskId } from "../../../hooks/useListByTaskId";
+import { useTaskById } from "../../../hooks/useTaskById";
+import { listApi } from "../../../services/listApi";
+import { taskApi } from "../../../services/taskApi";
 import s from "./checkbox.module.scss";
 
 interface ICheckbox {
-  color: string;
-  status: boolean;
-  setStatus: React.Dispatch<React.SetStateAction<boolean>>;
+  taskId: number;
 }
 
-const Checkbox: FC<ICheckbox> = ({ color, status, setStatus }) => {
+const Checkbox: FC<ICheckbox> = ({ taskId }) => {
   const chaikaRef = useRef<SVGSVGElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
+  const { color } = useListByTaskId(taskId);
+  const { status } = useTaskById(taskId);
+  const [changeStatus, {}] = taskApi.useChangeStatusMutation();
+
+  const handleSetStatus = (e: React.MouseEvent) => {
+    e.stopPropagation();
+
+    changeStatus({ id: taskId, status: !status });
+  };
 
   useEffect(() => {
     if (chaikaRef.current && circleRef.current) {
@@ -22,7 +33,7 @@ const Checkbox: FC<ICheckbox> = ({ color, status, setStatus }) => {
     <div
       className={s.checkbox}
       ref={circleRef}
-      onClick={() => setStatus(!status)}
+      onClick={(e) => handleSetStatus(e)}
     >
       <svg
         className={status ? `${s.display}` : `${s.nodisplay}`}
