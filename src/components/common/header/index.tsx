@@ -1,5 +1,7 @@
-import React, { FC, SyntheticEvent, useState } from "react";
+import React, { FC, SyntheticEvent, useEffect, useRef, useState } from "react";
+import { useMenuPosition } from "../../../hooks/useMenuPosition";
 import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
+import HeaderMenu from "./additional/headerMenu";
 import s from "./header.module.scss";
 
 interface IHeaderProps {
@@ -13,7 +15,10 @@ const Header: FC<IHeaderProps> = ({
   burgerCallback,
   maxWidthContainer = MaxWidthContainer.NON_AUTHORIZED,
 }) => {
+  const [isMenuDisplaying, setIsMenuDisplaying] = useState<boolean>(false);
   const [isBurgerOpened, SetIsBurgerOpened] = useState<boolean>(false);
+  const iconRef = useRef<HTMLDivElement>(null);
+  const menuPosition = useMenuPosition(iconRef);
 
   const onClickedBurger = (e: SyntheticEvent) => {
     SetIsBurgerOpened(!isBurgerOpened);
@@ -38,7 +43,20 @@ const Header: FC<IHeaderProps> = ({
               <span></span>
             </div>
           )}
-          {iconDisplayed && <div className={s.header__profileBackground}></div>}
+          {iconDisplayed && (
+            <div
+              ref={iconRef}
+              className={s.header__profileBackground}
+              onClick={() => setIsMenuDisplaying((prev) => !prev)}
+            ></div>
+          )}
+          {iconDisplayed && (
+            <HeaderMenu
+              menuPosition={menuPosition}
+              isDisplaying={isMenuDisplaying}
+              setIsDisplaying={setIsMenuDisplaying}
+            />
+          )}
         </section>
       </div>
     </header>
