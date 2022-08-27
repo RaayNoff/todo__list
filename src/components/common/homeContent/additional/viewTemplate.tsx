@@ -6,35 +6,38 @@ import s from "./viewTemplate.module.scss";
 
 interface IViewTemplateProps {
   viewTitle: string;
-  todayTasks?: ITask[];
+  notCompletedTasks?: ITask[];
   completedTasks?: ITask[];
 }
 
 const ViewTemplate: FC<IViewTemplateProps> = ({
   viewTitle,
-  todayTasks,
+  notCompletedTasks,
   completedTasks,
 }) => {
+  const taskListMaker = (taskArray: ITask[] | undefined) => {
+    if (taskArray === undefined) return null;
+
+    return taskArray.map((task) => <Task key={task.id} task={task} />);
+  };
+
   return (
     <section className={s.view}>
       <header className={s.view__header}>
         <h1 className={s.view__title}>{viewTitle}</h1>
+        <p className={s.view__date}>{DateApi.getToday()}</p>
       </header>
       <main className={`${s.view__body} ${s.body}`}>
         <section className={s.taskSection}>
           <h2 className={s.body__title}>Предстоит сделать</h2>
           <section className={s.body__tasksWrapper}>
-            {todayTasks?.map((task) => (
-              <Task key={task.id} task={task} />
-            ))}
+            {taskListMaker(notCompletedTasks)}
           </section>
         </section>
         <section className={s.taskSection}>
           <h2 className={s.body__title}>Выполнено</h2>
           <section className={s.body__tasksWrapper}>
-            {completedTasks?.map((task) => (
-              <Task key={task.id} task={task} />
-            ))}
+            {taskListMaker(completedTasks)}
           </section>
         </section>
       </main>
