@@ -1,11 +1,18 @@
+import { IList } from "../types/models/IList";
 import { useTypedSelector } from "./useTypedSelector";
 
-export const useListByTaskId = (taskId: number) => {
+export const useListByTaskId = (taskId: number): IList => {
   const { lists } = useTypedSelector((state) => state.list);
 
-  const [requiredList] = lists.filter((list) =>
-    list.tasks.filter((task) => task.id === taskId)
-  );
+  const _temp: IList[] = [];
 
-  return { requiredList };
+  lists.forEach((list) => {
+    list.tasks.forEach((task) => {
+      if (task.id === taskId) _temp.push(list);
+    });
+  });
+
+  const [result] = _temp;
+
+  return result;
 };
