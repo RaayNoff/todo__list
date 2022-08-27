@@ -1,4 +1,3 @@
-import React from "react";
 import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
 import Switcher from "./additional/switcher";
 import s from "./homeContent.module.scss";

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useFilteredLists } from "../../../hooks/useFiltredLists";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { LoaderType } from "../../../types/enums/LoaderType";
