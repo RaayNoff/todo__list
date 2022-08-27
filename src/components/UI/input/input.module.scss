@@ -3,11 +3,15 @@
 
 	// .input__header
 	&__header {
+		display: block;
 		font-weight: 500;
 		color: #000;
 		font-size: 12px;
 		line-height: 15 / 12 * 100%;
 		margin: 0px 0px 6px 0px;
+		@media (min-width: 991.98px) {
+			cursor: text;
+		}
 	}
 
 	input {

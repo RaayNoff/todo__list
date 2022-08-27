@@ -19,8 +19,11 @@ const Input: FC<IInputProps> = ({
 }) => {
   return (
     <section className={s.input}>
-      <header className={s.input__header}>{title}</header>
+      <label htmlFor={title} className={s.input__header}>
+        {title}
+      </label>
       <input
+        id={title}
         type="text"
         value={inputValue}
         placeholder={placeholder}

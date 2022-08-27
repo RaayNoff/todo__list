@@ -22,16 +22,18 @@ const FormInput: FC<IFormInput> = ({
   const [displayTip, setDisplayTip] = useState(false);
   const display = usePath();
   const { loading } = useTypedSelector((state) => state.authorization);
+  const shortcut = inputType === FormInputType.EMAIL ? "Email" : "Пароль";
 
   const passwordTip = usePasswordTip(value);
   const emailTip = useEmailTip(value);
 
   return (
     <div className={s.input}>
-      <header className={s.input__title}>
-        {inputType === FormInputType.EMAIL ? "Email" : "Пароль"}
-      </header>
+      <label className={s.input__title} htmlFor={shortcut}>
+        {shortcut}
+      </label>
       <input
+        id={shortcut}
         type={inputType === FormInputType.EMAIL ? "text" : "password"}
         autoComplete={inputType === FormInputType.PASSWORD ? "on" : "off"}
         value={value}

@@ -1,4 +1,5 @@
 import { FC, useEffect, useRef, useState } from "react";
+import { ShortApi } from "../../../api/shortApi";
 import { useListById } from "../../../hooks/useListById";
 import { useMenuPosition } from "../../../hooks/useMenuPosition";
 import ListMenu from "./additional/listMenu";
@@ -25,7 +26,9 @@ const List: FC<IListProps> = ({ listId }) => {
     <section className={s.list}>
       <section className={s.list__data}>
         <div ref={dotRef} className={s.list__color}></div>
-        <header className={s.list__name}>{listName}</header>
+        <header title={listName} className={s.list__name}>
+          {ShortApi.getListName(listName)}
+        </header>
       </section>
       <div
         onClick={() => SetIsMenuOpened(!isMenuOpened)}
