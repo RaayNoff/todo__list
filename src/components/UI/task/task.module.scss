@@ -8,6 +8,9 @@
 	// .task__data
 	&__data {
 		width: 100%;
+		@media (min-width: 991.98px) {
+			cursor: pointer;
+		}
 	}
 	// .task__name
 	&__name {
@@ -31,15 +34,27 @@
 		justify-content: space-between;
 	}
 
-	// .task__date
+	// .task__date {
 	&__date {
-		font-size: 12px;
-		font-weight: 300;
-		color: #a32828;
+		display: flex;
+		align-items: center;
 	}
+
 	// .task__from
 	&__from {
 		font-size: 12px;
 		color: #8b8b8b;
 	}
+}
+
+.expired {
+	background-color: #ef3a3a;
+	width: fit-content;
+	color: white;
+	padding: 5px;
+	line-height: 14 /12 * 100%;
+	font-size: 12px;
+	border-radius: 4px;
+	font-weight: 600;
+	margin: 0px 0px 0px 10px;
 }
