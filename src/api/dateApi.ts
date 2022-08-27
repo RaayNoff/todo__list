@@ -1,4 +1,3 @@
-import { daysInWeek } from "date-fns";
 import moment from "moment";
 import "moment/locale/ru";
 import { timestamp } from "../types/Timestamp";
@@ -19,7 +18,7 @@ export default class DateApi {
   static getEndtime = (timestamp: number): string => {
     const m = this.initializeMoment(timestamp);
 
-    return moment(m).format("D MMMM YYYY | h:mm");
+    return moment(m).format("D MMMM YYYY | hh:mm");
   };
 
   static isToday = (timestamp: timestamp) => {
