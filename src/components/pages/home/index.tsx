@@ -7,6 +7,7 @@ import HomeContent from "../../common/homeContent";
 import Sidebar from "../../common/sidebar";
 import CreateList from "../../modals/createList";
 import ShareList from "../../modals/shareList";
+import TaskInfo from "../../modals/taskInfo";
 import s from "./home.module.scss";
 
 const Home: FC = () => {
@@ -35,6 +36,7 @@ const Home: FC = () => {
       </section>
       <CreateList />
       <ShareList />
+      <TaskInfo />
     </main>
   );
 };
