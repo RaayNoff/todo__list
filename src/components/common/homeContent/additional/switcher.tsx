@@ -19,7 +19,7 @@ const Switcher: FC = () => {
       return (
         <ViewTemplate
           viewTitle="Сегодня"
-          todayTasks={notCompletedTasks}
+          notCompletedTasks={notCompletedTasks}
           completedTasks={completedTasks}
         />
       );
