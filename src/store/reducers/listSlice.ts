@@ -16,7 +16,7 @@ const initialState: IListsState = {
           id: 1,
           taskName: "Интерфейс",
           description: "Нужно спрограммировать этот интерфейс",
-          endTime: 1661595664,
+          endTime: 1661691990,
           status: false,
           comments: [
             {
@@ -31,7 +31,7 @@ const initialState: IListsState = {
           id: 2,
           taskName: "Адаптив",
           description: "Нужно сделать адаптив для todo",
-          endTime: 1661595664,
+          endTime: 1661691990,
           status: false,
           comments: [
             {
@@ -46,7 +46,7 @@ const initialState: IListsState = {
           id: 3,
           taskName: "Выпить пива",
           description: "Бахнуть 3 литра светлого фильтрованного жидкого золота",
-          endTime: 1661595664,
+          endTime: 1661696160,
           status: true,
           comments: [
             {
@@ -61,51 +61,21 @@ const initialState: IListsState = {
     },
     {
       id: 2,
-      listName: "Тестовый список 2",
-      color: "#553fdb",
+      listName: "Список который отличается от всех",
+      color: "#551fdb",
       accessedUsers: [],
       tasks: [
         {
-          id: 1,
-          taskName: "Тестовая задача",
-          description: "Это тестовая задача",
-          endTime: 1660997596,
+          id: 4,
+          taskName: "Поговорить с богом",
+          description: "Позвонить на 8 800 555 35 35",
+          endTime: 1661691990,
           status: false,
           comments: [
             {
-              id: 1,
-              content: "Это увлекательный был! Атракцион!",
-              userEmail: "kseniasobchak@gmail.com",
-              timestamp: 1660997596,
-            },
-          ],
-        },
-        {
-          id: 2,
-          taskName: "Тестовая задача",
-          description: "Это тестовая задача",
-          endTime: 1660997596,
-          status: true,
-          comments: [
-            {
-              id: 2,
-              content: "Это увлекательный был! Атракцион!",
-              userEmail: "kseniasobchak@gmail.com",
-              timestamp: 1660997596,
-            },
-          ],
-        },
-        {
-          id: 3,
-          taskName: "Тестовая задача",
-          description: "Это тестовая задача",
-          endTime: 1660997596,
-          status: false,
-          comments: [
-            {
-              id: 3,
-              content: "Это увлекательный был! Атракцион!",
-              userEmail: "kseniasobchak@gmail.com",
+              id: 4,
+              content: "Стрем!",
+              userEmail: "denis@gmail.com",
               timestamp: 1660997596,
             },
           ],
