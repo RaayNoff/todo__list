@@ -7,8 +7,8 @@ export const createListToggleOn = () => (dispatch: AppDispatch) => {
 export const createListToggleOff = () => (dispatch: AppDispatch) => {
   dispatch(PopupsSlice.actions.createListToggleOff());
 };
-export const taskInfoToggleOn = (listId: number) => (dispatch: AppDispatch) => {
-  dispatch(PopupsSlice.actions.taskInfoToggleOn(listId));
+export const taskInfoToggleOn = (taskId: number) => (dispatch: AppDispatch) => {
+  dispatch(PopupsSlice.actions.taskInfoToggleOn(taskId));
 };
 export const taskInfoToggleOff = () => (dispatch: AppDispatch) => {
   dispatch(PopupsSlice.actions.taskInfoToggleOff());
