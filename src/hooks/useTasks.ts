@@ -1,9 +1,12 @@
+import { ITask } from "../types/models/ITask";
 import { useTypedSelector } from "./useTypedSelector";
 
 export default function useTasks() {
   const { lists } = useTypedSelector((state) => state.list);
 
-  const [result] = lists.map((list) => list.tasks.map((task) => task));
+  const result: ITask[] = [];
+
+  lists.forEach((list) => list.tasks.forEach((task) => result.push(task)));
 
   return result;
 }
