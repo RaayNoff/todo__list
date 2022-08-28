@@ -6,4 +6,10 @@ export class localStorageApi {
   static removeAccessToken() {
     localStorage.removeItem("token");
   }
+
+  static isTokenExist() {
+    if (localStorage.getItem("token") == null) return false;
+
+    return true;
+  }
 }
