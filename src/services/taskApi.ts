@@ -4,6 +4,7 @@ import BackendApi from "../types/classes/BackendApi";
 interface IChangeStatusАrgs {
   id: number;
   status: boolean;
+  gavno?: string;
 }
 
 export const taskApi = createApi({
@@ -25,10 +26,10 @@ export const taskApi = createApi({
       invalidatesTags: ["Tasks"],
     }),
     changeStatus: build.mutation<any, IChangeStatusАrgs>({
-      query: ({ id, status }) => ({
+      query: ({ id, status, gavno }) => ({
         url: BackendApi.TASK,
         method: "PUT",
-        params: {
+        body: {
           _id: id,
           _status: status,
         },

@@ -15,7 +15,13 @@ export const listApi = createApi({
   reducerPath: "listApi",
   baseQuery: fetchBaseQuery({
     baseUrl: BackendApi.LOCATION,
+    prepareHeaders: (headers, {}) => {
+      headers.set("Authorization", `Bearer ${localStorage.getItem("token")}`);
+
+      return headers;
+    },
   }),
+
   tagTypes: ["Lists"],
   endpoints: (build) => ({
     deleteList: build.mutation<any, any>({

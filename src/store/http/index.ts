@@ -6,6 +6,9 @@ import { AuthResponse } from "../../types/interfaces/Authorization";
 export const $api = axios.create({
   withCredentials: true,
   baseURL: BackendApi.LOCATION,
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`,
+  },
 });
 
 $api.interceptors.request.use((config) => {

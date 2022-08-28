@@ -32,14 +32,6 @@ export const fetchLogin =
     }
   };
 
-export const testCokie = () => async (dispatch: AppDispatch) => {
-  try {
-    const response = await axios.get(BackendApi.TEST, {
-      withCredentials: true,
-    });
-  } catch (error) {}
-};
-
 export const fetchRegistration =
   (email: userDataField, password: userDataField) =>
   async (dispatch: AppDispatch) => {
@@ -68,9 +60,17 @@ export const checkAuth = () => async (dispatch: AppDispatch) => {
   try {
     dispatch(AuthorizationSlice.actions.fetchAuthorizationRefresh());
 
-    const response = await axios.post<AuthResponse>(BackendApi.REFRESH, {
-      withCredentials: true,
-    });
+    const response = await axios.post<AuthResponse>(
+      BackendApi.REFRESH,
+      {
+        withCredentials: true,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
 
     localStorageApi.setAccessToken(response.data.accessToken);
 
