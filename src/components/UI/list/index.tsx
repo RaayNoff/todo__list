@@ -18,7 +18,7 @@ const List: FC<IListProps> = ({ listId }) => {
   useEffect(() => {
     if (dotRef.current) {
       const dotNode = dotRef.current;
-      dotNode.style.backgroundColor = color;
+      dotNode.style.background = color;
     }
   }, [color, dotRef]);
 

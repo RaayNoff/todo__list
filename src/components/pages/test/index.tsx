@@ -4,12 +4,6 @@ import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import Button from "../../UI/button";
 
 const Test: FC = () => {
-  const { testCokie } = useActions();
-
-  const test = (e: React.MouseEvent) => {
-    testCokie();
-  };
-
   return (
     <div
       style={{
@@ -19,13 +13,7 @@ const Test: FC = () => {
         alignItems: "center",
         justifyContent: "center",
       }}
-    >
-      <Button
-        btnType={ButtonTypes.ACTION}
-        onClickCallback={test}
-        text="Отправить"
-      />
-    </div>
+    ></div>
   );
 };
 
