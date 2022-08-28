@@ -27,6 +27,5 @@ export interface ILogout {
 
 export interface AuthResponse {
   accessToken: string;
-  refreshToken: string;
   user: IUser;
 }
