@@ -16,7 +16,7 @@ const initialState: IListsState = {
           id: 1,
           taskName: "Интерфейс",
           description: "Нужно спрограммировать этот интерфейс",
-          endTime: 1661733244,
+          endTime: 1661819473,
           status: false,
           comments: [
             {
@@ -31,7 +31,7 @@ const initialState: IListsState = {
           id: 2,
           taskName: "Адаптив",
           description: "Нужно сделать адаптив для todo",
-          endTime: 1661733244,
+          endTime: 1661819473,
           status: false,
           comments: [
             {
@@ -46,7 +46,7 @@ const initialState: IListsState = {
           id: 3,
           taskName: "Выпить пива",
           description: "Бахнуть 3 литра светлого фильтрованного жидкого золота",
-          endTime: 1661733244,
+          endTime: 1661819473,
           status: true,
           comments: [
             {
@@ -69,7 +69,7 @@ const initialState: IListsState = {
           id: 4,
           taskName: "Поговорить с богом",
           description: "Позвонить на 8 800 555 35 35",
-          endTime: 1661733244,
+          endTime: 1661819473,
           status: false,
           comments: [
             {
@@ -95,7 +95,7 @@ const initialState: IListsState = {
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident necessitatibus autem sit ut, sequi expedita sapiente tenetur ipsa ipsam fugit! Voluptates debitis facere sit ducimus voluptas qui velit at provident!",
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident necessitatibus autem sit ut, sequi expedita sapiente tenetur ipsa ipsam fugit! Voluptates debitis facere sit ducimus voluptas qui velit at provident!",
-          endTime: 1661733244,
+          endTime: 1661819473,
           status: false,
           comments: [],
         },

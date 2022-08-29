@@ -21,7 +21,7 @@ const ListMenu: FC<IListMenuProps> = ({
 }) => {
   const menuRef = useMenuPositionRef(menuPosition, 150, 15);
   const [deleteList, {}] = contentApi.useFetchListsDeleteMutation();
-  const { shareListToggleOn, fetchLists } = useActions();
+  const { shareListToggleOn, editListToggleOn, fetchLists } = useActions();
 
   const deleteListHandler = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -36,6 +36,12 @@ const ListMenu: FC<IListMenuProps> = ({
     setIsEnabled((prev) => !prev);
   };
 
+  const editListHandler = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    editListToggleOn(listId);
+    setIsEnabled((prev) => !prev);
+  };
+
   return (
     <div
       onClick={(e) => {
@@ -43,14 +49,17 @@ const ListMenu: FC<IListMenuProps> = ({
       }}
       className={isEnabled ? "menu-wrapper active" : "menu-wrapper"}
     >
-      <section ref={menuRef} className="menu">
+      <menu ref={menuRef} className="menu">
+        <p className="menu__item" onClick={(e) => editListHandler(e)}>
+          Редактировать список
+        </p>
         <p className="menu__item" onClick={(e) => shareListHandler(e)}>
           Поделиться списком
         </p>
         <p className="menu__item" onClick={(e) => deleteListHandler(e)}>
           Удалить список
         </p>
-      </section>
+      </menu>
     </div>
   );
 };

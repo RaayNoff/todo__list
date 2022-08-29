@@ -20,3 +20,11 @@ export const shareListToggleOn =
 export const shareListToggleOff = () => (dispatch: AppDispatch) => {
   dispatch(PopupsSlice.actions.shareListToggleOff());
 };
+
+export const editListToggleOn = (listId: number) => (dispatch: AppDispatch) => {
+  dispatch(PopupsSlice.actions.editListToggleOn(listId));
+};
+
+export const editListToggleOff = () => (dispatch: AppDispatch) => {
+  dispatch(PopupsSlice.actions.editListToggleOff());
+};
