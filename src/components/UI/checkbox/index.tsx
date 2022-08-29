@@ -1,8 +1,7 @@
 import React, { FC, useEffect, useRef } from "react";
 import { useListByTaskId } from "../../../hooks/useListByTaskId";
 import { useTaskById } from "../../../hooks/useTaskById";
-import { listApi } from "../../../services/listApi";
-import { taskApi } from "../../../services/taskApi";
+import { contentApi } from "../../../services/contentApi";
 import s from "./checkbox.module.scss";
 
 interface ICheckbox {
@@ -14,12 +13,11 @@ const Checkbox: FC<ICheckbox> = ({ taskId }) => {
   const circleRef = useRef<HTMLDivElement>(null);
   const { color } = useListByTaskId(taskId);
   const { status } = useTaskById(taskId);
-  const [changeStatus, {}] = taskApi.useChangeStatusMutation();
-
+  const [changeStatus] = contentApi.useFetchTaskEditMutation();
   const handleSetStatus = (e: React.MouseEvent) => {
     e.stopPropagation();
 
-    changeStatus({ id: taskId, status: !status });
+    changeStatus({ status: !status, taskId: taskId });
   };
 
   useEffect(() => {
