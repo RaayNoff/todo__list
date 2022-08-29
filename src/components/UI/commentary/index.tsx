@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import DateApi from "../../../api/dateApi";
 import { timestamp } from "../../../types/Timestamp";
 import s from "./commentary.module.scss";
@@ -17,7 +17,9 @@ const Commentary: FC<ICommentaryProps> = ({ email, content, timestamp }) => {
       <div className={s.commentary__logoBG}></div>
       <section className={s.commentary__data}>
         <header className={s.commentary__header}>
-          <p className={s.commentary__email}>{email}</p>
+          <p className={`${s.commentary__email} textEllipsis`} title={email}>
+            {email}
+          </p>
           <p className={s.commentary__date}>{date}</p>
         </header>
         <div className={s.commentary__content}>{content}</div>
