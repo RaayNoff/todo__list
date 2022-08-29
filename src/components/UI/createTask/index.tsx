@@ -1,24 +1,32 @@
-import { FC, SyntheticEvent, useState } from "react";
+import React, { FC, SyntheticEvent, useState } from "react";
+import { TransitionGroup } from "react-transition-group";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { contentApi } from "../../../services/contentApi";
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import Button from "../button";
 import DatePick from "../datePick";
 import PlusSVG from "./additional/plusSVG";
 import s from "./createTask.module.scss";
 
-interface ICreateTask {
-  listId: number;
-}
-
-const CreateTask: FC<ICreateTask> = ({ listId }) => {
+const CreateTask: FC = () => {
+  const { listId } = useTypedSelector((state) => state.homeContent);
   const [isEditor, setIsEditor] = useState(false);
   const [taskName, setTaskName] = useState("");
   const [taskDesc, setTaskDesc] = useState("");
   const [date, setDate] = useState(0);
+  const [addTask, {}] = contentApi.useFetchTaskAddMutation();
 
-  const onCancel = (e: SyntheticEvent) => setIsEditor(!isEditor);
-  const onClick = (e: SyntheticEvent) => {
-    setIsEditor(!isEditor);
-    ///FetchCallback
+  const onCancel = (e: React.MouseEvent) => setIsEditor(!isEditor);
+  const onClick = (e: React.MouseEvent) => {
+    addTask({
+      taskName: taskName,
+      description: taskDesc,
+      endTime: date,
+      listId: listId,
+    });
+    setTaskName("");
+    setTaskDesc("");
+    setDate(0);
   };
 
   if (!isEditor)
@@ -40,9 +48,8 @@ const CreateTask: FC<ICreateTask> = ({ listId }) => {
             placeholder="Название задачи"
             onChange={(e) => setTaskName(e.target.value)}
           />
-          <input
-            className={s.editor__input}
-            type="text"
+          <textarea
+            className={`${s.editor__input} ${s.editor__textarea}`}
             value={taskDesc}
             placeholder="Описание"
             onChange={(e) => setTaskDesc(e.target.value)}
