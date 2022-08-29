@@ -7,6 +7,5 @@ export default function useTasks() {
   const result: ITask[] = [];
 
   lists.forEach((list) => list.tasks.forEach((task) => result.push(task)));
-
   return result;
 }
