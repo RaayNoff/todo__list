@@ -1,14 +1,11 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import { listApi } from "../services/listApi";
-import { taskApi } from "../services/taskApi";
+import { contentApi } from "../services/contentApi";
 import { rootReducer } from "./reducers";
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware()
-      .concat(listApi.middleware)
-      .concat(taskApi.middleware),
+    getDefaultMiddleware().concat(contentApi.middleware),
 });
 
 export type AppStore = typeof store;
