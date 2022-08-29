@@ -1,10 +1,10 @@
-import React, { FC, SyntheticEvent, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import { Colors } from "../../../types/classes/Colors";
 import { InputSizeTypes } from "../../../types/enums/InputSizeTypes";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { useActions } from "../../../hooks/useActions";
-import { listApi } from "../../../services/listApi";
+import { contentApi } from "../../../services/contentApi";
 import Button from "../../UI/button";
 import ColorPicker from "../../UI/colorPicker";
 import FooterInsert from "../../UI/footerInsert";
@@ -19,7 +19,7 @@ const CreateList: FC = () => {
   );
   const { createList } = useTypedSelector((state) => state.popups);
   const { createListToggleOff } = useActions();
-  const [addList, {}] = listApi.useAddListMutation();
+  const [addList, {}] = contentApi.useFetchListsAddMutation();
 
   const onClickedCancel = (e: React.MouseEvent) => {
     e.stopPropagation();
