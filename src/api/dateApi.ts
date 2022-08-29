@@ -1,3 +1,4 @@
+import { timeStamp } from "console";
 import moment from "moment";
 import "moment/locale/ru";
 import { timestamp } from "../types/Timestamp";
@@ -31,6 +32,12 @@ export default class DateApi {
       moment(targetDate).format("D MMMM YYYY") ===
       moment(currentDate).format("D MMMM YYYY")
     );
+  };
+
+  static isFuture = (timestamp: timestamp) => {
+    const currentTimestamp = Math.floor(Date.now() / 1000);
+
+    return timestamp > currentTimestamp;
   };
 
   static getToday = () => {
