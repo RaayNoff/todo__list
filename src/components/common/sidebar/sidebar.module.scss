@@ -1,29 +1,29 @@
 .sidebar {
-  margin-left: -20%;
-  width: 305px;
-  background-color: #fafafa;
-  height: calc(100vh - 50px);
-  transition: margin 0.5s;
+	margin-left: -20%;
+	width: 305px;
+	background-color: #fafafa;
+	height: calc(100vh - 50px);
+	transition: margin 0.5s;
 
-  &__enabled {
-    margin-left: 0%;
-  }
+	&__enabled {
+		margin-left: 0%;
+	}
 
-  &__timeFrames {
-    section {
-      margin: 0px 0px 14px 0px;
-      &:last-child {
-        margin: 0px 0px 0px 0px;
-      }
-    }
-    margin: 0px 0px 56px 0px;
-  }
+	&__timeFrames {
+		button {
+			margin: 0px 0px 14px 0px;
+			&:last-child {
+				margin: 0px 0px 0px 0px;
+			}
+		}
+		margin: 0px 0px 56px 0px;
+	}
 
-  &__groups {
-  }
+	&__groups {
+	}
 }
 
 ._container {
-  width: 100%;
-  padding: 41px 0px 0px 50px;
+	width: 100%;
+	padding: 41px 0px 0px 50px;
 }
