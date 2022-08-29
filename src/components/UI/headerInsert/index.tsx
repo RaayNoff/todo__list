@@ -8,7 +8,9 @@ interface IHeaderIsert {
 const HeaderInsert: FC<IHeaderIsert> = ({ children }) => {
   return (
     <section className={s.headerIsert}>
-      <header className={s.title}>{children}</header>
+      <header className={`${s.title} textEllipsis`} title={children}>
+        {children}
+      </header>
     </section>
   );
 };
