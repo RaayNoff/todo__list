@@ -1,13 +1,14 @@
 .list {
 	display: flex;
 	align-items: center;
+	padding: 5px 0px 5px 10px;
 	margin: 0px 0px 14px 0px;
 
 	// .list__data
 	&__data {
 		display: flex;
 		align-items: center;
-		width: 223px;
+		width: 213px;
 		@media (min-width: 991.98px) {
 			cursor: pointer;
 		}
@@ -24,10 +25,12 @@
 
 	// .list__name
 	&__name {
+		width: 80%;
 		font-weight: 400;
 		font-size: 14px;
 		line-height: 15 /12 * 100%;
 		color: #4d4d4d;
+		text-align: left;
 	}
 
 	// .list__menu
