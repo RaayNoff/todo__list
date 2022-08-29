@@ -5,11 +5,11 @@ import { useActions } from "./hooks/useActions";
 
 const App: FC = () => {
   const isDev = true;
-  const { checkAuth } = useActions();
+  const { refresh } = useActions();
 
   useEffect(() => {
-    if (localStorageApi.isTokenExist()) checkAuth();
-  }, [checkAuth]);
+    if (localStorageApi.isTokenExist()) refresh();
+  }, [refresh]);
 
   return <AppRouter developing={isDev}></AppRouter>;
 };
