@@ -5,6 +5,7 @@
 
 	// .grouper__control
 	&__control {
+		padding-left: 10px;
 		display: flex;
 		align-items: center;
 		div {
@@ -16,7 +17,7 @@
 		&_clickable {
 			display: flex;
 			align-items: center;
-			width: 225px;
+			width: 215px;
 		}
 
 		margin: 0px 0px 18px 0px;
