@@ -1,7 +1,7 @@
 import React, { Dispatch, FC } from "react";
 import { useActions } from "../../../../hooks/useActions";
 import { useMenuPositionRef } from "../../../../hooks/useMenuPositionRef";
-import { listApi } from "../../../../services/listApi";
+import { contentApi } from "../../../../services/contentApi";
 
 interface IListMenuProps {
   isEnabled: boolean;
@@ -20,13 +20,13 @@ const ListMenu: FC<IListMenuProps> = ({
   menuPosition,
 }) => {
   const menuRef = useMenuPositionRef(menuPosition, 150, 15);
-  const [deleteList, {}] = listApi.useDeleteListMutation();
+  const [deleteList, {}] = contentApi.useFetchListsDeleteMutation();
   const { shareListToggleOn, fetchLists } = useActions();
 
   const deleteListHandler = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsEnabled((prev) => !prev);
-    deleteList(listId);
+    deleteList({ listId });
     fetchLists();
   };
 
