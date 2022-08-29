@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useRef } from "react";
+import { useActions } from "../../../hooks/useActions";
 import {
   TimeFrameColors,
   TimeFrameTypes,
@@ -7,9 +8,16 @@ import s from "./timeFrame.module.scss";
 
 interface ITimeFrameProps {
   frameType: TimeFrameTypes;
+  clickCallback: (e: React.MouseEvent) => void;
+  defaultGenerator?: boolean;
 }
 
-const TimeFrame: FC<ITimeFrameProps> = ({ frameType }) => {
+const TimeFrame: FC<ITimeFrameProps> = ({
+  frameType,
+  clickCallback,
+  defaultGenerator,
+}) => {
+  const { displayToday, displayFuture } = useActions();
   const timeFrameColor = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -23,13 +31,27 @@ const TimeFrame: FC<ITimeFrameProps> = ({ frameType }) => {
     return TimeFrameColors.BLUE;
   };
 
+  const handleClick = (e: React.MouseEvent) => {
+    clickCallback(e);
+
+    if (frameType === TimeFrameTypes.TODAY) displayToday();
+    else if (frameType === TimeFrameTypes.UPCOMING) displayFuture();
+  };
+
   return (
-    <section className={s.timeFrame}>
+    <button
+      className={
+        defaultGenerator
+          ? `${s.timeFrame} elementContentGenerator`
+          : s.timeFrame
+      }
+      onClick={(e) => handleClick(e)}
+    >
       <div className={s.timeFrame__color} ref={timeFrameColor}></div>
       <p className={s.timeFrame__text}>
         {frameType === TimeFrameTypes.TODAY ? "Сегодня" : "Предстоящее"}
       </p>
-    </section>
+    </button>
   );
 };
 

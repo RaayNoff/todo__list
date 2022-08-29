@@ -1,4 +1,5 @@
 .view {
+	transition: all 150ms linear;
 	// .view__header
 	&__header {
 		display: flex;
@@ -41,6 +42,16 @@
 
 	// .body__tasksWrapper
 	&__tasksWrapper {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__areaMessage {
+		align-self: center;
+		width: 60%;
+		margin: 10px 0px 0px 0px;
+		font-size: 14px;
+		text-align: center;
 	}
 }
 .taskSection {

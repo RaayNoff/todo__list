@@ -1,6 +1,9 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useCompletedTasks } from "../../../../hooks/useCompletedTasks";
+import { useFutureTasks } from "../../../../hooks/useFutureTasks";
+import { useListById } from "../../../../hooks/useListById";
 import { useNotCompletedTasks } from "../../../../hooks/useNotCompletedTasks";
+import { useTasksByListId } from "../../../../hooks/useTasksByListId";
 import { useTodayTasks } from "../../../../hooks/useTodayTasks";
 import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import { HomeContentDisplaying } from "../../../../types/enums/HomeContentDisplaying";
@@ -10,17 +13,49 @@ const Switcher: FC = () => {
   const { nowDisplaying, listId } = useTypedSelector(
     (state) => state.homeContent
   );
+
+  const { listName } = useListById(listId);
+
   const todayTasks = useTodayTasks();
-  const notCompletedTasks = useNotCompletedTasks(todayTasks);
-  const completedTasks = useCompletedTasks(todayTasks);
+  const todayNotCompletedTasks = useNotCompletedTasks(todayTasks);
+  const todayCompletedTasks = useCompletedTasks(todayTasks);
+
+  const futureTasks = useFutureTasks();
+  const futureNotCompletedTasks = useNotCompletedTasks(futureTasks);
+  const futureCompletedTasks = useCompletedTasks(futureTasks);
+
+  const listTasks = useTasksByListId(listId);
+  const listNotCompletedTasks = useNotCompletedTasks(listTasks);
+  const listCompletedTasks = useCompletedTasks(listTasks);
 
   switch (nowDisplaying) {
     case HomeContentDisplaying.TODAY_TASKS:
       return (
         <ViewTemplate
           viewTitle="Сегодня"
-          notCompletedTasks={notCompletedTasks}
-          completedTasks={completedTasks}
+          notCompletedTasks={todayNotCompletedTasks}
+          completedTasks={todayCompletedTasks}
+          isList={false}
+        />
+      );
+
+    case HomeContentDisplaying.LIST:
+      return (
+        <ViewTemplate
+          viewTitle={listName}
+          notCompletedTasks={listNotCompletedTasks}
+          completedTasks={listCompletedTasks}
+          isList={true}
+        />
+      );
+
+    case HomeContentDisplaying.FUTURE_TASKS:
+      return (
+        <ViewTemplate
+          viewTitle="Предстоящие"
+          completedTasks={futureCompletedTasks}
+          notCompletedTasks={futureNotCompletedTasks}
+          isList={false}
         />
       );
 
