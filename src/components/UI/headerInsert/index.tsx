@@ -1,13 +1,13 @@
 import React, { FC } from "react";
-import s from "./headerIsert.module.scss";
+import s from "./headerInsert.module.scss";
 
-interface IHeaderIsert {
+interface IheaderInsert {
   children?: string;
 }
 
-const HeaderInsert: FC<IHeaderIsert> = ({ children }) => {
+const HeaderInsert: FC<IheaderInsert> = ({ children }) => {
   return (
-    <section className={s.headerIsert}>
+    <section className={s.headerInsert}>
       <header className={`${s.title} textEllipsis`} title={children}>
         {children}
       </header>
