@@ -1,90 +1,75 @@
 import axios from "axios";
 import { AppDispatch } from "..";
-import { localStorageApi } from "../../api/localStorageApi";
 import BackendApi from "../../types/classes/BackendApi";
+import { ErrorMessages } from "../../types/enums/ErrorMessages";
 import { AuthResponse } from "../../types/interfaces/Authorization";
-import { userDataField } from "../../types/userDataField";
 import { $api } from "../http";
-import { AuthorizationSlice } from "../reducers/authorizationSlice";
+import AuthorizationSlice from "../reducers/authorizationSlice";
 
-export const fetchLogin =
-  (email: userDataField, password: userDataField) =>
-  async (dispatch: AppDispatch) => {
+export const registration =
+  (email: string, password: string) => async (dispatch: AppDispatch) => {
     try {
-      dispatch(AuthorizationSlice.actions.fetchAuthorization());
+      dispatch(AuthorizationSlice.actions.registration());
+      const response = await axios.post<AuthResponse>(
+        BackendApi.LOCATION + BackendApi.REGISTRATION,
+        {
+          email: email,
+          password: password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
 
+      localStorage.setItem("token", response.data.accessToken);
+      dispatch(
+        AuthorizationSlice.actions.registrationSuccess(response.data.user)
+      );
+    } catch (error) {
+      dispatch(
+        AuthorizationSlice.actions.refreshError(ErrorMessages.REGISTRATION)
+      );
+    }
+  };
+
+export const login =
+  (email: string, password: string) => async (dispatch: AppDispatch) => {
+    try {
+      dispatch(AuthorizationSlice.actions.login());
       const response = await $api.post<AuthResponse>(BackendApi.LOGIN, {
         email: email,
         password: password,
       });
+      localStorage.setItem("token", response.data.accessToken);
 
-      localStorageApi.setAccessToken(response.data.accessToken);
-
-      dispatch(
-        AuthorizationSlice.actions.fetchAuthorizationSuccess(response.data.user)
-      );
+      dispatch(AuthorizationSlice.actions.loginSuccess(response.data.user));
     } catch (error) {
-      dispatch(
-        AuthorizationSlice.actions.fetchAuthorizationError(
-          "Неудалось войти в приложение"
-        )
-      );
+      dispatch(AuthorizationSlice.actions.loginError(ErrorMessages.LOGIN));
     }
   };
 
-export const fetchRegistration =
-  (email: userDataField, password: userDataField) =>
-  async (dispatch: AppDispatch) => {
-    try {
-      dispatch(AuthorizationSlice.actions.fetchAuthorization());
-      const response = await $api.post<AuthResponse>(BackendApi.REGISTRATION, {
-        email: email,
-        password: password,
-      });
-
-      localStorageApi.setAccessToken(response.data.accessToken);
-
-      dispatch(
-        AuthorizationSlice.actions.fetchAuthorizationSuccess(response.data.user)
-      );
-    } catch (error) {
-      dispatch(
-        AuthorizationSlice.actions.fetchAuthorizationError(
-          "Неудалось зарегистрироваться"
-        )
-      );
-    }
-  };
-
-export const checkAuth = () => async (dispatch: AppDispatch) => {
+export const refresh = () => async (dispatch: AppDispatch) => {
   try {
-    dispatch(AuthorizationSlice.actions.fetchAuthorizationRefresh());
+    dispatch(AuthorizationSlice.actions.refresh());
+    const response = await $api.post<AuthResponse>(BackendApi.REFRESH);
 
-    const response = await axios.post<AuthResponse>(
-      BackendApi.REFRESH,
-      {
-        withCredentials: true,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    );
+    if (!response.data) throw new Error(ErrorMessages.REFRESH_NOT_VALID);
 
-    localStorageApi.setAccessToken(response.data.accessToken);
+    localStorage.setItem("token", response.data.accessToken);
+
+    dispatch(AuthorizationSlice.actions.refreshSuccess());
+  } catch (error: Error | any) {
+    if (error instanceof Error)
+      dispatch(AuthorizationSlice.actions.refreshError(error.message));
 
     dispatch(
-      AuthorizationSlice.actions.fetchAuthorizationSuccess(response.data.user)
+      AuthorizationSlice.actions.registrationError(ErrorMessages.REFRESH)
     );
-  } catch (error) {
-    dispatch(AuthorizationSlice.actions.fetchAuthorizationRefreshError());
   }
 };
 
-export const logout = () => (dispath: AppDispatch) => {
-  dispath(AuthorizationSlice.actions.authorizationLogout());
-  localStorageApi.removeAccessToken();
+export const logout = () => (dispatch: AppDispatch) => {
+  dispatch(AuthorizationSlice.actions.logout());
 };
 
-export type AuthorizationType = typeof fetchLogin | typeof fetchRegistration;
+export type AuthorizationType = typeof login | typeof registration;
