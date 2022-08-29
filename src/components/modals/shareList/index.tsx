@@ -1,13 +1,11 @@
 import React, { FC, SyntheticEvent } from "react";
 import { useState } from "react";
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
-import { Colors } from "../../../types/classes/Colors";
 import { InputSizeTypes } from "../../../types/enums/InputSizeTypes";
-import { IUser } from "../../../types/models/IUser";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { useListById } from "../../../hooks/useListById";
 import { useActions } from "../../../hooks/useActions";
-import { listApi } from "../../../services/listApi";
+import { contentApi } from "../../../services/contentApi";
 import Button from "../../UI/button";
 import FooterInsert from "../../UI/footerInsert";
 import HeaderInsert from "../../UI/headerInsert";
@@ -19,13 +17,12 @@ import AccessedUsers from "./additional/accessedUsers";
 const ShareList: FC = () => {
   const [userEmail, setUserEmail] = useState<string>("");
   const { shareList } = useTypedSelector((state) => state.popups);
-  const { shareListToggleOff, fetchLists } = useActions();
-  const [shareWithUser, {}] = listApi.useShareListMutation();
+  const { shareListToggleOff } = useActions();
+  const [shareWithUser] = contentApi.useFetchListsShareMutation();
   const { accessedUsers } = useListById(shareList.currentListId);
 
   const onInviteHandler = (e: React.MouseEvent) => {
-    shareWithUser({ email: userEmail, listId: shareList.currentListId });
-    fetchLists();
+    shareWithUser({ emailToShare: userEmail, listId: shareList.currentListId });
     setUserEmail("");
   };
 
