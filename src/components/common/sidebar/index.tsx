@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC, useState } from "react";
 import { useFilteredLists } from "../../../hooks/useFiltredLists";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { LoaderType } from "../../../types/enums/LoaderType";
@@ -25,9 +25,22 @@ const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
     ) : (
       <ListUtil
         items={listArray}
-        renderItem={(list: IList) => <List key={list.id} listId={list.id} />}
+        renderItem={(list: IList) => (
+          <List
+            clickCallback={elementGeneratorClick}
+            key={list.id}
+            listId={list.id}
+          />
+        )}
       />
     );
+  };
+
+  const elementGeneratorClick = (e: React.MouseEvent) => {
+    const prev = document.querySelector(".elementContentGenerator");
+    prev?.classList.remove("elementContentGenerator");
+
+    e.currentTarget.classList.add("elementContentGenerator");
   };
 
   return (
@@ -38,8 +51,15 @@ const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
     >
       <div className={s._container}>
         <section className={s.sidebar__timeFrames}>
-          <TimeFrame frameType={TimeFrameTypes.TODAY}></TimeFrame>
-          <TimeFrame frameType={TimeFrameTypes.UPCOMING}></TimeFrame>
+          <TimeFrame
+            frameType={TimeFrameTypes.TODAY}
+            clickCallback={elementGeneratorClick}
+            defaultGenerator={true}
+          />
+          <TimeFrame
+            frameType={TimeFrameTypes.UPCOMING}
+            clickCallback={elementGeneratorClick}
+          />
         </section>
 
         <section className={s.sidebar__groups}>
