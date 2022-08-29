@@ -16,7 +16,7 @@ const initialState: IListsState = {
           id: 1,
           taskName: "Интерфейс",
           description: "Нужно спрограммировать этот интерфейс",
-          endTime: 1661691990,
+          endTime: 1661733244,
           status: false,
           comments: [
             {
@@ -31,7 +31,7 @@ const initialState: IListsState = {
           id: 2,
           taskName: "Адаптив",
           description: "Нужно сделать адаптив для todo",
-          endTime: 1661691990,
+          endTime: 1661733244,
           status: false,
           comments: [
             {
@@ -46,7 +46,7 @@ const initialState: IListsState = {
           id: 3,
           taskName: "Выпить пива",
           description: "Бахнуть 3 литра светлого фильтрованного жидкого золота",
-          endTime: 1661696160,
+          endTime: 1661733244,
           status: true,
           comments: [
             {
@@ -61,8 +61,7 @@ const initialState: IListsState = {
     },
     {
       id: 2,
-      listName:
-        "Этот список специально был создан для проверки некоторых функций приложения и в частности для того, чтобы обрезать строку если она слишком длинная",
+      listName: "Этот список специально был создан для проверки",
       color: "#551fdb",
       accessedUsers: [],
       tasks: [
@@ -70,7 +69,7 @@ const initialState: IListsState = {
           id: 4,
           taskName: "Поговорить с богом",
           description: "Позвонить на 8 800 555 35 35",
-          endTime: 1661691990,
+          endTime: 1661733244,
           status: false,
           comments: [
             {
@@ -80,6 +79,25 @@ const initialState: IListsState = {
               timestamp: 1660997596,
             },
           ],
+        },
+      ],
+    },
+    {
+      id: 3,
+      listName:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident necessitatibus autem sit ut, sequi expedita sapiente tenetur ipsa ipsam fugit! Voluptates debitis facere sit ducimus voluptas qui velit at provident!",
+      color: "#551fdb",
+      accessedUsers: [],
+      tasks: [
+        {
+          id: 5,
+          taskName:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident necessitatibus autem sit ut, sequi expedita sapiente tenetur ipsa ipsam fugit! Voluptates debitis facere sit ducimus voluptas qui velit at provident!",
+          description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident necessitatibus autem sit ut, sequi expedita sapiente tenetur ipsa ipsam fugit! Voluptates debitis facere sit ducimus voluptas qui velit at provident!",
+          endTime: 1661733244,
+          status: false,
+          comments: [],
         },
       ],
     },
