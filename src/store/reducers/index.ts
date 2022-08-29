@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
-import { listApi } from "../../services/listApi";
-import { taskApi } from "../../services/taskApi";
+import { contentApi } from "../../services/contentApi";
 import list from "./listSlice";
 import authorization from "./authorizationSlice";
 import popups from "./popupsSlice";
@@ -11,8 +10,7 @@ export const rootReducer = combineReducers({
   popups: popups.reducer,
   authorization: authorization.reducer,
   list: list.reducer,
-  [listApi.reducerPath]: listApi.reducer,
-  [taskApi.reducerPath]: taskApi.reducer,
+  [contentApi.reducerPath]: contentApi.reducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
