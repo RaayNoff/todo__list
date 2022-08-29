@@ -22,14 +22,16 @@ const AsideListInfo: FC<IAsideListInfo> = ({
 
   return (
     <aside className={s.sidebar}>
-      <section className={s.sidebar__list}>
+      <section className={s.sidebar__section}>
         <header className={s.sidebar__header}>Список</header>
         <section className={s.sidebar__data}>
           <div ref={listColorElement}></div>
-          <p className={s.sidebar__listName}>{listName}</p>
+          <p className={`${s.sidebar__listName} textEllipsis`} title={listName}>
+            {listName}
+          </p>
         </section>
       </section>
-      <section className={s.sidebar__endtime}>
+      <section className={s.sidebar__section}>
         <header className={s.sidebar__header}>Срок выполнения</header>
         <Endtime timestamp={timestamp} />
       </section>
