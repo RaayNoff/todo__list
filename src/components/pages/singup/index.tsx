@@ -7,7 +7,7 @@ import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
 import s from "./signUp.module.scss";
 
 const SingUp: FC = () => {
-  const { fetchRegistration } = useActions();
+  const { registration } = useActions();
 
   return (
     <main>
@@ -21,7 +21,7 @@ const SingUp: FC = () => {
               </header>
               <img src={checklist} alt="checklist"></img>
             </section>
-            <AuthorizationForm fetchCallback={fetchRegistration} />
+            <AuthorizationForm fetchCallback={registration} />
           </section>
         </div>
       </section>
