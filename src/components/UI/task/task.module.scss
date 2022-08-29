@@ -31,6 +31,7 @@
 
 	&__footer {
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
 	}
 
@@ -43,7 +44,10 @@
 	// .task__from
 	&__from {
 		font-size: 12px;
+		line-height: 14 / 12 * 100%;
+		width: 40%;
 		color: #8b8b8b;
+		text-align: right;
 	}
 }
 
