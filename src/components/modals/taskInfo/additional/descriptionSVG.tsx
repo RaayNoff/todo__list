@@ -1,4 +1,5 @@
 import React from "react";
+import s from "./desriptionIcon.module.scss";
 
 const DescriptionSVG = (): JSX.Element => {
   return (
@@ -6,6 +7,7 @@ const DescriptionSVG = (): JSX.Element => {
       width="12"
       height="12"
       viewBox="0 0 12 12"
+      className={s.icon}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
