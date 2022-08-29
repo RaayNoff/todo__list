@@ -39,10 +39,17 @@ const TaskInfo: FC = () => {
             <section className={s.task}>
               {/* <Checkbox color={color} setStatus={setStatus} status={status} /> */}
               <section className={s.task__info}>
-                <p className={s.task__name}>{taskName}</p>
+                <p className={`${s.task__name} textEllipsis`} title={taskName}>
+                  {taskName}
+                </p>
                 <section className={s.description}>
                   {DescriptionSVG()}
-                  <p className={s.description__text}>{description}</p>
+                  <p
+                    className={`${s.description__text} textEllipsis`}
+                    title={description}
+                  >
+                    {description}
+                  </p>
                 </section>
               </section>
             </section>
@@ -59,11 +66,11 @@ const TaskInfo: FC = () => {
                 ))
               ) : (
                 <p className={s.listInfo__nocomments}>
-                  У этой задачи нет комментариев.
+                  Оставить комментарий - это отличный способ дополнить задачу
+                  или обсудить её с другими пользователями!
                 </p>
               )}
             </Grouper>
-
             <CommentaryArea taskId={taskInfo.currentTaskId} />
           </section>
           <AsideListInfo
