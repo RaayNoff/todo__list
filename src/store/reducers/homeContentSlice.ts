@@ -1,5 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
-import useTasks from "../../hooks/useTasks";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { HomeContentDisplaying } from "../../types/enums/HomeContentDisplaying";
 import { IHomeContentState } from "../../types/states/IHomeContentState";
 
@@ -14,6 +13,13 @@ const homeContentSlice = createSlice({
   reducers: {
     displayToday: (state) => {
       state.nowDisplaying = HomeContentDisplaying.TODAY_TASKS;
+    },
+    displayFuture: (state) => {
+      state.nowDisplaying = HomeContentDisplaying.FUTURE_TASKS;
+    },
+    displayList: (state, action: PayloadAction<number>) => {
+      state.nowDisplaying = HomeContentDisplaying.LIST;
+      state.listId = action.payload;
     },
   },
 });
