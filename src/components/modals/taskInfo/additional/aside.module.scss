@@ -2,11 +2,15 @@
 	width: 197px;
 	background: rgba(231, 231, 231, 0.5);
 	min-height: 100%;
-	padding: 25px 0px 0px 31px;
+	padding: 20px 0px 0px 15px;
+	border-radius: 0px 0px 10px 0px;
 
-	// .sidebar__list
-	&__list {
-		margin: 0px 0px 24px 0px;
+	// .sidebar__section
+
+	&__section {
+		&:first-child {
+			margin: 0px 0px 14px 0px;
+		}
 	}
 
 	// .sidebar__header
@@ -23,8 +27,8 @@
 		display: flex;
 		align-items: center;
 		div {
-			width: 10px;
-			height: 10px;
+			min-width: 10px;
+			min-height: 10px;
 			border-radius: 50%;
 			margin: 0px 3px 0px 0px;
 		}
