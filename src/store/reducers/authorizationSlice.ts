@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { AuthResponse } from "../../types/interfaces/Authorization";
 import { IUser } from "../../types/models/IUser";
 import { IAuthorizationState } from "../../types/states/IAuthorizationState";
 
@@ -13,34 +14,58 @@ export const AuthorizationSlice = createSlice({
   name: "authorization",
   initialState: initialState,
   reducers: {
-    fetchAuthorization(state) {
+    registration: (state) => {
+      state.loading = true;
+      state.error = "";
+      state.isAuthorized = false;
+    },
+    registrationSuccess: (state, action: PayloadAction<IUser>) => {
+      state.loading = false;
+      state.error = "";
+      state.isAuthorized = false;
+      state.user = action.payload;
+    },
+    registrationError: (state, action: PayloadAction<string>) => {
+      state.loading = false;
+      state.error = action.payload;
+      state.isAuthorized = false;
+    },
+    refresh: (state) => {
       state.loading = true;
       state.error = "";
     },
-    fetchAuthorizationError(state, action: PayloadAction<string>) {
+    refreshSuccess: (state) => {
       state.loading = false;
-      state.error = action.payload;
-    },
-    fetchAuthorizationSuccess(state, action: PayloadAction<IUser>) {
-      state.loading = false;
-      state.user = action.payload;
       state.error = "";
       state.isAuthorized = true;
     },
-    fetchAuthorizationRefresh(state) {
-      state.loading = true;
-    },
-    authorizationLogout(state) {
+    refreshError: (state, action: PayloadAction<string>) => {
       state.loading = false;
-      state.user = {} as IUser;
+      state.error = action.payload;
       state.isAuthorized = false;
+      state.user = {} as IUser;
+    },
+    login: (state) => {
+      state.loading = true;
       state.error = "";
     },
-    authorizationResetError(state) {
-      state.error = "";
-    },
-    fetchAuthorizationRefreshError(state) {
+    loginSuccess: (state, action: PayloadAction<IUser>) => {
       state.loading = false;
+      state.error = "";
+      state.isAuthorized = true;
+      state.user = action.payload;
+    },
+    loginError: (state, action: PayloadAction<string>) => {
+      state.loading = false;
+      state.error = action.payload;
+      state.isAuthorized = false;
+      state.user = {} as IUser;
+    },
+    logout: (state) => {
+      state.loading = false;
+      state.error = "";
+      state.isAuthorized = false;
+      state.user = {} as IUser;
     },
   },
 });
