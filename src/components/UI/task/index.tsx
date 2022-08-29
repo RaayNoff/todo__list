@@ -3,7 +3,6 @@ import DateApi from "../../../api/dateApi";
 import { useActions } from "../../../hooks/useActions";
 import { useListById } from "../../../hooks/useListById";
 import { useListByTaskId } from "../../../hooks/useListByTaskId";
-import { taskApi } from "../../../services/taskApi";
 import { ITask } from "../../../types/models/ITask";
 import Checkbox from "../checkbox";
 import Endtime from "../endtime";
@@ -28,9 +27,14 @@ const Task: FC<TaskProps> = ({ task }) => {
       <Checkbox taskId={task.id} />
 
       <section onClick={(e) => displayInfoHandler(e)} className={s.task__data}>
-        <p className={s.task__name}>{task.taskName}</p>
+        <p className={`${s.task__name} textEllipsis`} title={task.taskName}>
+          {task.taskName}
+        </p>
 
-        <p className={s.task__description}> {task.description} </p>
+        <p className={`${s.task__description} textEllipsis`}>
+          {" "}
+          {task.description}{" "}
+        </p>
         <section className={s.task__footer}>
           <section className={s.task__date}>
             <Endtime timestamp={task.endTime} />
@@ -39,7 +43,9 @@ const Task: FC<TaskProps> = ({ task }) => {
             )}
           </section>
 
-          <p className={s.task__from}>{listName}</p>
+          <p className={`${s.task__from} textEllipsis`} title={listName}>
+            {listName}
+          </p>
         </section>
       </section>
     </article>
