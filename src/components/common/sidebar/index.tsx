@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { useFilteredLists } from "../../../hooks/useFiltredLists";
-import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { contentApi } from "../../../services/contentApi";
 import { LoaderType } from "../../../types/enums/LoaderType";
 import { TimeFrameTypes } from "../../../types/enums/TimeFrame";
 import { IList } from "../../../types/models/IList";
@@ -16,12 +16,12 @@ interface ISidebarProps {
 }
 
 const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
-  const { loading } = useTypedSelector((state) => state.list);
+  const { isLoading } = contentApi.useFetchAllListsQuery(0);
   const { notSharedLists, sharedLists } = useFilteredLists();
 
   const generateGrouperContent = (listArray: IList[], emptyMessage: string) => {
-    return loading ? (
-      <Loader isActive={loading} loaderType={LoaderType.LIST} />
+    return isLoading ? (
+      <Loader isActive={isLoading} loaderType={LoaderType.LIST} />
     ) : (
       <>
         <ListUtil
@@ -71,7 +71,7 @@ const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
           <Grouper groupName="Списки">
             {generateGrouperContent(
               notSharedLists,
-              "Чтобы начать работу со списками нажмите + сверху."
+              "Персональные списки не были найдены."
             )}
           </Grouper>
           <Grouper groupName="Общие" isAddActive={false}>
