@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AuthResponse } from "../../types/interfaces/Authorization";
 import { IUser } from "../../types/models/IUser";
 import { IAuthorizationState } from "../../types/states/IAuthorizationState";
 
