@@ -52,7 +52,7 @@ const Switcher: FC = () => {
     case HomeContentDisplaying.FUTURE_TASKS:
       return (
         <ViewTemplate
-          viewTitle="Предстоящие"
+          viewTitle="Предстоящее"
           completedTasks={futureCompletedTasks}
           notCompletedTasks={futureNotCompletedTasks}
           isList={false}
