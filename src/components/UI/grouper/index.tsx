@@ -17,7 +17,7 @@ const Grouper: FC<IGrouperProps> = ({
   groupName,
   isAddActive = true,
 }) => {
-  const [isOpen, SetIsOpen] = useState<boolean>(false);
+  const [isOpen, SetIsOpen] = useState<boolean>(true);
   const { createListToggleOn } = useActions();
 
   const onAddClickHandler = (e: React.MouseEvent) => {
