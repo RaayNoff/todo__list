@@ -21,7 +21,7 @@ export const publicRoutes: IRoute[] = [
   {
     id: 3,
     path: RoutePath.NOROUTE,
-    component: <Navigate to={RoutePath.SIGNUP} />,
+    component: <Navigate to={RoutePath.SIGNIN} />,
   },
 ];
 
