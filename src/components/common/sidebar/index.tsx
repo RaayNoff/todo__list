@@ -19,20 +19,25 @@ const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
   const { loading } = useTypedSelector((state) => state.list);
   const { notSharedLists, sharedLists } = useFilteredLists();
 
-  const generateGrouperContent = (listArray: IList[]) => {
+  const generateGrouperContent = (listArray: IList[], emptyMessage: string) => {
     return loading ? (
       <Loader isActive={loading} loaderType={LoaderType.LIST} />
     ) : (
-      <ListUtil
-        items={listArray}
-        renderItem={(list: IList) => (
-          <List
-            clickCallback={elementGeneratorClick}
-            key={list.id}
-            listId={list.id}
-          />
+      <>
+        <ListUtil
+          items={listArray}
+          renderItem={(list: IList) => (
+            <List
+              clickCallback={elementGeneratorClick}
+              key={list.id}
+              listId={list.id}
+            />
+          )}
+        />
+        {listArray.length < 1 && (
+          <p className={s.sidebar__empty}>{emptyMessage}</p>
         )}
-      />
+      </>
     );
   };
 
@@ -64,10 +69,16 @@ const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
 
         <section className={s.sidebar__groups}>
           <Grouper groupName="Списки">
-            {generateGrouperContent(notSharedLists)}
+            {generateGrouperContent(
+              notSharedLists,
+              "Чтобы начать работу со списками нажмите + сверху."
+            )}
           </Grouper>
           <Grouper groupName="Общие" isAddActive={false}>
-            {generateGrouperContent(sharedLists)}
+            {generateGrouperContent(
+              sharedLists,
+              "Общие списки не были найдены."
+            )}
           </Grouper>
         </section>
       </div>

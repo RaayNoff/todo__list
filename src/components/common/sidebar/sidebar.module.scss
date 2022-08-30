@@ -21,6 +21,12 @@
 
 	&__groups {
 	}
+
+	&__empty {
+		font-size: 12px;
+		line-height: 14 / 12 * 100%;
+		text-align: center;
+	}
 }
 
 ._container {
