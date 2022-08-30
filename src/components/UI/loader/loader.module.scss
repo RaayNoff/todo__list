@@ -36,13 +36,17 @@
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	justify-content: space-between;
-	width: 2em;
+	justify-content: center;
+	width: 100%;
 
 	&__span {
 		width: 0.3em;
 		height: 0.5em;
 		background-color: #553fdb;
+		margin-right: 3px;
+		&:last-child {
+			margin-right: 0px;
+		}
 	}
 
 	&__span:nth-of-type(1) {
