@@ -41,8 +41,8 @@ const ViewTemplate: FC<IViewTemplateProps> = ({
             {notCompletedTasks.length >= 1 && isList && <CreateTask />}
             {notCompletedTasks.length < 1 && !isList && (
               <p className={s.body__areaMessage}>
-                Чтобы в <strong>`{viewTitle}`</strong> появились задачи,
-                создайте её в одном из списков!
+                Чтобы в <strong>`{viewTitle}`</strong> отображались задачи,
+                добавьте по крайней мере одну задачу!
               </p>
             )}
           </section>
