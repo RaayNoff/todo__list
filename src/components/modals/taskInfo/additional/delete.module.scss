@@ -1,0 +1,12 @@
+.delete {
+	width: fit-content;
+	align-self: flex-start;
+	margin-top: 10px;
+	transition: all 150ms linear;
+	@media (min-width: 991.98px) {
+		cursor: pointer;
+		:hover {
+			fill: red;
+		}
+	}
+}

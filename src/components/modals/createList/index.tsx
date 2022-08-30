@@ -19,7 +19,7 @@ const CreateList: FC = () => {
   );
   const { createList } = useTypedSelector((state) => state.popups);
   const { createListToggleOff } = useActions();
-  const [addList, {}] = contentApi.useFetchListsAddMutation();
+  const [addList] = contentApi.useFetchListsAddMutation();
 
   const onClickedCancel = (e: React.MouseEvent) => {
     e.stopPropagation();

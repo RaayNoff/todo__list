@@ -4,7 +4,7 @@ import { IPopupsState } from "../../types/states/IPopupsState";
 const initialState: IPopupsState = {
   createList: false,
   taskInfo: {
-    status: false,
+    status: true,
     currentTaskId: 1,
   },
   shareList: {

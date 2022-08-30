@@ -14,7 +14,7 @@ const CreateTask: FC = () => {
   const [taskName, setTaskName] = useState("");
   const [taskDesc, setTaskDesc] = useState("");
   const [date, setDate] = useState(0);
-  const [addTask, {}] = contentApi.useFetchTaskAddMutation();
+  const [addTask] = contentApi.useFetchTaskAddMutation();
 
   const onCancel = (e: React.MouseEvent) => setIsEditor(!isEditor);
   const onClick = (e: React.MouseEvent) => {

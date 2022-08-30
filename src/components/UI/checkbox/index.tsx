@@ -10,14 +10,20 @@ interface ICheckbox {
 
 const Checkbox: FC<ICheckbox> = ({ taskId }) => {
   const chaikaRef = useRef<SVGSVGElement>(null);
-  const circleRef = useRef<HTMLDivElement>(null);
+  const circleRef = useRef<HTMLButtonElement>(null);
   const { color } = useListByTaskId(taskId);
-  const { status } = useTaskById(taskId);
+  const { status, taskName, description } = useTaskById(taskId);
   const [changeStatus] = contentApi.useFetchTaskEditMutation();
+
   const handleSetStatus = (e: React.MouseEvent) => {
     e.stopPropagation();
 
-    changeStatus({ status: !status, taskId: taskId });
+    changeStatus({
+      status: !status,
+      taskId: taskId,
+      taskName: taskName,
+      description: description,
+    });
   };
 
   useEffect(() => {
@@ -28,7 +34,7 @@ const Checkbox: FC<ICheckbox> = ({ taskId }) => {
   }, [color]);
 
   return (
-    <div
+    <button
       className={s.checkbox}
       ref={circleRef}
       onClick={(e) => handleSetStatus(e)}
@@ -48,7 +54,7 @@ const Checkbox: FC<ICheckbox> = ({ taskId }) => {
           strokeLinejoin="round"
         />
       </svg>
-    </div>
+    </button>
   );
 };
 

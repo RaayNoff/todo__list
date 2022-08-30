@@ -20,7 +20,7 @@ const ListMenu: FC<IListMenuProps> = ({
   menuPosition,
 }) => {
   const menuRef = useMenuPositionRef(menuPosition, 150, 15);
-  const [deleteList, {}] = contentApi.useFetchListsDeleteMutation();
+  const [deleteList] = contentApi.useFetchListsDeleteMutation();
   const { shareListToggleOn, editListToggleOn } = useActions();
 
   const deleteListHandler = (e: React.MouseEvent) => {

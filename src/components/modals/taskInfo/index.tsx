@@ -9,14 +9,14 @@ import CommentaryArea from "../../UI/commentaryArea";
 import Grouper from "../../UI/grouper";
 import HeaderInsert from "../../UI/headerInsert";
 import AsideListInfo from "./additional/aside";
+import Delete from "./additional/delete";
 import DescriptionSVG from "./additional/descriptionSVG";
+import TextEditor, { editorType } from "./additional/textEditor";
 import s from "./taskInfo.module.scss";
 
 const TaskInfo: FC = () => {
   const { taskInfo } = useTypedSelector((state) => state.popups);
-
   const { listName, color } = useListByTaskId(taskInfo.currentTaskId);
-
   const { taskName, description, comments, endTime } = useTaskById(
     taskInfo.currentTaskId
   );
@@ -37,19 +37,21 @@ const TaskInfo: FC = () => {
         <section className={s.listInfo__content}>
           <section className={s.listInfo__data}>
             <section className={s.task}>
-              {/* <Checkbox color={color} setStatus={setStatus} status={status} /> */}
+              <section className={s.task__actions}>
+                <Checkbox taskId={taskInfo.currentTaskId} />
+                <Delete taskId={taskInfo.currentTaskId} />
+              </section>
               <section className={s.task__info}>
-                <p className={`${s.task__name} textEllipsis`} title={taskName}>
-                  {taskName}
-                </p>
+                <TextEditor
+                  defaultValue={taskName}
+                  editType={editorType.INPUT}
+                />
                 <section className={s.description}>
                   {DescriptionSVG()}
-                  <p
-                    className={`${s.description__text} textEllipsis`}
-                    title={description}
-                  >
-                    {description}
-                  </p>
+                  <TextEditor
+                    defaultValue={description}
+                    editType={editorType.TEXTAREA}
+                  />
                 </section>
               </section>
             </section>
@@ -59,8 +61,8 @@ const TaskInfo: FC = () => {
                 comments.map((c) => (
                   <Commentary
                     content={c.content}
-                    email={c.userEmail}
-                    key={c.userEmail}
+                    email={c.email}
+                    key={c.email}
                     timestamp={c.timestamp}
                   />
                 ))
@@ -70,8 +72,8 @@ const TaskInfo: FC = () => {
                   или обсудить её с другими пользователями!
                 </p>
               )}
+              <CommentaryArea taskId={taskInfo.currentTaskId} />
             </Grouper>
-            <CommentaryArea taskId={taskInfo.currentTaskId} />
           </section>
           <AsideListInfo
             listColor={color}

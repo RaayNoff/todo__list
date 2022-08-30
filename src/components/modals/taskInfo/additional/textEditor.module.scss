@@ -1,0 +1,31 @@
+.bold {
+	font-size: 14px;
+	line-height: 17 / 14 * 100%;
+	font-weight: 400;
+	color: #252525;
+	min-width: 80%;
+}
+
+.light {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 15 / 12 * 100%;
+	color: #757575;
+	width: 80%;
+}
+
+.textEditor {
+	display: flex;
+	width: 100%;
+}
+
+.input {
+	min-width: 80%;
+}
+
+.textarea {
+	width: 80%;
+	max-width: 80%;
+	min-width: 80%;
+	min-height: 135px;
+}

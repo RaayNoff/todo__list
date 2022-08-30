@@ -1,4 +1,6 @@
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { contentApi } from "../../../services/contentApi";
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import Button from "../button";
 import s from "./commentaryArea.module.scss";
@@ -8,10 +10,12 @@ interface ICommentaryAreaProps {
 }
 
 const CommentaryArea: FC<ICommentaryAreaProps> = ({ taskId }) => {
+  const [addComment] = contentApi.useFetchTaskCommentMutation();
+  const { user } = useTypedSelector((state) => state.authorization);
   const [text, setText] = useState<string>("");
 
-  const fetchNewComment = () => {
-    //Заглушка для кнопки, буду делать запрос через редукс отправляя taskID
+  const fetchNewComment = (E: React.MouseEvent) => {
+    addComment({ content: text, taskId: taskId, userEmail: user.email || "" });
   };
 
   return (

@@ -36,12 +36,20 @@
 		margin: 0px 13px 0px 0px;
 	}
 
+	// .task__actions
+	&__actions {
+		width: fit-content;
+		display: flex;
+		flex-direction: column;
+	}
+
 	// .task__info
 	&__info {
 		font-size: 14px;
 		line-height: 17 / 14 * 100%;
 		color: #252525;
 		font-weight: 400;
+		width: 100%;
 	}
 
 	// .task__name
@@ -57,6 +65,7 @@
 	align-items: center;
 
 	svg {
+		align-self: flex-start;
 		margin: 0px 8px 0px 0px;
 	}
 
