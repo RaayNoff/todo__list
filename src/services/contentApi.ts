@@ -56,7 +56,7 @@ export const contentApi = createApi({
   endpoints: (build) => ({
     fetchAllLists: build.query<IList[], number>({
       query: () => ({
-        url: "",
+        url: BackendApi.FETCH_LISTS,
         method: "GET",
       }),
       providesTags: ["Lists"],
