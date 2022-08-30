@@ -1,5 +1,6 @@
 import { contentApi } from "../services/contentApi";
 import { IList } from "../types/models/IList";
+import { noFiltredObject } from "../types/noData";
 
 export const useFilteredLists = (): {
   notSharedLists: IList[];
@@ -7,7 +8,7 @@ export const useFilteredLists = (): {
 } => {
   const { data: lists } = contentApi.useFetchAllListsQuery(0);
 
-  if (!lists) return { notSharedLists: [], sharedLists: [] };
+  if (!lists) return noFiltredObject;
 
   const sharedLists = lists.filter((list) => list.accessedUsers.length >= 1);
 

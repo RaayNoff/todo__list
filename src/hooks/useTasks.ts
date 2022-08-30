@@ -1,11 +1,10 @@
-import { ITask } from "../types/models/ITask";
-import { useTypedSelector } from "./useTypedSelector";
+import { contentApi } from "../services/contentApi";
+import { notTaskArr } from "../types/noData";
 
 export default function useTasks() {
-  const { lists } = useTypedSelector((state) => state.list);
+  const { data: tasks } = contentApi.useFetchAllTasksQuery(0);
 
-  const result: ITask[] = [];
+  if (!tasks) return notTaskArr;
 
-  lists.forEach((list) => list.tasks.forEach((task) => result.push(task)));
-  return result;
+  return tasks;
 }

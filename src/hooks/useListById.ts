@@ -1,8 +1,11 @@
+import { contentApi } from "../services/contentApi";
 import { IList } from "../types/models/IList";
-import { useTypedSelector } from "./useTypedSelector";
+import { notList } from "../types/noData";
 
 export const useListById = (targetListId: number): IList => {
-  const { lists } = useTypedSelector((state) => state.list);
+  const { data: lists } = contentApi.useFetchAllListsQuery(0);
+
+  if (!lists) return notList;
 
   const [requiredList] = lists.filter((l) => l.id === targetListId);
 

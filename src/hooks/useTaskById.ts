@@ -1,15 +1,16 @@
+import { contentApi } from "../services/contentApi";
 import { ITask } from "../types/models/ITask";
-import { useTypedSelector } from "./useTypedSelector";
+import { notTask } from "../types/noData";
 
 export const useTaskById = (taskId: number): ITask => {
-  const { lists } = useTypedSelector((state) => state.list);
+  const { data: tasks } = contentApi.useFetchAllTasksQuery(0);
+
+  if (!tasks) return notTask;
 
   const _temp: ITask[] = [];
 
-  lists.forEach((list) => {
-    list.tasks.forEach((task) => {
-      if (task.id === taskId) _temp.push(task);
-    });
+  tasks.forEach((task) => {
+    if (task.id === taskId) _temp.push(task);
   });
 
   const [result] = _temp;
