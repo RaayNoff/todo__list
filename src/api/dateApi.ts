@@ -41,7 +41,7 @@ export default class DateApi {
   };
 
   static getToday = () => {
-    return moment(new Date()).locale("ru").local(true).format("ddd M MMM");
+    return moment(new Date()).locale("ru").local(true).format("ddd D MMM");
   };
 
   static isExpired = (timestamp: timestamp) => {
