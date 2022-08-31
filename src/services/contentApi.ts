@@ -52,6 +52,7 @@ interface IDeleteTaskArgs {
 export const contentApi = createApi({
   reducerPath: "contentApi",
   baseQuery: baseQueryWithReauth,
+  refetchOnReconnect: true,
   tagTypes: ["Lists", "Tasks"],
   endpoints: (build) => ({
     fetchAllLists: build.query<IList[], number>({
