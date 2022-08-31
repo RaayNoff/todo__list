@@ -1,4 +1,6 @@
 import { FC, SyntheticEvent, useState } from "react";
+import { useActions } from "../../../hooks/useActions";
+import usePath from "../../../hooks/usePath";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import useValidData from "../../../hooks/useValidData";
 import { AuthorizationType } from "../../../store/action-creators/authorization";
@@ -16,13 +18,16 @@ interface IAuthorizationProps {
 const AuthorizationForm: FC<IAuthorizationProps> = ({ fetchCallback }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const { refresh } = useActions();
   const { error } = useTypedSelector((state) => state.authorization);
   const isDataValid = useValidData(email, password);
+  const isRegistration = usePath();
 
   const onClickHandler = (e: SyntheticEvent): void => {
     e.preventDefault();
 
     fetchCallback(email, password);
+    if (isRegistration) refresh();
   };
 
   return (
