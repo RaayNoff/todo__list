@@ -1,0 +1,60 @@
+.sign {
+	margin-top: 110px;
+
+	@media (max-width: 767.98px) {
+		margin-top: 40px;
+	}
+	@media (max-width: 479.98px) {
+		margin-top: 20px;
+	}
+
+	// .registration__content
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@media (max-width: 1200px) {
+			flex-direction: column;
+		}
+	}
+}
+
+.welcome {
+	margin-right: 32px;
+
+	@media (max-width: 1200px) {
+		margin-right: 0px;
+	}
+
+	// .welocme__message
+	&__message {
+		font-weight: 800;
+		font-size: 36px;
+		line-height: 44 / 36 * 100%;
+
+		color: #553fdb;
+		text-align: center;
+
+		@media (max-width: 1200px) {
+			margin-bottom: 66px;
+		}
+
+		@media (max-width: 546px) {
+			font-size: 28px;
+		}
+
+		@media (max-width: 479.98px) {
+			line-height: 28 / 24 * 100%;
+			font-size: 24px;
+			margin: 0px 0px 0px 0px;
+		}
+	}
+
+	// .welcome__img
+	&__img {
+		@media (max-width: 1200px) {
+			display: none;
+		}
+	}
+}
