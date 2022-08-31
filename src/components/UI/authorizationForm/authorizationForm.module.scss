@@ -4,6 +4,19 @@
 	background: #553fdb;
 	border-radius: 10px;
 	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+
+	@media (max-width: 991.98px) {
+		transform: scale(1);
+	}
+	@media (max-width: 479.98px) {
+		transform: scale(0.8);
+	}
+	@media (max-width: 370px) {
+		transform: scale(0.7);
+	}
+	@media (max-width: 324px) {
+		transform: scale(0.65);
+	}
 }
 .form {
 	display: flex;
