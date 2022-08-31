@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import Home from "../components/pages/home";
-import SingIn from "../components/pages/signin";
-import SingUp from "../components/pages/singup";
+import SingIn from "../components/pages/nonauthorized/signin";
+import SingUp from "../components/pages/nonauthorized/singup";
 import Test from "../components/pages/test";
 import { RoutePath } from "../types/enums/RoutePath";
 import { IRoute } from "../types/models/IRoute";
