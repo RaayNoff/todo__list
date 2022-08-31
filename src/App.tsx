@@ -4,7 +4,7 @@ import AppRouter from "./components/utils/AppRouter";
 import { useActions } from "./hooks/useActions";
 
 const App: FC = () => {
-  const isDev = true;
+  const isDev = false;
   const { refresh } = useActions();
 
   useEffect(() => {
