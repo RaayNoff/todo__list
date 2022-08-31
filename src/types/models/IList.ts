@@ -1,4 +1,3 @@
-import { IColor } from "./IColor";
 import { ITask } from "./ITask";
 import { IUser } from "./IUser";
 
