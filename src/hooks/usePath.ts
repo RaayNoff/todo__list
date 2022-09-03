@@ -6,9 +6,9 @@ const usePath = (): boolean => {
 
   useMemo(() => {
     setIsRegistration(false);
+    const path = document.location.hash.replace("#", "");
 
-    if (document.location.pathname === RoutePath.SIGNUP)
-      setIsRegistration(true);
+    if (path === RoutePath.SIGNUP) setIsRegistration(true);
   }, []);
 
   return isRegistration;
