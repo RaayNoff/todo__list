@@ -14,7 +14,11 @@ const Switcher: FC = () => {
     (state) => state.homeContent
   );
 
-  const { listName } = useListById(listId);
+  const list = useListById(listId);
+
+  const listTasks = useTasksByListId(listId);
+  const listNotCompletedTasks = useNotCompletedTasks(listTasks);
+  const listCompletedTasks = useCompletedTasks(listTasks);
 
   const todayTasks = useTodayTasks();
   const todayNotCompletedTasks = useNotCompletedTasks(todayTasks);
@@ -23,10 +27,6 @@ const Switcher: FC = () => {
   const futureTasks = useFutureTasks();
   const futureNotCompletedTasks = useNotCompletedTasks(futureTasks);
   const futureCompletedTasks = useCompletedTasks(futureTasks);
-
-  const listTasks = useTasksByListId(listId);
-  const listNotCompletedTasks = useNotCompletedTasks(listTasks);
-  const listCompletedTasks = useCompletedTasks(listTasks);
 
   switch (nowDisplaying) {
     case HomeContentDisplaying.TODAY_TASKS:
@@ -42,7 +42,7 @@ const Switcher: FC = () => {
     case HomeContentDisplaying.LIST:
       return (
         <ViewTemplate
-          viewTitle={listName}
+          viewTitle={list.listName}
           notCompletedTasks={listNotCompletedTasks}
           completedTasks={listCompletedTasks}
           isList={true}
