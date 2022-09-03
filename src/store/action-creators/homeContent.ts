@@ -12,3 +12,7 @@ export const displayFuture = () => (dispatch: AppDispatch) => {
 export const displayList = (listId: number) => (dispatch: AppDispatch) => {
   dispatch(homeContentSlice.actions.displayList(listId));
 };
+
+export const listDelete = () => (dispatch: AppDispatch) => {
+  dispatch(homeContentSlice.actions.listDelete());
+};
