@@ -1,5 +1,7 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
+import { useActions } from "../../../hooks/useActions";
 import { useFilteredLists } from "../../../hooks/useFiltredLists";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { contentApi } from "../../../services/contentApi";
 import { LoaderType } from "../../../types/enums/LoaderType";
 import { TimeFrameTypes } from "../../../types/enums/TimeFrame";
@@ -11,11 +13,9 @@ import TimeFrame from "../../UI/timeFrame";
 import ListUtil from "../../utils/ListUtil";
 import s from "./sidebar.module.scss";
 
-interface ISidebarProps {
-  isEnabled: boolean;
-}
-
-const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
+const Sidebar: FC = () => {
+  const { status: isEnabled } = useTypedSelector((state) => state.sidebar);
+  const { sidebarToggle } = useActions();
   const { isLoading } = contentApi.useFetchAllListsQuery(0);
   const { notSharedLists, sharedLists } = useFilteredLists();
 
@@ -49,12 +49,12 @@ const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
   };
 
   return (
-    <aside
-      className={
-        isEnabled ? `${s.sidebar} ${s.sidebar__enabled}` : `${s.sidebar}`
-      }
-    >
-      <div className={s._container}>
+    <section className={s.sidebarWrapper}>
+      <aside
+        className={
+          isEnabled ? `${s.sidebar} ${s.sidebar__enabled}` : `${s.sidebar}`
+        }
+      >
         <section className={s.sidebar__timeFrames}>
           <TimeFrame
             frameType={TimeFrameTypes.TODAY}
@@ -81,8 +81,16 @@ const Sidebar: FC<ISidebarProps> = ({ isEnabled }) => {
             )}
           </Grouper>
         </section>
-      </div>
-    </aside>
+      </aside>
+      <div
+        className={
+          isEnabled
+            ? `${s.background} ${s.background__enabled}`
+            : `${s.background}`
+        }
+        onClick={() => sidebarToggle(false)}
+      ></div>
+    </section>
   );
 };
 
