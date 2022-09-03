@@ -1,6 +1,9 @@
 .checkbox {
-	width: 20px;
-	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 20px;
+	max-height: 20px;
 	border-radius: 50%;
 	background: rgba(217, 217, 217, 0.5);
 	border-width: 1px;
@@ -8,12 +11,6 @@
 	text-align: center;
 	cursor: pointer;
 
-	svg {
-		@media (min-width: 991.98px) {
-			:hover {
-			}
-		}
-	}
 	margin: 0px 11px 0px 0px;
 }
 
