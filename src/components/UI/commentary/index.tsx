@@ -22,7 +22,7 @@ const Commentary: FC<ICommentaryProps> = ({ email, content, timestamp }) => {
           </p>
           <p className={s.commentary__date}>{date}</p>
         </header>
-        <div className={s.commentary__content}>{content}</div>
+        <p className={s.commentary__content}>{content}</p>
       </section>
     </section>
   );
