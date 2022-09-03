@@ -42,8 +42,8 @@ const Checkbox: FC<ICheckbox> = ({ taskId }) => {
       <svg
         className={status ? `${s.display}` : `${s.nodisplay}`}
         ref={chaikaRef}
-        width="8"
-        height="6"
+        width="12"
+        height="12"
         viewBox="0 0 8 6"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
