@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import DateApi from "../../../../api/dateApi";
 import { ITask } from "../../../../types/models/ITask";
 import CreateTask from "../../../UI/createTask";
@@ -38,8 +37,8 @@ const ViewTemplate: FC<IViewTemplateProps> = ({
           <h2 className={s.body__title}>Предстоит сделать</h2>
           <section className={s.body__tasksWrapper}>
             {taskListMaker(notCompletedTasks)}
-            {notCompletedTasks.length >= 1 && isList && <CreateTask />}
-            {notCompletedTasks.length < 1 && !isList && (
+            {isList && <CreateTask />}
+            {notCompletedTasks.length < 1 && (
               <p className={s.body__areaMessage}>
                 Чтобы в <strong>`{viewTitle}`</strong> отображались задачи,
                 добавьте по крайней мере одну задачу!
