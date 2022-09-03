@@ -1,10 +1,10 @@
 .homeContent {
-	margin-left: 20%;
 	margin: 0 auto;
+	transition: all 450ms ease-in-out;
 
 	&__content {
-		padding: 44px 75px 0px 75px;
-		box-sizing: content-box;
+		padding-top: 44px;
+		box-sizing: border-box;
 		width: 100%;
 	}
 }
