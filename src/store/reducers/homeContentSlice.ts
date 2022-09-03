@@ -4,7 +4,7 @@ import { IHomeContentState } from "../../types/states/IHomeContentState";
 
 const initialState: IHomeContentState = {
   nowDisplaying: HomeContentDisplaying.TODAY_TASKS,
-  listId: 1,
+  listId: -1,
 };
 
 const homeContentSlice = createSlice({
@@ -20,6 +20,10 @@ const homeContentSlice = createSlice({
     displayList: (state, action: PayloadAction<number>) => {
       state.nowDisplaying = HomeContentDisplaying.LIST;
       state.listId = action.payload;
+    },
+    listDelete: (state) => {
+      state.nowDisplaying = HomeContentDisplaying.TODAY_TASKS;
+      state.listId = -1;
     },
   },
 });
