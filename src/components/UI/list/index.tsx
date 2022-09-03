@@ -38,7 +38,10 @@ const List: FC<IListProps> = ({ listId, clickCallback }) => {
         </header>
       </section>
       <div
-        onClick={() => SetIsMenuOpened(!isMenuOpened)}
+        onClick={(e) => {
+          e.stopPropagation();
+          SetIsMenuOpened(!isMenuOpened);
+        }}
         className={
           isMenuOpened
             ? `${s.list__menu} ${s.list__menu_active}`
