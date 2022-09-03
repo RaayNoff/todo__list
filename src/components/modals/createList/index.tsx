@@ -15,7 +15,7 @@ import s from "./createList.module.scss";
 const CreateList: FC = () => {
   const [listName, setListName] = useState<string>("");
   const [selectedColor, setSelectedColor] = useState<string>(
-    Colors.pallete[0].value
+    Colors.pallete[0].color
   );
   const { createList } = useTypedSelector((state) => state.popups);
   const { createListToggleOff } = useActions();
@@ -29,7 +29,7 @@ const CreateList: FC = () => {
     e.stopPropagation();
     addList({ listName: listName, color: selectedColor });
     setListName("");
-    setSelectedColor(Colors.pallete[0].value);
+    setSelectedColor(Colors.pallete[0].color);
     createListToggleOff();
   };
 
