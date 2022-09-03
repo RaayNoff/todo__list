@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import DateApi from "../../../api/dateApi";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { contentApi } from "../../../services/contentApi";
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
@@ -15,7 +16,12 @@ const CommentaryArea: FC<ICommentaryAreaProps> = ({ taskId }) => {
   const [text, setText] = useState<string>("");
 
   const fetchNewComment = (E: React.MouseEvent) => {
-    addComment({ content: text, taskId: taskId, userEmail: user.email || "" });
+    addComment({
+      content: text,
+      taskId: taskId,
+      userEmail: user.email || "",
+      timestamp: DateApi.getNowTimestamp(),
+    });
   };
 
   return (
