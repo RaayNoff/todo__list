@@ -1,16 +1,22 @@
 .commentaryArea {
-	margin: 0 auto;
 	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 	border-radius: 5px;
 	border: 0.5px solid #a4a4a4;
-	width: fit-content;
+	width: 383px;
+
+	@media (max-width: 469px) {
+		width: 360px;
+	}
+	@media (max-width: 404px) {
+		width: 260px;
+	}
 
 	&__textarea {
 		resize: vertical;
 		margin: 8px 11px 8px 11px;
-		width: 359px;
+		width: 95%;
 		min-height: 41px;
 		outline: none;
 	}
