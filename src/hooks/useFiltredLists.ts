@@ -8,7 +8,7 @@ export const useFilteredLists = (): {
 } => {
   const { data: lists } = contentApi.useFetchAllListsQuery(0);
 
-  if (!lists) return noFiltredObject;
+  if (!lists || lists.length < 1) return noFiltredObject;
 
   const sharedLists = lists.filter((list) => list.accessedUsers.length >= 1);
 
