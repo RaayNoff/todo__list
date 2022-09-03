@@ -4,6 +4,7 @@ export default class BackendApi {
   static REGISTRATION = "/api/auth/signup";
   static LOGIN = "/api/auth/signin";
   static REFRESH = "/api/auth/refresh";
+  static LOGOUT = "/api/auth/logout";
 
   static FETCH_LISTS = "/api/lists";
   static FETCH_LISTS_ADD = `${this.FETCH_LISTS}/add`;
