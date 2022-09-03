@@ -1,4 +1,4 @@
-.listInfo {
+.taskInfo {
 	display: flex;
 	flex-direction: column;
 
@@ -6,26 +6,52 @@
 	background-color: #fff;
 	border-radius: 10px;
 
-	// .listInfo__content
+	@media (max-width: 681px) {
+		width: 460px;
+	}
+	@media (max-width: 469px) {
+		width: 400px;
+	}
+	@media (max-width: 404px) {
+		width: 310px;
+	}
+
+	// .taskInfo__content
 	&__content {
 		display: flex;
 	}
 
-	// .listInfo__dat
+	// .taskInfo__dat
 	&__data {
 		width: 473px;
 		display: flex;
 		flex-direction: column;
 		margin: 0px 0px 25px 25px;
+
+		@media (max-width: 681px) {
+			width: 460px;
+		}
 	}
 
-	// .listInfo__nocomments
+	// .taskInfo__nocomments
 	&__nocomments {
 		font-size: 14px;
 		font-weight: 400;
 		line-height: 16 / 14 * 100%;
 
 		text-align: center;
+		@media (max-width: 404px) {
+			margin-right: 20px;
+		}
+	}
+
+	&__smallInfo {
+		display: none;
+		margin-left: 10px;
+		margin-bottom: 34px;
+		@media (max-width: 681px) {
+			display: block;
+		}
 	}
 }
 .task {
@@ -34,13 +60,6 @@
 
 	div {
 		margin: 0px 13px 0px 0px;
-	}
-
-	// .task__actions
-	&__actions {
-		width: fit-content;
-		display: flex;
-		flex-direction: column;
 	}
 
 	// .task__info
@@ -64,7 +83,7 @@
 	display: flex;
 	align-items: center;
 
-	svg {
+	> svg {
 		align-self: flex-start;
 		margin: 0px 8px 0px 0px;
 	}
