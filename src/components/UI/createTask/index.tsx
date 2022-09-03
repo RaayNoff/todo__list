@@ -1,5 +1,4 @@
-import React, { FC, SyntheticEvent, useState } from "react";
-import { TransitionGroup } from "react-transition-group";
+import React, { FC, useState } from "react";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { contentApi } from "../../../services/contentApi";
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
