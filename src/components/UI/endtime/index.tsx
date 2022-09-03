@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import DateApi from "../../../api/dateApi";
 import { timestamp } from "../../../types/Timestamp";
 import s from "./endtime.module.scss";
@@ -8,7 +8,11 @@ interface IEndtimeProps {
 }
 
 const Endtime: FC<IEndtimeProps> = ({ timestamp }) => {
-  const date = DateApi.getEndtime(timestamp);
+  const [date, setDate] = useState(DateApi.getEndtime(timestamp));
+
+  useEffect(() => {
+    setDate(DateApi.getEndtime(timestamp));
+  }, [timestamp]);
 
   return (
     <section className={s.endtime}>
