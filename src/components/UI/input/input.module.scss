@@ -15,7 +15,7 @@
 	}
 
 	input {
-		padding: 0px 0px 0px 6px;
+		padding: 0px 6px 0px 6px;
 		border: 0.5px solid #8b8b8b;
 		border-radius: 5px;
 		outline: none;
@@ -25,10 +25,17 @@
 	// .input__sizeBig
 	&__sizeBig {
 		width: 350px;
+
+		@media (max-width: 365px) {
+			width: 310px;
+		}
 	}
 
 	// .input__sizeMed
 	&__sizeMed {
 		width: 259px;
+		@media (max-width: 365px) {
+			width: 219px;
+		}
 	}
 }
