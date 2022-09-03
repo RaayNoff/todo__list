@@ -1,6 +1,6 @@
 .task {
 	display: flex;
-	width: 800px;
+	width: 100%;
 	margin: 0px 0px 15px 0px;
 	padding-bottom: 10px;
 	border-bottom: #dadada 1px solid;
@@ -11,6 +11,12 @@
 		@media (min-width: 991.98px) {
 			cursor: pointer;
 		}
+	}
+
+	&__head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 	// .task__name
 	&__name {
@@ -48,6 +54,15 @@
 		width: 40%;
 		color: #8b8b8b;
 		text-align: right;
+		@media (max-width: 479.98px) {
+			width: 30%;
+		}
+		-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Chrome/Safari/Opera */
+		-khtml-user-select: none; /* Konqueror */
+		-moz-user-select: none; /* Firefox */
+		-ms-user-select: none; /* Internet Explorer/Edge */
+		user-select: none;
 	}
 }
 
@@ -60,5 +75,5 @@
 	font-size: 12px;
 	border-radius: 4px;
 	font-weight: 600;
-	margin: 0px 0px 0px 10px;
+	transform: translateY(-5px);
 }
