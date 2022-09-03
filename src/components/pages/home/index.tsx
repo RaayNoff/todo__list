@@ -1,4 +1,5 @@
-import { FC, useState } from "react";
+import { FC, useEffect } from "react";
+import { LockAPI } from "../../../api/lockApi";
 import { contentApi } from "../../../services/contentApi";
 import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
 import Header from "../../common/header";
@@ -11,7 +12,6 @@ import TaskInfo from "../../modals/taskInfo";
 import s from "./home.module.scss";
 
 const Home: FC = () => {
-  const [isSidebarDisplayed, setIsSidebarDisplayed] = useState<boolean>(true);
   const {} = contentApi.useFetchAllListsQuery(0, {
     pollingInterval: 60000,
   });
@@ -19,26 +19,28 @@ const Home: FC = () => {
     pollingInterval: 30000,
   });
 
-  const toggleSidebar = () => {
-    setIsSidebarDisplayed(!isSidebarDisplayed);
-  };
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768.98px)");
+    if (mediaQuery.matches) {
+      LockAPI.toggleScrollLock();
+    }
+  }, []);
 
   return (
-    <main>
+    <>
       <Header
-        iconDisplayed={true}
-        burgerCallback={toggleSidebar}
+        displayControls={true}
         maxWidthContainer={MaxWidthContainer.AUTHORIZED}
       />
       <section className={s.home}>
-        <Sidebar isEnabled={isSidebarDisplayed} />
+        <Sidebar />
         <HomeContent />
       </section>
       <CreateList />
       <ShareList />
       <TaskInfo />
       <EditList />
-    </main>
+    </>
   );
 };
 
