@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { developerRoutes, privateRoutes, publicRoutes } from "../../router";
+import { privateRoutes, publicRoutes } from "../../router";
 
 interface IAppRouter {
   developing?: boolean;
@@ -26,9 +26,6 @@ const AppRouter: FC<IAppRouter> = ({ developing = false }) => {
             path={route.path}
             element={route.component}
           ></Route>
-        ))}
-        {developerRoutes.map((route) => (
-          <Route key={route.id} path={route.path} element={route.component} />
         ))}
       </Routes>
     );
