@@ -1,4 +1,4 @@
-import React, { FC, SyntheticEvent } from "react";
+import React, { FC } from "react";
 import { useState } from "react";
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import { InputSizeTypes } from "../../../types/enums/InputSizeTypes";
@@ -6,6 +6,7 @@ import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { useListById } from "../../../hooks/useListById";
 import { useActions } from "../../../hooks/useActions";
 import { contentApi } from "../../../services/contentApi";
+import { IUser } from "../../../types/models/IUser";
 import Button from "../../UI/button";
 import FooterInsert from "../../UI/footerInsert";
 import HeaderInsert from "../../UI/headerInsert";
@@ -21,8 +22,14 @@ const ShareList: FC = () => {
   const [shareWithUser] = contentApi.useFetchListsShareMutation();
   const { accessedUsers } = useListById(shareList.currentListId);
 
+  const checkAccessedUsers = (users: IUser[] = accessedUsers): boolean => {
+    if (users.length < 1) return false;
+
+    return true;
+  };
+
   const onInviteHandler = (e: React.MouseEvent) => {
-    shareWithUser({ emailToShare: userEmail, listId: shareList.currentListId });
+    shareWithUser({ email: userEmail, listId: shareList.currentListId });
     setUserEmail("");
   };
 
@@ -35,14 +42,14 @@ const ShareList: FC = () => {
         <HeaderInsert>Добавить пользователя</HeaderInsert>
         <main
           className={
-            accessedUsers.length >= 1
+            checkAccessedUsers()
               ? `${s.shareList__content} ${s.mb146}`
               : `${s.shareList__content} ${s.mb113}`
           }
         >
           <section
             className={
-              accessedUsers.length === 0
+              checkAccessedUsers()
                 ? `${s.shareList__clientResponse} ${s.mb36}`
                 : `${s.shareList__clientResponse} ${s.mb89}`
             }
