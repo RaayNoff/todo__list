@@ -1,6 +1,6 @@
 .commentary {
 	display: flex;
-	margin: 0px 0px 0px 5px;
+	margin: 0px 0px 20px 5px;
 	// .commentary__logoBG
 	&__logoBG {
 		min-width: 25px;
@@ -46,7 +46,14 @@
 		line-height: 14 / 12 * 100%;
 		font-weight: 400;
 		color: #252525;
-
+		overflow: wrap;
+		word-wrap: break-word;
 		height: fit-content;
+		@media (max-width: 469.98px) {
+			width: 250px;
+		}
+		@media (max-width: 404.98px) {
+			width: 200px;
+		}
 	}
 }
