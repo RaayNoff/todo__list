@@ -27,20 +27,20 @@ const Task: FC<TaskProps> = ({ task }) => {
       <Checkbox taskId={task.id} />
 
       <section onClick={(e) => displayInfoHandler(e)} className={s.task__data}>
-        <p className={`${s.task__name} textEllipsis`} title={task.taskName}>
-          {task.taskName}
-        </p>
+        <header className={s.task__head}>
+          <p className={`${s.task__name} textEllipsis`} title={task.taskName}>
+            {task.taskName}
+          </p>
+          {isExpired && !task.status && <p className={s.expired}>Просрочено</p>}
+        </header>
 
         <p className={`${s.task__description} textEllipsis`}>
-          {" "}
-          {task.description}{" "}
+          {task.description}
         </p>
+
         <section className={s.task__footer}>
           <section className={s.task__date}>
             <Endtime timestamp={task.endTime} />
-            {isExpired && !task.status && (
-              <p className={s.expired}>Просрочено</p>
-            )}
           </section>
 
           <p className={`${s.task__from} textEllipsis`} title={listName}>
