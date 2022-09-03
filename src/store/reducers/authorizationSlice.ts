@@ -33,10 +33,11 @@ export const AuthorizationSlice = createSlice({
       state.loading = true;
       state.error = "";
     },
-    refreshSuccess: (state) => {
+    refreshSuccess: (state, action: PayloadAction<IUser>) => {
       state.loading = false;
       state.error = "";
       state.isAuthorized = true;
+      state.user = action.payload;
     },
     refreshError: (state, action: PayloadAction<string>) => {
       state.loading = false;
@@ -61,10 +62,17 @@ export const AuthorizationSlice = createSlice({
       state.user = {} as IUser;
     },
     logout: (state) => {
+      state.loading = true;
+    },
+    logoutSuccess: (state) => {
       state.loading = false;
       state.error = "";
       state.isAuthorized = false;
       state.user = {} as IUser;
+    },
+    logoutError: (state, action: PayloadAction<string>) => {
+      state.loading = false;
+      state.error = action.payload;
     },
   },
 });
