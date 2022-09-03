@@ -1,4 +1,5 @@
 .view {
+	width: 100%;
 	transition: all 150ms linear;
 	// .view__header
 	&__header {
@@ -23,12 +24,18 @@
 		line-height: 14 / 12 * 100%;
 		font-weight: 400;
 	}
-
-	// .view__body
-	&__body {
-	}
 }
 .body {
+	overflow: scroll;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	max-height: 75vh;
+	scrollbar-width: 0px;
+
+	&::-webkit-scrollbar {
+		width: 0px;
+	}
+
 	// .body__title
 	&__title {
 		color: #000;
@@ -47,9 +54,10 @@
 	}
 
 	&__areaMessage {
+		word-wrap: break-word;
 		align-self: center;
 		width: 60%;
-		margin: 10px 0px 0px 0px;
+		margin: 20px 0px 0px 0px;
 		font-size: 14px;
 		text-align: center;
 	}
