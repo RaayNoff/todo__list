@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useTaskById } from "../../../../hooks/useTaskById";
 import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import { contentApi } from "../../../../services/contentApi";
@@ -17,12 +17,18 @@ interface ITextEditorProps {
 
 const TextEditor: FC<ITextEditorProps> = ({ defaultValue, editType }) => {
   const {
-    taskInfo: { currentTaskId: taskId },
+    taskInfo: { currentTaskId: taskId, status: isTaskInfoOpened },
   } = useTypedSelector((state) => state.popups);
   const task = useTaskById(taskId);
   const [text, setText] = useState(defaultValue);
   const [editTask] = contentApi.useFetchTaskEditMutation();
   const [isEditor, setIsEditor] = useState(false);
+
+  useEffect(() => {
+    setText(defaultValue);
+    if (!isTaskInfoOpened) setIsEditor(false);
+  }, [defaultValue]);
+
   let textSelector;
   let textEllipsis;
   let editorJSX;
@@ -56,6 +62,7 @@ const TextEditor: FC<ITextEditorProps> = ({ defaultValue, editType }) => {
         className={s.input}
         value={text}
         onChange={(e) => setText(e.target.value)}
+        autoFocus={true}
       ></input>
     );
     textSelector = s.bold;
@@ -66,6 +73,7 @@ const TextEditor: FC<ITextEditorProps> = ({ defaultValue, editType }) => {
         className={s.textarea}
         value={text}
         onChange={(e) => setText(e.target.value)}
+        autoFocus={true}
       ></textarea>
     );
 
