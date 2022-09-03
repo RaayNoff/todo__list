@@ -7,6 +7,13 @@
 	align-items: center;
 	background-color: #fff;
 
+	@media (max-width: 407.98px) {
+		width: 360px;
+	}
+	@media (max-width: 365px) {
+		width: 315px;
+	}
+
 	// .createList__content
 	&__content {
 		display: flex;
