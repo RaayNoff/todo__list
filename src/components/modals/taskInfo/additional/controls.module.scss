@@ -1,0 +1,14 @@
+.controls {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	width: fit-content;
+
+	// .controls__button
+	&__button {
+		margin: 0px 5px 0px 0px;
+		&:last-child {
+			margin: 0px 0px 0px 0px;
+		}
+	}
+}
