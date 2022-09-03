@@ -1,3 +1,14 @@
+%hover {
+	@media (min-width: 767.98px) {
+		transition: all 150ms linear;
+		cursor: pointer;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}
+
 .header {
 	height: 50px;
 	background-color: #553fdb;
@@ -7,7 +18,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0px 50px 0px 50px;
 		height: 100%;
 	}
 
@@ -17,8 +27,32 @@
 		height: 25px;
 		background-color: #fff;
 		border-radius: 50%;
-		@media (min-width: 991.98px) {
-			cursor: pointer;
+		margin-right: 15px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 28px;
+		color: #553fdb;
+		&:hover {
+			cursor: default;
+		}
+	}
+
+	// .header__rightSection
+	&__rightSection {
+		display: flex;
+	}
+
+	// .header__logout
+	&__logout {
+		fill: #ffffff;
+		min-width: 25px;
+		min-height: 25px;
+
+		@extend %hover;
+
+		&:hover {
+			fill: rgba(#b09aff, 0.8);
 		}
 	}
 }
@@ -29,18 +63,21 @@
 	flex-direction: column;
 	justify-content: space-between;
 
-	@media (min-width: 991.98px) {
-		&:hover {
-			cursor: pointer;
-		}
-	}
+	@extend %hover;
 
 	span {
 		transition: all 0.3s ease 0s;
 		display: block;
 		width: 25px;
-		height: 1px;
+		height: 2px;
+		border-radius: 10px;
 		background-color: #fff;
+	}
+
+	&:hover {
+		span {
+			background-color: rgba(#b09aff, 0.8);
+		}
 	}
 
 	&__active {
@@ -48,13 +85,11 @@
 			span {
 				transform: scale(0);
 				&:first-child {
-					position: relative;
-					transform: rotate(45deg);
+					transform: translateY(6px) rotate(45deg);
 					top: calc(50%);
 				}
 				&:last-child {
-					position: relative;
-					transform: rotate(-45deg);
+					transform: translateY(-6px) rotate(-45deg);
 					bottom: calc(50%);
 				}
 			}
