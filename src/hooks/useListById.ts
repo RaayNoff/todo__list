@@ -5,11 +5,9 @@ import { notList } from "../types/noData";
 export const useListById = (targetListId: number): IList => {
   const { data: lists } = contentApi.useFetchAllListsQuery(0);
 
-  if (!lists) return notList;
+  if (!lists || lists.length < 1 || targetListId === -1) return notList;
 
   const [requiredList] = lists.filter((l) => l.id === targetListId);
 
-  const { color, id, listName, tasks, accessedUsers } = requiredList;
-
-  return { id, listName, color, tasks, accessedUsers };
+  return requiredList;
 };
