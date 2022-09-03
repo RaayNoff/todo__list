@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./desriptionIcon.module.scss";
 
 const DescriptionSVG = (): JSX.Element => {
