@@ -1,12 +1,36 @@
 .delete {
+	padding: 5px 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: fit-content;
 	align-self: flex-start;
 	margin-top: 10px;
 	transition: all 150ms linear;
+	stroke: #757575;
+	border-radius: 5px;
 	@media (min-width: 991.98px) {
 		cursor: pointer;
-		:hover {
-			fill: red;
+	}
+
+	&__message {
+		margin-left: 5px;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 15 / 12 * 100%;
+		color: #757575;
+	}
+
+	&:hover {
+		.delete__icon {
+			transition: stroke 150ms ease-in-out;
+			stroke: rgba(#49247e, 1);
+		}
+
+		.delete__message {
+			transition: color 150ms ease-in-out;
+
+			color: rgba(#49247e, 1);
 		}
 	}
 }
