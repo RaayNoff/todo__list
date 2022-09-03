@@ -1,6 +1,10 @@
 .sign {
 	margin-top: 110px;
 
+	@media (max-width: 1135px) {
+		margin-top: 86px;
+	}
+
 	@media (max-width: 767.98px) {
 		margin-top: 40px;
 	}
@@ -13,8 +17,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
-		@media (max-width: 1200px) {
+		@media (max-width: 1135px) {
 			flex-direction: column;
 		}
 	}
@@ -29,6 +32,7 @@
 
 	// .welocme__message
 	&__message {
+		white-space: nowrap;
 		font-weight: 800;
 		font-size: 36px;
 		line-height: 44 / 36 * 100%;
@@ -36,8 +40,8 @@
 		color: #553fdb;
 		text-align: center;
 
-		@media (max-width: 1200px) {
-			margin-bottom: 66px;
+		@media (max-width: 1135px) {
+			margin-bottom: 46px;
 		}
 
 		@media (max-width: 546px) {
@@ -47,13 +51,19 @@
 		@media (max-width: 479.98px) {
 			line-height: 28 / 24 * 100%;
 			font-size: 24px;
-			margin: 0px 0px 0px 0px;
+		}
+		@media (max-width: 405px) {
+			margin-bottom: 12px;
+		}
+
+		@media (max-width: 372px) {
+			white-space: normal;
 		}
 	}
 
 	// .welcome__img
 	&__img {
-		@media (max-width: 1200px) {
+		@media (max-width: 1135px) {
 			display: none;
 		}
 	}
