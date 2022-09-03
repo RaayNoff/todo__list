@@ -16,7 +16,7 @@ export const useMenuPosition = (
         left: elementNode.offsetLeft,
       });
     }
-  }, [setMenuPosition, elementRef]);
+  }, [elementRef]);
 
   return menuPosition;
 };
