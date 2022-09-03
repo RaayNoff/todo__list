@@ -8,7 +8,7 @@ export class localStorageApi {
   }
 
   static isTokenExist() {
-    if (localStorage.getItem("token") == null) return false;
+    if (!localStorage.getItem("token")) return false;
 
     return true;
   }
