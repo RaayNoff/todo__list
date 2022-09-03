@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import { InputSizeTypes } from "../../../types/enums/InputSizeTypes";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
@@ -25,6 +25,11 @@ const EditList: FC = () => {
 
   const { editListToggleOff } = useActions();
   const [editList, {}] = contentApi.useFetchListsEditMutation();
+
+  useEffect(() => {
+    setListName(stateListName);
+    setSelectedColor(stateColor);
+  }, [currentlistId, stateListName, stateColor]);
 
   const onClickedCancel = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -55,7 +60,7 @@ const EditList: FC = () => {
             size={InputSizeTypes.BIG}
             placeholder={"Введите название..."}
           />
-          <ColorPicker colorCallback={setSelectedColor} />
+          <ColorPicker colorCallback={setSelectedColor} color={stateColor} />
         </main>
         <FooterInsert>
           <Button
