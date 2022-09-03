@@ -17,7 +17,7 @@ const DatePick: FC<IDatePick> = ({ timestampCallback }) => {
 
   useEffect(() => {
     if (!selectedDate) return;
-    timestampCallback(selectedDate.getTime() / 1000);
+    timestampCallback(Math.floor(selectedDate.getTime() / 1000));
   });
 
   return (
@@ -33,7 +33,7 @@ const DatePick: FC<IDatePick> = ({ timestampCallback }) => {
         locale={"ru"}
         onChange={(date: Date) => setSelectedDate(date)}
         className={s.datepicker}
-        dateFormat={"d MMM yyyy hh:mm"}
+        dateFormat={"d MMM yyyy HH:mm"}
         startDate={startDate}
         minDate={startDate}
         timeInputLabel={"Время"}
