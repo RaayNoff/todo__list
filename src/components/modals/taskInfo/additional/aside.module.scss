@@ -1,4 +1,7 @@
 .sidebar {
+	@media (max-width: 681px) {
+		display: none;
+	}
 	width: 197px;
 	background: rgba(231, 231, 231, 0.5);
 	min-height: 100%;
@@ -40,5 +43,14 @@
 		font-size: 13px;
 		line-height: 12 / 10 * 100%;
 		color: #252525;
+		@media (max-width: 681px) {
+			width: 80%;
+		}
+		@media (max-width: 469px) {
+			width: 75%;
+		}
+		@media (max-width: 404px) {
+			width: 50%;
+		}
 	}
 }
