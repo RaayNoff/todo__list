@@ -21,7 +21,7 @@ interface IDeleteListArgs {
 }
 
 interface IShareListArgs {
-  emailToShare: string;
+  email: string;
   listId: number;
 }
 
@@ -43,6 +43,7 @@ interface ICommentTaskArgs {
   userEmail: string;
   content: string;
   taskId: number;
+  timestamp: timestamp;
 }
 
 interface IDeleteTaskArgs {
@@ -53,6 +54,7 @@ export const contentApi = createApi({
   reducerPath: "contentApi",
   baseQuery: baseQueryWithReauth,
   refetchOnReconnect: true,
+  refetchOnMountOrArgChange: true,
   tagTypes: ["Lists", "Tasks"],
   endpoints: (build) => ({
     fetchAllLists: build.query<IList[], number>({
@@ -75,37 +77,28 @@ export const contentApi = createApi({
     }),
     fetchListsEdit: build.mutation<string, IEditListArgs>({
       query: ({ color, listName, listId }) => ({
-        url: BackendApi.FETCH_LISTS_EDIT,
+        url: BackendApi.FETCH_LISTS_EDIT + `/${listId}`,
         method: "PUT",
         body: {
           listName: listName,
           color: color,
-        },
-        params: {
-          _id: listId,
         },
       }),
       invalidatesTags: ["Lists", "Tasks"],
     }),
     fetchListsDelete: build.mutation<string, IDeleteListArgs>({
       query: ({ listId }) => ({
-        url: BackendApi.FETCH_LISTS_DELETE,
+        url: BackendApi.FETCH_LISTS_DELETE + `/${listId}`,
         method: "DELETE",
-        params: {
-          _id: listId,
-        },
       }),
       invalidatesTags: ["Lists", "Tasks"],
     }),
     fetchListsShare: build.mutation<string, IShareListArgs>({
-      query: ({ emailToShare, listId }) => ({
-        url: BackendApi.FETCH_LISTS_SHARE,
+      query: ({ email, listId }) => ({
+        url: BackendApi.FETCH_LISTS_SHARE + `/${listId}`,
         method: "PUT",
         body: {
-          emailToShare: emailToShare,
-        },
-        params: {
-          _id: listId,
+          email: email,
         },
       }),
       invalidatesTags: ["Lists", "Tasks"],
@@ -119,53 +112,44 @@ export const contentApi = createApi({
     }),
     fetchTaskAdd: build.mutation<string, IAddTaskArgs>({
       query: ({ description, endTime, listId, taskName }) => ({
-        url: BackendApi.FETCH_TASKS_ADD,
+        url: BackendApi.FETCH_TASKS_ADD + `/${listId}`,
         method: "POST",
         body: {
           taskName: taskName,
           description: description,
           endTime: endTime,
-          listId: listId,
         },
       }),
       invalidatesTags: ["Tasks", "Lists"],
     }),
     fetchTaskEdit: build.mutation<string, IEditTaskArgs>({
       query: ({ taskId, taskName, description, status }) => ({
-        url: BackendApi.FETCH_TASKS_EDIT,
+        url: BackendApi.FETCH_TASKS_EDIT + `/${taskId}`,
         method: "PUT",
         body: {
           taskName: taskName,
           description: description,
           status: status,
         },
-        params: {
-          _id: taskId,
-        },
       }),
       invalidatesTags: ["Tasks", "Lists"],
     }),
     fetchTaskComment: build.mutation<string, ICommentTaskArgs>({
-      query: ({ userEmail, content, taskId }) => ({
-        url: BackendApi.FETCH_TASKS_COMMENT,
-        method: "PUT",
+      query: ({ userEmail, content, taskId, timestamp }) => ({
+        url: BackendApi.FETCH_TASKS_COMMENT + `/${taskId}`,
+        method: "POST",
         body: {
           userEmail: userEmail,
           content: content,
-        },
-        params: {
-          _id: taskId,
+          timestamp: timestamp,
         },
       }),
       invalidatesTags: ["Tasks", "Lists"],
     }),
     fetchTaskDelete: build.mutation<string, IDeleteTaskArgs>({
       query: ({ taskId }) => ({
-        url: BackendApi.FETCH_TASKS_DELETE,
+        url: BackendApi.FETCH_TASKS_DELETE + `/${taskId}`,
         method: "DELETE",
-        params: {
-          _id: taskId,
-        },
       }),
       invalidatesTags: ["Tasks", "Lists"],
     }),
