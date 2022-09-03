@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useState } from "react";
+import { Dispatch, FC, SetStateAction, useState, useEffect } from "react";
 import Select, { OnChangeValue } from "react-select";
 import makeAnimated from "react-select/animated";
 import { Colors } from "../../../types/classes/Colors";
@@ -9,20 +9,36 @@ import { colorStyles } from "./select/styles";
 
 interface IColorPickerProps {
   colorCallback: Dispatch<SetStateAction<string>>;
+  color?: string;
 }
 
 const animatedComponents = makeAnimated();
 
-const ColorPicker: FC<IColorPickerProps> = ({ colorCallback }) => {
-  const [currentColor, setCurrentColor] = useState(Colors.pallete[0].value);
+const ColorPicker: FC<IColorPickerProps> = ({
+  colorCallback,
+  color = "#553fdb",
+}) => {
+  const [currentColor, setCurrentColor] = useState(getItem(color));
+
+  useEffect(() => {
+    setCurrentColor(getItem(color));
+    colorCallback(color);
+  }, [color, colorCallback]);
+
+  function getItem(hex: string) {
+    const requiredItem = Colors.pallete.find((c) => c.color === hex);
+
+    return requiredItem;
+  }
 
   const getColor = (): IColor | undefined => {
-    return Colors.pallete.find((c) => c.value === currentColor);
+    return Colors.pallete.find((c) => c.color === currentColor?.color);
   };
 
   const onChange = (newValue: OnChangeValue<IColor, boolean>) => {
-    setCurrentColor((newValue as IColor).value);
-    colorCallback((newValue as IColor).value);
+    const newcolor = newValue as IColor;
+    setCurrentColor(newcolor);
+    colorCallback(newcolor.color);
   };
 
   return (
