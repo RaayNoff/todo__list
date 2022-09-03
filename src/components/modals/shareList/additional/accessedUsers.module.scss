@@ -33,6 +33,7 @@
 		height: 20px;
 		border-radius: 50%;
 		margin: 0px 9px 0px 0px;
+		background-color: #d9d9d9;
 	}
 
 	// .user__email
@@ -44,7 +45,6 @@
 	}
 	@media (min-width: 991.98px) {
 		&:hover {
-			cursor: pointer;
 			background-color: rgba(#b09aff, 0.1);
 		}
 	}
