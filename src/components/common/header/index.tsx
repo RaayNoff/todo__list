@@ -1,61 +1,68 @@
-import React, { FC, SyntheticEvent, useEffect, useRef, useState } from "react";
-import { useMenuPosition } from "../../../hooks/useMenuPosition";
+import { FC } from "react";
+import { useActions } from "../../../hooks/useActions";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
-import HeaderMenu from "./additional/headerMenu";
+import { userDataField } from "../../../types/userDataField";
+import ExitSVG from "./additional/exitSVG";
 import s from "./header.module.scss";
 
 interface IHeaderProps {
-  iconDisplayed?: boolean;
-  burgerCallback?: () => void;
+  displayControls?: boolean;
   maxWidthContainer?: MaxWidthContainer;
 }
 
 const Header: FC<IHeaderProps> = ({
-  iconDisplayed = false,
-  burgerCallback,
+  displayControls = false,
   maxWidthContainer = MaxWidthContainer.NON_AUTHORIZED,
 }) => {
-  const [isMenuDisplaying, setIsMenuDisplaying] = useState<boolean>(false);
-  const [isBurgerOpened, SetIsBurgerOpened] = useState<boolean>(false);
-  const iconRef = useRef<HTMLDivElement>(null);
-  const menuPosition = useMenuPosition(iconRef);
+  const { status: isSidebarOpened } = useTypedSelector(
+    (state) => state.sidebar
+  );
+  const { sidebarToggle } = useActions();
+  const { user } = useTypedSelector((state) => state.authorization);
+  const { logout } = useActions();
 
-  const onClickedBurger = (e: SyntheticEvent) => {
-    SetIsBurgerOpened(!isBurgerOpened);
-    if (burgerCallback) burgerCallback();
+  const getSymbol = (email: userDataField) => {
+    if (email) return email.substring(0, 1).toUpperCase();
+
+    return "?";
+  };
+
+  const onClickedBurger = () => {
+    sidebarToggle(!isSidebarOpened);
+  };
+
+  const onClickLogout = () => {
+    logout();
   };
 
   return (
     <header className={s.header}>
       <div className={maxWidthContainer}>
         <section className={s.header__content}>
-          {burgerCallback && (
+          {displayControls && (
             <div
               className={
-                isBurgerOpened
+                isSidebarOpened
                   ? `${s.burger} ${s.burger__active}`
                   : `${s.burger}`
               }
-              onClick={(e) => onClickedBurger(e)}
+              onClick={() => onClickedBurger()}
             >
               <span></span>
               <span></span>
               <span></span>
             </div>
           )}
-          {iconDisplayed && (
-            <div
-              ref={iconRef}
-              className={s.header__profileBackground}
-              onClick={() => setIsMenuDisplaying((prev) => !prev)}
-            ></div>
-          )}
-          {iconDisplayed && (
-            <HeaderMenu
-              menuPosition={menuPosition}
-              isDisplaying={isMenuDisplaying}
-              setIsDisplaying={setIsMenuDisplaying}
-            />
+          {displayControls && (
+            <section className={s.header__rightSection}>
+              <div className={s.header__profileBackground} title={user.email}>
+                {getSymbol(user.email)}
+              </div>
+              <div className={s.header__logout} onClick={() => onClickLogout()}>
+                {ExitSVG()}
+              </div>
+            </section>
           )}
         </section>
       </div>
