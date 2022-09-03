@@ -5,6 +5,7 @@ import {
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/dist/query";
 import axios from "axios";
+import { localStorageApi } from "../../api/localStorageApi";
 import { useActions } from "../../hooks/useActions";
 import BackendApi from "../../types/classes/BackendApi";
 import { ErrorMessages } from "../../types/enums/ErrorMessages";
@@ -68,22 +69,26 @@ export const baseQueryWithReauth: BaseQueryFn<
 
   if (result.error && result.error.status === 401) {
     api.dispatch(AuthorizationSlice.actions.refresh());
-    const refreshResult = await baseQuery(
-      {
-        url: BackendApi.REFRESH,
-        method: "POST",
-      },
-      api,
-      extraOptions
-    );
 
-    const data: AuthResponse | unknown = refreshResult.data;
+    try {
+      const refreshResult = await axios.post<AuthResponse>(
+        BackendApi.LOCATION + BackendApi.REFRESH,
+        {
+          accessToken: `${localStorage.getItem("token")}`,
+        },
+        {
+          withCredentials: true,
+        }
+      );
 
-    if (data) {
-      api.dispatch(AuthorizationSlice.actions.refreshSuccess());
+      localStorageApi.setAccessToken(refreshResult.data.accessToken);
+
+      api.dispatch(
+        AuthorizationSlice.actions.refreshSuccess(refreshResult.data.user)
+      );
 
       result = await baseQuery(args, api, extraOptions);
-    } else {
+    } catch (error) {
       api.dispatch(
         AuthorizationSlice.actions.refreshError(ErrorMessages.REFRESH)
       );
