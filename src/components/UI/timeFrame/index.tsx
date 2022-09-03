@@ -1,5 +1,7 @@
 import React, { FC, useEffect, useRef } from "react";
 import { useActions } from "../../../hooks/useActions";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { HomeContentDisplaying } from "../../../types/enums/HomeContentDisplaying";
 import {
   TimeFrameColors,
   TimeFrameTypes,
@@ -17,12 +19,21 @@ const TimeFrame: FC<ITimeFrameProps> = ({
   clickCallback,
   defaultGenerator,
 }) => {
+  const { nowDisplaying } = useTypedSelector((state) => state.homeContent);
+  const btnRef = useRef<HTMLButtonElement>(null);
   const { displayToday, displayFuture } = useActions();
   const timeFrameColor = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (timeFrameColor.current)
       timeFrameColor.current.style.backgroundColor = getFrameColor();
+    if (
+      btnRef.current &&
+      defaultGenerator &&
+      nowDisplaying === HomeContentDisplaying.TODAY_TASKS
+    ) {
+      btnRef.current.classList.add("elementContentGenerator");
+    }
   });
 
   const getFrameColor = (): string => {
@@ -40,11 +51,8 @@ const TimeFrame: FC<ITimeFrameProps> = ({
 
   return (
     <button
-      className={
-        defaultGenerator
-          ? `${s.timeFrame} elementContentGenerator`
-          : s.timeFrame
-      }
+      ref={btnRef}
+      className={s.timeFrame}
       onClick={(e) => handleClick(e)}
     >
       <div className={s.timeFrame__color} ref={timeFrameColor}></div>
