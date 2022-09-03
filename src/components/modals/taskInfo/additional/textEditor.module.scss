@@ -3,7 +3,13 @@
 	line-height: 17 / 14 * 100%;
 	font-weight: 400;
 	color: #252525;
-	min-width: 80%;
+	width: 80%;
+	@media (max-width: 469.98px) {
+		width: 70%;
+	}
+	@media (max-width: 404px) {
+		width: 50%;
+	}
 }
 
 .light {
@@ -12,6 +18,15 @@
 	line-height: 15 / 12 * 100%;
 	color: #757575;
 	width: 80%;
+	overflow: wrap;
+	word-wrap: break-word;
+
+	@media (max-width: 469.98px) {
+		width: 70%;
+	}
+	@media (max-width: 404.98px) {
+		width: 40%;
+	}
 }
 
 .textEditor {
@@ -20,12 +35,19 @@
 }
 
 .input {
-	min-width: 80%;
+	width: 80%;
+	@media (max-width: 469.98px) {
+		width: 70%;
+	}
+	@media (max-width: 404px) {
+		width: 50%;
+	}
 }
 
 .textarea {
 	width: 80%;
-	max-width: 80%;
-	min-width: 80%;
 	min-height: 135px;
+	@media (max-width: 404px) {
+		width: 50%;
+	}
 }
