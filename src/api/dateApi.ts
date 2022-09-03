@@ -1,4 +1,3 @@
-import { timeStamp } from "console";
 import moment from "moment";
 import "moment/locale/ru";
 import { timestamp } from "../types/Timestamp";
@@ -13,7 +12,7 @@ export default class DateApi {
   static getCommentTime = (timestamp: number): string => {
     const m = this.initializeMoment(timestamp);
 
-    return moment(m).format("D MMM h:mm");
+    return moment(m).format("D MMM HH:mm");
   };
 
   static getEndtime = (timestamp: number): string => {
@@ -49,5 +48,9 @@ export default class DateApi {
     const nowTime = this.initializeMoment(Math.floor(Date.now() / 1000)).unix();
 
     return nowTime > requestTime;
+  };
+
+  static getNowTimestamp = () => {
+    return Date.now() / 1000;
   };
 }
