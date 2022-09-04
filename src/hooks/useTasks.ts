@@ -1,10 +1,14 @@
 import { contentApi } from "../services/contentApi";
+import { ITask } from "../types/models/ITask";
 import { notTaskArr } from "../types/noData";
 
 export default function useTasks() {
-  const { data: tasks } = contentApi.useFetchAllTasksQuery(0);
+  const { data: lists } = contentApi.useFetchAllListsQuery(0);
 
-  if (!tasks || tasks.length < 1) return notTaskArr;
+  if (!lists || lists.length < 1) return notTaskArr;
+  const result: ITask[] = [];
 
-  return tasks;
+  lists.forEach((list) => result.push(...list.tasks));
+
+  return result;
 }

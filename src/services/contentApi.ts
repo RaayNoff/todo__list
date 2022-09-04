@@ -55,7 +55,7 @@ export const contentApi = createApi({
   baseQuery: baseQueryWithReauth,
   refetchOnReconnect: true,
   refetchOnMountOrArgChange: true,
-  tagTypes: ["Lists", "Tasks"],
+  tagTypes: ["Lists"],
   endpoints: (build) => ({
     fetchAllLists: build.query<IList[], number>({
       query: () => ({
@@ -73,7 +73,7 @@ export const contentApi = createApi({
           color: color,
         },
       }),
-      invalidatesTags: ["Lists", "Tasks"],
+      invalidatesTags: ["Lists"],
     }),
     fetchListsEdit: build.mutation<string, IEditListArgs>({
       query: ({ color, listName, listId }) => ({
@@ -84,14 +84,14 @@ export const contentApi = createApi({
           color: color,
         },
       }),
-      invalidatesTags: ["Lists", "Tasks"],
+      invalidatesTags: ["Lists"],
     }),
     fetchListsDelete: build.mutation<string, IDeleteListArgs>({
       query: ({ listId }) => ({
         url: BackendApi.FETCH_LISTS_DELETE + `/${listId}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Lists", "Tasks"],
+      invalidatesTags: ["Lists"],
     }),
     fetchListsShare: build.mutation<string, IShareListArgs>({
       query: ({ email, listId }) => ({
@@ -101,14 +101,7 @@ export const contentApi = createApi({
           email: email,
         },
       }),
-      invalidatesTags: ["Lists", "Tasks"],
-    }),
-    fetchAllTasks: build.query<ITask[], any>({
-      query: () => ({
-        url: BackendApi.FETCH_TASKS,
-        method: "GET",
-      }),
-      providesTags: ["Tasks"],
+      invalidatesTags: ["Lists"],
     }),
     fetchTaskAdd: build.mutation<string, IAddTaskArgs>({
       query: ({ description, endTime, listId, taskName }) => ({
@@ -120,7 +113,7 @@ export const contentApi = createApi({
           endTime: endTime,
         },
       }),
-      invalidatesTags: ["Tasks", "Lists"],
+      invalidatesTags: ["Lists"],
     }),
     fetchTaskEdit: build.mutation<string, IEditTaskArgs>({
       query: ({ taskId, taskName, description, status }) => ({
@@ -132,7 +125,7 @@ export const contentApi = createApi({
           status: status,
         },
       }),
-      invalidatesTags: ["Tasks", "Lists"],
+      invalidatesTags: ["Lists"],
     }),
     fetchTaskComment: build.mutation<string, ICommentTaskArgs>({
       query: ({ userEmail, content, taskId, timestamp }) => ({
@@ -144,14 +137,14 @@ export const contentApi = createApi({
           timestamp: timestamp,
         },
       }),
-      invalidatesTags: ["Tasks", "Lists"],
+      invalidatesTags: ["Lists"],
     }),
     fetchTaskDelete: build.mutation<string, IDeleteTaskArgs>({
       query: ({ taskId }) => ({
         url: BackendApi.FETCH_TASKS_DELETE + `/${taskId}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Tasks", "Lists"],
+      invalidatesTags: ["Lists"],
     }),
   }),
 });

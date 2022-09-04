@@ -28,7 +28,7 @@ export const notList: IList = {
 };
 
 export const notTask: ITask = {
-  id: 1,
+  id: -1,
   taskName: " ",
   comments: [],
   description: " ",

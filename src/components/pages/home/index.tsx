@@ -15,9 +15,6 @@ const Home: FC = () => {
   const {} = contentApi.useFetchAllListsQuery(0, {
     pollingInterval: 60000,
   });
-  const {} = contentApi.useFetchAllTasksQuery(0, {
-    pollingInterval: 30000,
-  });
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768.98px)");
