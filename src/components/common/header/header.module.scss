@@ -74,9 +74,11 @@
 		background-color: #fff;
 	}
 
-	&:hover {
-		span {
-			background-color: rgba(#b09aff, 0.8);
+	@media (min-width: 767.98px) {
+		&:hover {
+			span {
+				background-color: rgba(#b09aff, 0.8);
+			}
 		}
 	}
 
