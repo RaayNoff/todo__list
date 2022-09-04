@@ -24,7 +24,7 @@ const DatePick: FC<IDatePick> = ({ timestampCallback }) => {
     <section className={s.datepicker}>
       <section className={s.datepicker__label}>
         <div className={s.datepicker__box}></div>
-        <p className={s.datepicker__endtime}>Срок&nbsp;выполнения:</p>
+        <p className={s.datepicker__endtime}>Срок выполнения:</p>
       </section>
       <DatePicker
         wrapperClassName={s.picker}
