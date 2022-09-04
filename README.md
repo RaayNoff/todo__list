@@ -28,6 +28,15 @@
 >
 > <p style="color:red">WARNING: If you have a problem with the operation of the application, it means that the limit of requests to our backend has been exceeded, try again later.</p>
 
+<details>
+  <summary>Example picture</summary>
+  
+  Main page of the application:
+
+<img src="https://i.imgur.com/4XshAD3.png" alt="homepage">
+
+</details>
+
 ## Developers
 
 > [Design - Clicker1337](https://github.com/Clicker1337) |
