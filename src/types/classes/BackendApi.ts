@@ -1,5 +1,5 @@
 export default class BackendApi {
-  static LOCATION = "https://todolistbackendapi.herokuapp.com";
+  static LOCATION = "https://todolistapplication2022.herokuapp.com";
 
   static REGISTRATION = "/api/auth/signup";
   static LOGIN = "/api/auth/signin";
