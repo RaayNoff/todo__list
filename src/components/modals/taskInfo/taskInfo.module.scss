@@ -2,9 +2,17 @@
 	display: flex;
 	flex-direction: column;
 
+	height: 620px;
 	width: 670px;
 	background-color: #fff;
 	border-radius: 10px;
+
+	scrollbar-width: 0px;
+
+	&::-webkit-scrollbar {
+		position: absolute;
+		width: 0px;
+	}
 
 	@media (max-width: 681px) {
 		width: 460px;
@@ -24,9 +32,19 @@
 	// .taskInfo__dat
 	&__data {
 		width: 473px;
+		height: 575px;
+		overflow-y: auto;
 		display: flex;
 		flex-direction: column;
 		margin: 0px 0px 25px 25px;
+
+		.wrapper::-webkit-scrollbar-track-piece:start {
+			margin-top: 10px;
+			height: 100px;
+		}
+		&::-webkit-scrollbar:horizontal {
+			height: 100px;
+		}
 
 		@media (max-width: 681px) {
 			width: 460px;

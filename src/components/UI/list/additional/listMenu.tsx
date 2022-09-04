@@ -19,7 +19,7 @@ const ListMenu: FC<IListMenuProps> = ({
   setIsEnabled,
   menuPosition,
 }) => {
-  const menuRef = useMenuPositionRef(menuPosition, 150, 15);
+  const menuRef = useMenuPositionRef(menuPosition, 110, 15);
   const [deleteList] = contentApi.useFetchListsDeleteMutation();
   const { listDelete } = useActions();
   const { shareListToggleOn, editListToggleOn } = useActions();

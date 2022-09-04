@@ -22,6 +22,7 @@ const CommentaryArea: FC<ICommentaryAreaProps> = ({ taskId }) => {
       userEmail: user.email || "",
       timestamp: DateApi.getNowTimestamp(),
     });
+    setText("");
   };
 
   return (
