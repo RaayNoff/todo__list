@@ -30,8 +30,8 @@
 
 ## Developers
 
-> [Design - Clicker1337](https://github.com/Clicker1337)|
-> [Frontend - RaayNoff](https://github.com/RaayNoff)|
+> [Design - Clicker1337](https://github.com/Clicker1337) |
+> [Frontend - RaayNoff](https://github.com/RaayNoff) |
 > [Backend - Sashko-TUSUR](https://github.com/Sashko-TUSUR)
 
 ## License
