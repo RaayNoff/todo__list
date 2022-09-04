@@ -4,14 +4,14 @@ import { notTask } from "../types/noData";
 import { useTypedSelector } from "./useTypedSelector";
 
 export const useTaskById = (taskId: number): ITask => {
-  const { data: tasks } = contentApi.useFetchAllTasksQuery(0);
+  const { data: lists } = contentApi.useFetchAllListsQuery(0);
   const {
     taskInfo: { lastDeletedTaskId },
   } = useTypedSelector((state) => state.popups);
 
   if (
-    !tasks ||
-    tasks.length < 1 ||
+    !lists ||
+    lists.length < 1 ||
     taskId === -1 ||
     taskId === lastDeletedTaskId
   )
@@ -19,11 +19,11 @@ export const useTaskById = (taskId: number): ITask => {
 
   const _temp: ITask[] = [];
 
-  tasks.forEach((task) => {
-    if (task.id === taskId) _temp.push(task);
-  });
+  lists.forEach((list) =>
+    list.tasks.forEach((task) => {
+      if (task.id === taskId) _temp.push(task);
+    })
+  );
 
-  const [result] = _temp;
-
-  return result;
+  return _temp[0];
 };
