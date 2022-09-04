@@ -29,6 +29,7 @@
 	// .task__description
 	&__description {
 		font-size: 14px;
+		line-height: 16 /14 * 100%;
 		font-weight: 300;
 		color: #8b8b8b;
 
@@ -50,7 +51,8 @@
 	// .task__from
 	&__from {
 		font-size: 12px;
-		line-height: 14 / 12 * 100%;
+		line-height: 16 / 14 * 100%;
+		overflow: visible;
 		width: 40%;
 		color: #8b8b8b;
 		text-align: right;
