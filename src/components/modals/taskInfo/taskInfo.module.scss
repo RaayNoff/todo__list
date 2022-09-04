@@ -1,8 +1,9 @@
 .taskInfo {
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
 
-	height: 620px;
+	max-height: 620px;
 	width: 670px;
 	background-color: #fff;
 	border-radius: 10px;
@@ -23,6 +24,12 @@
 	@media (max-width: 404px) {
 		width: 310px;
 	}
+	@media (max-height: 768.92px) {
+		max-height: 550px;
+	}
+	@media (max-height: 573px) {
+		max-height: 500px;
+	}
 
 	// .taskInfo__content
 	&__content {
@@ -33,21 +40,19 @@
 	&__data {
 		width: 473px;
 		height: 575px;
-		overflow-y: auto;
 		display: flex;
 		flex-direction: column;
 		margin: 0px 0px 25px 25px;
-
-		.wrapper::-webkit-scrollbar-track-piece:start {
-			margin-top: 10px;
-			height: 100px;
-		}
-		&::-webkit-scrollbar:horizontal {
-			height: 100px;
-		}
+		overflow-y: scroll;
 
 		@media (max-width: 681px) {
 			width: 460px;
+		}
+		@media (max-height: 768.92px) {
+			max-height: 550px;
+		}
+		@media (max-height: 573px) {
+			max-height: 500px;
 		}
 	}
 
