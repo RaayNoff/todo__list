@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 export const useMenuPosition = (
-  elementRef: React.MutableRefObject<HTMLElement | HTMLDivElement | null>
+  elementRef: React.RefObject<HTMLDivElement>,
+  offsetTop: number,
+  offsetLeft: number
 ) => {
-  const [menuPosition, setMenuPosition] = useState({
-    top: 0,
-    left: 0,
-  });
+  const menuRef = useRef<HTMLMenuElement>(null);
 
   useEffect(() => {
-    if (elementRef.current) {
-      const elementNode = elementRef.current;
-      setMenuPosition({
-        top: elementNode.offsetTop,
-        left: elementNode.offsetLeft,
-      });
-    }
-  }, [elementRef]);
+    if (elementRef.current && menuRef.current) {
+      const top = elementRef.current.offsetTop;
+      const left = elementRef.current.offsetLeft;
 
-  return menuPosition;
+      menuRef.current.style.top = top + offsetTop + "px";
+      menuRef.current.style.left = left + offsetLeft + "px";
+    }
+  }, [elementRef.current?.offsetTop, elementRef.current?.offsetLeft]);
+
+  return menuRef;
 };

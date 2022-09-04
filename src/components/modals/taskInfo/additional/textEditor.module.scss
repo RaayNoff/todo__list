@@ -8,7 +8,7 @@
 		width: 70%;
 	}
 	@media (max-width: 404px) {
-		width: 50%;
+		width: 70%;
 	}
 }
 
@@ -25,7 +25,7 @@
 		width: 70%;
 	}
 	@media (max-width: 404.98px) {
-		width: 40%;
+		width: 70%;
 	}
 }
 
@@ -40,14 +40,15 @@
 		width: 70%;
 	}
 	@media (max-width: 404px) {
-		width: 50%;
+		width: 70%;
 	}
 }
 
 .textarea {
 	width: 80%;
 	min-height: 135px;
+	resize: vertical;
 	@media (max-width: 404px) {
-		width: 50%;
+		max-width: 70%;
 	}
 }

@@ -1,25 +1,22 @@
 import React, { Dispatch, FC } from "react";
 import { useActions } from "../../../../hooks/useActions";
-import { useMenuPositionRef } from "../../../../hooks/useMenuPositionRef";
+import { useMenuPosition } from "../../../../hooks/useMenuPosition";
 import { contentApi } from "../../../../services/contentApi";
 
 interface IListMenuProps {
   isEnabled: boolean;
   setIsEnabled: Dispatch<React.SetStateAction<boolean>>;
   listId: number;
-  menuPosition: {
-    top: number;
-    left: number;
-  };
+  menuPositionParent: React.RefObject<HTMLDivElement>;
 }
 
 const ListMenu: FC<IListMenuProps> = ({
   isEnabled,
   listId,
   setIsEnabled,
-  menuPosition,
+  menuPositionParent,
 }) => {
-  const menuRef = useMenuPositionRef(menuPosition, 110, 15);
+  const menuRef = useMenuPosition(menuPositionParent, 30, 110);
   const [deleteList] = contentApi.useFetchListsDeleteMutation();
   const { listDelete } = useActions();
   const { shareListToggleOn, editListToggleOn } = useActions();

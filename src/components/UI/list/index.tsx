@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import { useActions } from "../../../hooks/useActions";
 import { useListById } from "../../../hooks/useListById";
-import { useMenuPosition } from "../../../hooks/useMenuPosition";
 import ListMenu from "./additional/listMenu";
 import s from "./list.module.scss";
 
@@ -12,7 +11,6 @@ interface IListProps {
 
 const List: FC<IListProps> = ({ listId, clickCallback }) => {
   const dotRef = useRef<HTMLDivElement>(null);
-  const menuPosition = useMenuPosition(dotRef);
   const [isMenuOpened, SetIsMenuOpened] = useState<boolean>(false);
   const { color, listName } = useListById(listId);
   const { displayList } = useActions();
@@ -54,7 +52,7 @@ const List: FC<IListProps> = ({ listId, clickCallback }) => {
       </div>
 
       <ListMenu
-        menuPosition={menuPosition}
+        menuPositionParent={dotRef}
         isEnabled={isMenuOpened}
         listId={listId}
         setIsEnabled={SetIsMenuOpened}
