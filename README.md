@@ -27,7 +27,7 @@
 > [raaynoff.github.io/todo\_\_list/](https://raaynoff.github.io/todo__list/)
 > Here you can find the backend repository: [github.com/Sashko-TUSUR/ToDoList](https://github.com/Sashko-TUSUR/ToDoList)
 >
-> <p style="color:red">WARNING: If you have a problem with the operation of the application, it means that the limit of requests to our backend has been exceeded, try again later.</p>
+> <p style="color:red">WARNING: If you have a problem with the operation of the application, it means that the limit of requests to our heroku server has been exceeded, try again later.</p>
 
 <details>
   <summary>Example picture</summary>
