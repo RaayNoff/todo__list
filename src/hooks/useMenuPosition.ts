@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 export const useMenuPosition = (
   elementRef: React.RefObject<HTMLDivElement>,
   offsetTop: number,
-  offsetLeft: number
+  offsetLeft: number,
 ) => {
   const menuRef = useRef<HTMLMenuElement>(null);
 

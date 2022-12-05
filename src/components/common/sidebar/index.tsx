@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import { useActions } from "../../../hooks/useActions";
 import { useFilteredLists } from "../../../hooks/useFiltredLists";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
@@ -11,6 +12,7 @@ import List from "../../UI/list";
 import Loader from "../../UI/loader";
 import TimeFrame from "../../UI/timeFrame";
 import ListUtil from "../../utils/ListUtil";
+
 import s from "./sidebar.module.scss";
 
 const Sidebar: FC = () => {
@@ -71,13 +73,13 @@ const Sidebar: FC = () => {
           <Grouper groupName="Списки">
             {generateGrouperContent(
               notSharedLists,
-              "Персональные списки не были найдены."
+              "Персональные списки не были найдены.",
             )}
           </Grouper>
           <Grouper groupName="Общие" isAddActive={false}>
             {generateGrouperContent(
               sharedLists,
-              "Общие списки не были найдены."
+              "Общие списки не были найдены.",
             )}
           </Grouper>
         </section>

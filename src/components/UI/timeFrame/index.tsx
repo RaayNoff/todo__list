@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useRef } from "react";
+
 import { useActions } from "../../../hooks/useActions";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { HomeContentDisplaying } from "../../../types/enums/HomeContentDisplaying";
@@ -6,6 +7,7 @@ import {
   TimeFrameColors,
   TimeFrameTypes,
 } from "../../../types/enums/TimeFrame";
+
 import s from "./timeFrame.module.scss";
 
 interface ITimeFrameProps {

@@ -1,5 +1,7 @@
 import { Dispatch, FC, SetStateAction } from "react";
+
 import { InputSizeTypes } from "../../../types/enums/InputSizeTypes";
+
 import s from "./input.module.scss";
 
 interface IInputProps {

@@ -1,9 +1,11 @@
 import React, { FC, useState } from "react";
+
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { contentApi } from "../../../services/contentApi";
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import Button from "../button";
 import DatePick from "../datePick";
+
 import PlusSVG from "./additional/plusSVG";
 import s from "./createTask.module.scss";
 

@@ -1,6 +1,8 @@
 import React, { FC } from "react";
+
 import { useActions } from "../../../../hooks/useActions";
 import { contentApi } from "../../../../services/contentApi";
+
 import s from "./delete.module.scss";
 
 interface IDeleteProps {

@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { AppDispatch } from "..";
 import { localStorageApi } from "../../api/localStorageApi";
 import BackendApi from "../../types/classes/BackendApi";
@@ -16,15 +17,15 @@ export const registration =
         {
           email: email,
           password: password,
-        }
+        },
       );
 
       dispatch(
-        AuthorizationSlice.actions.registrationSuccess(response.data.user)
+        AuthorizationSlice.actions.registrationSuccess(response.data.user),
       );
     } catch (error) {
       dispatch(
-        AuthorizationSlice.actions.refreshError(ErrorMessages.REGISTRATION)
+        AuthorizationSlice.actions.refreshError(ErrorMessages.REGISTRATION),
       );
     }
   };
@@ -55,7 +56,7 @@ export const refresh = () => async (dispatch: AppDispatch) => {
       },
       {
         withCredentials: true,
-      }
+      },
     );
 
     if (!response.data) throw new Error(ErrorMessages.REFRESH_NOT_VALID);
@@ -68,7 +69,7 @@ export const refresh = () => async (dispatch: AppDispatch) => {
       dispatch(AuthorizationSlice.actions.refreshError(error.message));
 
     dispatch(
-      AuthorizationSlice.actions.registrationError(ErrorMessages.REFRESH)
+      AuthorizationSlice.actions.registrationError(ErrorMessages.REFRESH),
     );
   }
 };

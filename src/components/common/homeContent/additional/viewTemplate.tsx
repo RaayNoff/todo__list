@@ -1,8 +1,10 @@
 import { FC } from "react";
+
 import DateApi from "../../../../api/dateApi";
 import { ITask } from "../../../../types/models/ITask";
 import CreateTask from "../../../UI/createTask";
 import Task from "../../../UI/task";
+
 import s from "./viewTemplate.module.scss";
 
 interface IViewTemplateProps {

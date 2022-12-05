@@ -1,8 +1,10 @@
 import { FC, SyntheticEvent } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+
 import usePath from "../../../../hooks/usePath";
 import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import Loader from "../../loader";
+
 import LockSVG from "./lockSVG";
 import "./lock.animation.scss";
 import s from "./responseSection.module.scss";

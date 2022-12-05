@@ -1,4 +1,5 @@
 import { FC, useEffect } from "react";
+
 import { LockAPI } from "../../../api/lockApi";
 import { contentApi } from "../../../services/contentApi";
 import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
@@ -10,6 +11,7 @@ import CreateList from "../../modals/createList";
 import EditList from "../../modals/editList";
 import ShareList from "../../modals/shareList";
 import TaskInfo from "../../modals/taskInfo";
+
 import s from "./home.module.scss";
 
 const Home: FC = () => {

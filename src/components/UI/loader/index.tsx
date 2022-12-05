@@ -1,6 +1,8 @@
 import { FC } from "react";
+
 import { useColor } from "../../../hooks/useColor";
 import { LoaderType } from "../../../types/enums/LoaderType";
+
 import s from "./loader.module.scss";
 
 interface ILoaderProps {

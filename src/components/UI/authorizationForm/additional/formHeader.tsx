@@ -1,5 +1,7 @@
 import { FC } from "react";
+
 import usePath from "../../../../hooks/usePath";
+
 import s from "./formHeader.module.scss";
 
 const FormHeader: FC = () => {

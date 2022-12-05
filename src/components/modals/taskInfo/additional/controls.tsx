@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import s from "./controls.module.scss";
 import controlsSVGSelector, { ControlsType } from "./controlsSVGSelector";
 

@@ -1,6 +1,8 @@
 import React, { FC, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+
 import { useActions } from "../../../hooks/useActions";
+
 import Add from "./additional/add";
 import Indicator from "./additional/indicator";
 import s from "./grouper.module.scss";

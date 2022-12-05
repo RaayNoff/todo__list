@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useState } from "react";
+
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import { InputSizeTypes } from "../../../types/enums/InputSizeTypes";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
@@ -11,6 +12,7 @@ import Button from "../../UI/button";
 import FooterInsert from "../../UI/footerInsert";
 import HeaderInsert from "../../UI/headerInsert";
 import Input from "../../UI/input";
+
 import s from "./shareList.module.scss";
 import NoInfo from "./additional/noInfo";
 import AccessedUsers from "./additional/accessedUsers";

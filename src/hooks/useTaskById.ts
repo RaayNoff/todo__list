@@ -1,6 +1,7 @@
 import { contentApi } from "../services/contentApi";
 import { ITask } from "../types/models/ITask";
 import { notTask } from "../types/noData";
+
 import { useTypedSelector } from "./useTypedSelector";
 
 export const useTaskById = (taskId: number): ITask => {
@@ -22,7 +23,7 @@ export const useTaskById = (taskId: number): ITask => {
   lists.forEach((list) =>
     list.tasks.forEach((task) => {
       if (task.id === taskId) _temp.push(task);
-    })
+    }),
   );
 
   return _temp[0];

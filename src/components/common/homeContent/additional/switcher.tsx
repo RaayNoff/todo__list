@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import { useCompletedTasks } from "../../../../hooks/useCompletedTasks";
 import { useFutureTasks } from "../../../../hooks/useFutureTasks";
 import { useListById } from "../../../../hooks/useListById";
@@ -7,11 +8,12 @@ import { useTasksByListId } from "../../../../hooks/useTasksByListId";
 import { useTodayTasks } from "../../../../hooks/useTodayTasks";
 import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import { HomeContentDisplaying } from "../../../../types/enums/HomeContentDisplaying";
+
 import ViewTemplate from "./viewTemplate";
 
 const Switcher: FC = () => {
   const { nowDisplaying, listId } = useTypedSelector(
-    (state) => state.homeContent
+    (state) => state.homeContent,
   );
 
   const list = useListById(listId);

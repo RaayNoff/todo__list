@@ -1,6 +1,8 @@
 import { FC } from "react";
+
 import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import { IUser } from "../../../../types/models/IUser";
+
 import s from "./accessedUsers.module.scss";
 
 interface IAccessedUsersProps {
@@ -21,7 +23,7 @@ const AccessedUsers: FC<IAccessedUsersProps> = ({ accessedUsers }) => {
                 <div className={s.user__dot}></div>
                 <div className={s.user__email}>{u.email}</div>
               </article>
-            )
+            ),
         )}
       </div>
     </section>

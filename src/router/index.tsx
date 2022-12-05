@@ -1,4 +1,5 @@
 import { Navigate } from "react-router-dom";
+
 import Home from "../components/pages/home";
 import SingIn from "../components/pages/nonauthorized/signin";
 import SingUp from "../components/pages/nonauthorized/singup";

@@ -1,9 +1,11 @@
 import React, { FC, useState } from "react";
+
 import DateApi from "../../../api/dateApi";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { contentApi } from "../../../services/contentApi";
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import Button from "../button";
+
 import s from "./commentaryArea.module.scss";
 
 interface ICommentaryAreaProps {

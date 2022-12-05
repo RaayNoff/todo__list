@@ -1,12 +1,13 @@
 import { useMemo, useState } from "react";
+
 import { ValidationApi } from "../api/validationApi";
 
 const useValidData = (email: string, password: string) => {
   const [passwordState, setPasswordState] = useState(
-    ValidationApi.validatePassword(password)
+    ValidationApi.validatePassword(password),
   );
   const [emailState, setEmailState] = useState(
-    ValidationApi.validateEmail(email)
+    ValidationApi.validateEmail(email),
   );
 
   useMemo(() => {

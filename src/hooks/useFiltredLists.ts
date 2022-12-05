@@ -13,7 +13,7 @@ export const useFilteredLists = (): {
   const sharedLists = lists.filter((list) => list.accessedUsers.length >= 1);
 
   const notSharedLists = lists.filter(
-    (list) => list.accessedUsers.length === 0
+    (list) => list.accessedUsers.length === 0,
   );
 
   return { notSharedLists, sharedLists };

@@ -1,5 +1,7 @@
 import React, { FC } from "react";
+
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
+
 import s from "./button.module.scss";
 
 interface IButtonProps {

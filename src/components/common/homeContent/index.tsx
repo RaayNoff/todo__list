@@ -1,11 +1,12 @@
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
+
 import Switcher from "./additional/switcher";
 import s from "./homeContent.module.scss";
 
 const HomeContent = () => {
   const { status: isSidebarEnabled } = useTypedSelector(
-    (state) => state.sidebar
+    (state) => state.sidebar,
   );
   return (
     <main className={s.homeContent}>

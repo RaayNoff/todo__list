@@ -1,8 +1,9 @@
 import chroma from "chroma-js";
 import { StylesConfig } from "react-select";
+
 import { IColor } from "../../../../types/models/IColor";
 
-export const dot = (color: string = "transparent") => ({
+export const dot = (color = "transparent") => ({
   alignItems: "center",
   display: "flex",
 

@@ -1,5 +1,7 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+
 import { contentApi } from "../services/contentApi";
+
 import { rootReducer } from "./reducers";
 
 export const store = configureStore({

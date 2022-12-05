@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import Header from "../../../common/header";
 import AuthorizationForm from "../../../UI/authorizationForm";
 import checklist from "../../../../icons/welcomeImg.jpg";

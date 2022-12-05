@@ -5,6 +5,7 @@ import {
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/dist/query";
 import axios from "axios";
+
 import { localStorageApi } from "../../api/localStorageApi";
 import { useActions } from "../../hooks/useActions";
 import BackendApi from "../../types/classes/BackendApi";
@@ -48,7 +49,7 @@ $api.interceptors.response.use(
       }
     }
     throw Error("Произошла ошибка при попытке обновить данные");
-  }
+  },
 );
 
 const baseQuery = fetchBaseQuery({
@@ -78,19 +79,19 @@ export const baseQueryWithReauth: BaseQueryFn<
         },
         {
           withCredentials: true,
-        }
+        },
       );
 
       localStorageApi.setAccessToken(refreshResult.data.accessToken);
 
       api.dispatch(
-        AuthorizationSlice.actions.refreshSuccess(refreshResult.data.user)
+        AuthorizationSlice.actions.refreshSuccess(refreshResult.data.user),
       );
 
       result = await baseQuery(args, api, extraOptions);
     } catch (error) {
       api.dispatch(
-        AuthorizationSlice.actions.refreshError(ErrorMessages.REFRESH)
+        AuthorizationSlice.actions.refreshError(ErrorMessages.REFRESH),
       );
     }
   }

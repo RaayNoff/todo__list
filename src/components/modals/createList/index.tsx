@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+
 import { ButtonTypes } from "../../../types/enums/ButtonTypes";
 import { Colors } from "../../../types/classes/Colors";
 import { InputSizeTypes } from "../../../types/enums/InputSizeTypes";
@@ -10,12 +11,13 @@ import ColorPicker from "../../UI/colorPicker";
 import FooterInsert from "../../UI/footerInsert";
 import HeaderInsert from "../../UI/headerInsert";
 import Input from "../../UI/input";
+
 import s from "./createList.module.scss";
 
 const CreateList: FC = () => {
   const [listName, setListName] = useState<string>("");
   const [selectedColor, setSelectedColor] = useState<string>(
-    Colors.pallete[0].color
+    Colors.pallete[0].color,
   );
   const { createList } = useTypedSelector((state) => state.popups);
   const { createListToggleOff } = useActions();

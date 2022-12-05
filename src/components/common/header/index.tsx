@@ -1,8 +1,10 @@
 import { FC } from "react";
+
 import { useActions } from "../../../hooks/useActions";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { MaxWidthContainer } from "../../../types/enums/MaxWidthContainer";
 import { userDataField } from "../../../types/userDataField";
+
 import ExitSVG from "./additional/exitSVG";
 import s from "./header.module.scss";
 
@@ -16,7 +18,7 @@ const Header: FC<IHeaderProps> = ({
   maxWidthContainer = MaxWidthContainer.NON_AUTHORIZED,
 }) => {
   const { status: isSidebarOpened } = useTypedSelector(
-    (state) => state.sidebar
+    (state) => state.sidebar,
   );
   const { sidebarToggle } = useActions();
   const { user } = useTypedSelector((state) => state.authorization);

@@ -1,7 +1,9 @@
 import React, { FC, useEffect, useState } from "react";
+
 import { useTaskById } from "../../../../hooks/useTaskById";
 import { useTypedSelector } from "../../../../hooks/useTypedSelector";
 import { contentApi } from "../../../../services/contentApi";
+
 import Controls from "./controls";
 import s from "./textEditor.module.scss";
 

@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import s from "./noInfo.module.scss";
 
 const NoInfo: FC = () => {

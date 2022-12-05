@@ -1,11 +1,13 @@
 import { FC, SyntheticEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import usePath from "../../../hooks/usePath";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import useValidData from "../../../hooks/useValidData";
 import { AuthorizationType } from "../../../store/action-creators/authorization";
 import { FormInputType } from "../../../types/enums/FormInputType";
 import { RoutePath } from "../../../types/enums/RoutePath";
+
 import FormFooter from "./additional/formFooter";
 import FormHeader from "./additional/formHeader";
 import FormInput from "./additional/formInput";

@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+
 import usePath from "../../../../hooks/usePath";
+
 import s from "./formFooter.module.scss";
 
 const FormFooter: FC = () => {
