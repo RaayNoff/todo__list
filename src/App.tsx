@@ -4,14 +4,14 @@ import AppRouter from "./components/utils/AppRouter";
 import { useActions } from "./hooks/useActions";
 
 const App: FC = () => {
-  const isDev = false;
-  const { refresh } = useActions();
+	const isDev = true;
+	const { refresh } = useActions();
 
-  useEffect(() => {
-    if (localStorageApi.isTokenExist()) refresh();
-  }, [refresh]);
+	useEffect(() => {
+		if (localStorageApi.isTokenExist()) refresh();
+	}, [refresh]);
 
-  return <AppRouter developing={isDev}></AppRouter>;
+	return <AppRouter developing={isDev}></AppRouter>;
 };
 
 export default App;

@@ -1,0 +1,21 @@
+.warning {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100vw;
+	z-index: 99;
+	background-color: red;
+	height: fit-content;
+	text-align: center;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 29px;
+	color: #fff;
+}
