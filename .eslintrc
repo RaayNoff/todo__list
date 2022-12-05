@@ -41,6 +41,8 @@
 			"error",
 			"prefer-double"
 		],
+		"@typescript-eslint/ban-ts-comment": "off",
+		"no-empty-pattern": "off",
 		"prefer-const": "error",
 		"no-await-in-loop": "error",
 		"for-direction": "error",
