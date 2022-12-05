@@ -8,41 +8,41 @@ import { timestamp } from "../../../types/Timestamp";
 import s from "./datePick.module.scss";
 
 interface IDatePick {
-  timestampCallback: Dispatch<React.SetStateAction<timestamp>>;
+	timestampCallback: Dispatch<React.SetStateAction<timestamp>>;
 }
 
 const DatePick: FC<IDatePick> = ({ timestampCallback }) => {
-  const [startDate] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(new Date());
+	const [startDate] = useState(new Date());
+	const [selectedDate, setSelectedDate] = useState(new Date());
 
-  registerLocale("ru", ru);
+	registerLocale("ru", ru);
 
-  useEffect(() => {
-    if (!selectedDate) return;
-    timestampCallback(Math.floor(selectedDate.getTime() / 1000));
-  });
+	useEffect(() => {
+		if (!selectedDate) return;
+		timestampCallback(Math.floor(selectedDate.getTime() / 1000));
+	});
 
-  return (
-    <section className={s.datepicker}>
-      <section className={s.datepicker__label}>
-        <div className={s.datepicker__box}></div>
-        <p className={s.datepicker__endtime}>Срок выполнения:</p>
-      </section>
-      <DatePicker
-        wrapperClassName={s.picker}
-        popperClassName={s.picker__poper}
-        selected={selectedDate}
-        locale={"ru"}
-        onChange={(date: Date) => setSelectedDate(date)}
-        className={s.datepicker}
-        dateFormat={"d MMM yyyy HH:mm"}
-        startDate={startDate}
-        minDate={startDate}
-        timeInputLabel={"Время"}
-        showTimeInput
-      ></DatePicker>
-    </section>
-  );
+	return (
+		<section className={s.datepicker}>
+			<section className={s.datepicker__label}>
+				<div className={s.datepicker__box}></div>
+				<p className={s.datepicker__endtime}>Срок выполнения:</p>
+			</section>
+			<DatePicker
+				wrapperClassName={s.picker}
+				popperClassName={s.picker__poper}
+				selected={selectedDate}
+				locale={"ru"}
+				onChange={(date: Date) => setSelectedDate(date)}
+				className={s.datepicker}
+				dateFormat={"d MMM yyyy HH:mm"}
+				startDate={startDate}
+				minDate={startDate}
+				timeInputLabel={"Время"}
+				showTimeInput
+			></DatePicker>
+		</section>
+	);
 };
 
 export default DatePick;
